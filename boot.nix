@@ -6,8 +6,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  boot.kernelPackages=pkgs.linuxPackages_zen;
-
   system.stateVersion = "22.05";
 
 }

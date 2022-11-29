@@ -1,11 +1,17 @@
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.3.1";
+
+  nixConfig = {
+    extra-trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
+    extra-substituters = ["https://nix-community.cachix.org" ];
 
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, utils,... }:
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.3.1";
+  };
+
+  outputs = inputs@{ self, nixpkgs, utils,... }:
     utils.lib.mkFlake {
       inherit self inputs;
       
@@ -27,6 +33,8 @@
           ./users.nix
           ./font.nix
 	  ./sys.nix
+	  ./zsh.nix
+	  ./keys.nix
         ];
       };
     };

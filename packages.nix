@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable,... }:
 
 {
   nix = {
     extraOptions = ''
         experimental-features = nix-command flakes
+    	keep-outputs = true
+   	keep-derivations = true
     '';
   };
 
@@ -14,19 +16,38 @@
     htop
     git
     mpv
-    tmux
     yt-dlp
-    firefox
+
+    brave
+    google-chrome
+    #obsidian
+    lutris
+    direnv
+    eww-wayland
+    nix-direnv
+    lokinet
   ];
 
 
-  programs.zsh.enable=true;
   programs.kdeconnect = {
     package = pkgs.gnomeExtensions.gsconnect;
     enable = true;
   };
   programs.adb.enable=true;
   services.flatpak.enable=true;
-  xdg.portal.enable=true;
+
+  xdg = {
+    portal = {
+      enable = true;
+    };
+  };
+
+  environment.sessionVariables = {
+     MOZ_ENABLE_WAYLAND = "1";
+  };
+
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
 
 }

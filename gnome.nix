@@ -12,4 +12,12 @@
         desktopManager.gnome.enable = true;
         layout = "us";
     };
+
+    environment.gnome.excludePackages = (with pkgs.gnome; [
+        gnome-software
+	geary
+	totem
+	gnome-music
+	epiphany
+    ]);
 }
