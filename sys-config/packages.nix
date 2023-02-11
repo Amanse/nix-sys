@@ -41,10 +41,10 @@
     bemenu
     wl-clipboard
     acpi #battery
-    mako
+    #mako
     pulseaudio
     grim
-    playerctl
+   # playerctl
     wlogout
     hyprpaper
     pavucontrol
