@@ -4,8 +4,6 @@
   nix = {
     extraOptions = ''
         experimental-features = nix-command flakes
-    	keep-outputs = true
-   	keep-derivations = true
     '';
   };
 
@@ -17,6 +15,7 @@
     mpv
     git
     yt-dlp
+    wget
 
     brave
     google-chrome
@@ -24,6 +23,9 @@
     direnv
     nix-direnv
     lokinet
+    transmission
+    heroic
+    logseq
 
     gcc
     ripgrep
@@ -35,23 +37,23 @@
 
     #hypr
     alacritty
-    rofi
+    #rofi-wayland
+    bemenu
     wl-clipboard
-    acpi
+    acpi #battery
     mako
     pulseaudio
-    waybar
     grim
     playerctl
     wlogout
     hyprpaper
     pavucontrol
+    waybar
   ];
 
 
   programs.light.enable=true;
   programs.kdeconnect = {
-    package = pkgs.gnomeExtensions.gsconnect;
     enable = true;
   };
   programs.adb.enable=true;
@@ -95,7 +97,6 @@
     "/share/nix-direnv"
   ];
 
-  # Waybar enable hyprland/wlr modules
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
@@ -103,5 +104,6 @@
       });
     })
   ];
+
 
 }
