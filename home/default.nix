@@ -1,25 +1,27 @@
-{
-  inputs,
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
-  imports = [
-    # import system packages
-    ./packages
+{ config, pkgs, ... }:
 
-    # apps and services I use
-    ./graphical
+{
+  # Home Manager needs a bit of information about you and the
+  # paths it should manage.
+  home.username = "me";
+  home.homeDirectory = "/home/me";
+
+  imports = [
     ./services
+    ./packages
+    ./terminal
   ];
-  config = {
-    home = {
-      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      # I will personally strangle every moron who just puts "DONT CHANGE" next
-      # to this value
-      stateVersion = "22.11";
-    };
-    manual.manpages.enable = false;
-  };
+
+  # This value determines the Home Manager release that your
+  # configuration is compatible with. This helps avoid breakage
+  # when a new Home Manager release introduces backwards
+  # incompatible changes.
+  #
+  # You can update Home Manager without changing this value. See
+  # the Home Manager release notes for a list of state version
+  # changes in each release.
+  home.stateVersion = "22.11";
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 }

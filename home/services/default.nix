@@ -1,7 +1,6 @@
-{...} : {
-  imports = [
-#    ./waybar
-#    ./swaylock
-    ./direnv
-  ];
+{...}: {
+    imports = [
+        ./wm-stuff.nix
+        ./programs.nix
+    ];
 }

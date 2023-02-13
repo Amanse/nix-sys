@@ -12,7 +12,7 @@
     ./sound.nix
     ./users.nix
     ./font.nix
-		./zsh.nix
+		#./zsh.nix
 		./intel.nix
 		./keys.nix
 ];

@@ -1,33 +1,18 @@
+{osConfig,config,pkgs,lib, ...}:
 {
-  osConfig,
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  home.packages = with pkgs; [
-    vim
-    neovim
-    htop
-    mpv
-    git
-    yt-dlp
+    home.packages = with pkgs; [
+        zip
+        unzip
+        gcc
+        ripgrep
+        bat
 
-    zip
-    unzip
-
-    gcc
-    ripgrep
-
-    rustup
-    rust-analyzer
-    tmux
-		
-    brave
-    google-chrome
-    lutris
-    heroic
-    lokinet
-  ];
-
+        brave
+        google-chrome
+        heroic
+        #lutris
+        lokinet
+        logseq
+        transmission
+    ];
 }

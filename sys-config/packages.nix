@@ -12,20 +12,20 @@
     vim
     neovim
     htop
-    mpv
-    git
-    yt-dlp
+    #mpv
+    #git
+    #yt-dlp
     wget
 
-    brave
-    google-chrome
-    lutris
-    direnv
-    nix-direnv
-    lokinet
-    transmission
-    heroic
-    logseq
+    #brave
+    #google-chrome
+    #lutris
+    #direnv
+    #nix-direnv
+    #lokinet
+    #transmission
+    #heroic
+    #logseq
 
     gcc
     ripgrep
@@ -36,7 +36,7 @@
 
 
     #hypr
-    alacritty
+    #alacritty
     #rofi-wayland
     bemenu
     wl-clipboard
@@ -44,7 +44,7 @@
     #mako
     pulseaudio
     grim
-   # playerctl
+    #playerctl
     wlogout
     hyprpaper
     pavucontrol
@@ -93,9 +93,9 @@
   };
 
   # Direnv
-  environment.pathsToLink = [
-    "/share/nix-direnv"
-  ];
+#  environment.pathsToLink = [
+ #   "/share/nix-direnv"
+ # ];
 
   nixpkgs.overlays = [
     (self: super: {
