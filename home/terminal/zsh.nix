@@ -9,7 +9,7 @@
         initExtra = ''
             bindkey -v
 
-            export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
+            export PATH="''${HOME}/.cargo/bin:''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
             export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
             export EDITOR=nvim
 
@@ -62,6 +62,7 @@
             update = "sudo nixos-rebuild switch";
             upgrade = "cd /etc/nixos && sudo nix flake update && update";
             hmu = "home-manager switch --flake 'path:/home/me/.config/nixpkgs#me' --impure";
+            hme = "nvim ~/.config/nixpkgs/home";
             m = "mkdir -p";
             ls = "ls --color=yes";
             cat = "${pkgs.lib.getExe pkgs.bat} --style=plain";

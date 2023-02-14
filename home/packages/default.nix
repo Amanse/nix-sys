@@ -6,13 +6,14 @@
         gcc
         ripgrep
         bat
+        lokinet
+        transmission
 
         brave
         google-chrome
         heroic
         #lutris
-        lokinet
+        sioyek
         logseq
-        transmission
     ];
 }
