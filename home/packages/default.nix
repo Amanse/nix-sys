@@ -12,7 +12,7 @@
         brave
         google-chrome
         heroic
-        #lutris
+        lutris
         sioyek
         logseq
     ];

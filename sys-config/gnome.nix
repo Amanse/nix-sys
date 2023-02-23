@@ -36,6 +36,8 @@
       extraOptions = ["--unsupported-gpu"];
     };
 
+    services.dbus.enable=true;
+
     environment.gnome.excludePackages = (with pkgs.gnome; [
         gnome-software
 	geary
