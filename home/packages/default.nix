@@ -1,4 +1,6 @@
 {osConfig,config,pkgs,lib, ...}:
+let bemoji = pkgs.callPackage ./bemoji.nix {};
+in
 {
     home.packages = with pkgs; [
         zip
@@ -8,6 +10,7 @@
         bat
         lokinet
         transmission
+        playerctl
 
         brave
         google-chrome
@@ -15,5 +18,6 @@
         lutris
         sioyek
         logseq
+        bemoji
     ];
 }

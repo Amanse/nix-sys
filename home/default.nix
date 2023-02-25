@@ -10,6 +10,7 @@
     ./services
     ./packages
     ./terminal
+    ./graphical
   ];
 
   # This value determines the Home Manager release that your
