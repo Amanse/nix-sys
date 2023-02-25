@@ -15,7 +15,8 @@
     extraOptions = [ "--unsupported-gpu" ];
     config = {
       window.titlebar = true;
-      fonts.size = 11.0;
+      fonts.size = 9.0;
+      focus.wrapping = "yes";
       #left = "Left";
       #right = "Right";
       bars = [ ];
