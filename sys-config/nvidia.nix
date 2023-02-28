@@ -19,9 +19,9 @@ let
 in
 {
   environment.systemPackages = [ nvidia-offload minecraft-nvidia ];
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiVdpau
-  ];
+  #hardware.opengl.extraPackages = with pkgs; [
+  #  vaapiVdpau
+  #];
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {

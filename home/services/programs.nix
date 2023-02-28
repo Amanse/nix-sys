@@ -31,4 +31,7 @@
     package = pkgs.playerctl;
   };
 
+  #Play pause support from bluetooth earphones
+  services.mpris-proxy.enable = true;
+
 }

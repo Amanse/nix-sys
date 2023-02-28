@@ -21,11 +21,11 @@
       #right = "Right";
       bars = [ ];
       assigns = {
-        "2" = [{ app_id = "brave"; }];
+        "2" = [{ class = "^Brave-browser$"; }];
       };
       terminal = "alacritty";
       modifier = "Mod4";
-      menu = "bemenu-run | wmenu | xargs swaymsg exec --";
+      menu = "bemenu-run -n | wmenu | xargs swaymsg exec --";
       output = {
         "*" = {
           bg = "/home/me/Pictures/Wallpapers/1e4df9cb550ea19c.png fill";
@@ -83,6 +83,7 @@
 
           #screenshot
           "Print" = "exec grim - |  wl-copy --type image/png";
+          "${modifier}+Print" = ''exec grim -g "$(${pkgs.slurp}/bin/slurp)" | wl-copy --type image/png '';
 
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Period" = "exec bemoji";

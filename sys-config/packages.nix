@@ -52,17 +52,17 @@ in
     #hypr
     #alacritty
     #rofi-wayland
-    bemenu
-    wl-clipboard
+    #bemenu
+    #wl-clipboard
     acpi #battery
     #mako
     pulseaudio
-    grim
+    #grim
     #playerctl
     wlogout
     hyprpaper
     pavucontrol
-    waybar
+    #waybar
   ];
 
 
@@ -107,17 +107,17 @@ in
   };
 
   # Direnv
-#  environment.pathsToLink = [
- #   "/share/nix-direnv"
- # ];
+  # environment.pathsToLink = [
+  #   "/share/nix-direnv"
+  # ];
 
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+ # nixpkgs.overlays = [
+ #   (self: super: {
+ #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+ #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+ #     });
+ #   })
+ # ];
 
 
 }
