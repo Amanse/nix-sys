@@ -7,5 +7,6 @@
     ./tmux.nix
     ./git.nix
     ./alacritty.nix
+    ./nushell.nix
   ];
 }

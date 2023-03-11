@@ -10,15 +10,19 @@ in
     gcc
     ripgrep
     bat
+    tree-sitter
     lokinet
     transmission
+    #burpsuite
     playerctl
+    megacmd
+    yarn
 
     brave
     google-chrome
     spotify
     heroic
-    lutris
+    #lutris
     sioyek
     logseq
 

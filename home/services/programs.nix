@@ -34,4 +34,14 @@
   #Play pause support from bluetooth earphones
   services.mpris-proxy.enable = true;
 
+  #services.nextcloud-client = {
+  #  enable = true;
+  #  startInBackground = true;
+  #};
+
+  programs.nnn = {
+    enable = true;
+    extraPackages = with pkgs; [ ffmpegthumbnailer mediainfo sxiv ];
+  };
+
 }

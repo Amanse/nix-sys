@@ -54,6 +54,8 @@
       startup = [
         { command = "waybar"; }
         { command = "mako"; }
+        { command = "mrpis-proxy"; }
+        { command = "mega-cmd-server"; }
         { command = "dbus-launch kdeconnect-cli"; }
       ];
       floating.modifier = "Mod4";
@@ -82,8 +84,8 @@
           "${modifier}+Shift+space" = "focus mode_toggle";
 
           #screenshot
-          "Print" = "exec grim - |  wl-copy --type image/png";
-          "${modifier}+Print" = ''exec grim -g "$(${pkgs.slurp}/bin/slurp)" | wl-copy --type image/png '';
+          "${modifier}+Print" = ''exec ${pkgs.wayshot}/bin/wayshot -s "$(${pkgs.slurp}/bin/slurp -f '%x %y %w %h')" --stdout | wl-copy --type image/png && wl-paste > ~/Pictures/$(date +"%T").png '';
+          "Print" = ''exec ${pkgs.wayshot}/bin/wayshot --stdout | wl-copy --type image/png && wl-paste > ~/Pictures/$(date +"%T").png '';
 
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Period" = "exec bemoji";

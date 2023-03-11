@@ -7,5 +7,6 @@
     historyLimit = 10000;
     mouse = true;
     newSession = true;
+    baseIndex = 1;
   };
 }
