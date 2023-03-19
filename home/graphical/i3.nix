@@ -1,42 +1,18 @@
 { config, lib, pkgs, ... }:
 
 {
-  wayland.windowManager.sway = {
+  xsession.windowManager.i3 = {
     enable = true;
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      # needs qt5.qtwayland in systemPackages
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      # Fix for some Java AWT applications (e.g. Android Studio),
-      # use this if they aren't displayed properly:
-      export _JAVA_AWT_WM_NONREPARENTING=1
-    '';
-    extraOptions = [ "--unsupported-gpu" ];
     config = {
       window.titlebar = true;
       fonts.size = 9.0;
       focus.wrapping = "yes";
-      #left = "Left";
-      #right = "Right";
-      bars = [ ];
       assigns = {
         "2" = [{ class = "^Brave-browser$"; }];
       };
       terminal = "alacritty";
       modifier = "Mod4";
       menu = "bemenu-run -n | wmenu | xargs swaymsg exec --";
-      output = {
-        "*" = {
-          bg = "/home/me/Pictures/Wallpapers/1e4df9cb550ea19c.png fill";
-        };
-      };
-      input = {
-        "type:touchpad" = {
-          tap = "enabled";
-          natural_scroll = "enabled";
-        };
-      };
       modes = {
         resize = {
           Down = "resize grow height 10 px";
@@ -52,11 +28,9 @@
         };
       };
       startup = [
-        { command = "waybar"; }
         { command = "mako"; }
         { command = "mrpis-proxy"; }
         { command = "mega-cmd-server"; }
-        { command = "dbus-sway-environment"; }
       ];
       floating.modifier = "Mod4";
       keybindings =
@@ -68,7 +42,7 @@
           "${modifier}+r" = "exec " + menu;
           "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
           "${modifier}+q" = "kill";
-          "${modifier}+e" = "exec nautilus";
+          "${modifier}+e" = "exec thunar";
           "${modifier}+N" = "exec logseq";
           #Brightness
           "XF86MonBrightnessUp" = "exec light -A 5";

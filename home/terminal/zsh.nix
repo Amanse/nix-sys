@@ -86,7 +86,6 @@
     fi
 }
 
-      [[ $TERM != "screen-256color" ]] && exec tmux attach 
     '';
 
     shellAliases = {

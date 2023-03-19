@@ -15,6 +15,7 @@
 		#./zsh.nix
 		./intel.nix
 		./keys.nix
+#		./podman.nix
 ];
 
 	fileSystems."/mnt/stuff"={
@@ -40,5 +41,7 @@
 	nixpkgs.config = {
 	    allowUnfree = true;
   	};
+
+	environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 }

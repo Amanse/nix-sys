@@ -10,6 +10,8 @@ in
     gcc
     ripgrep
     bat
+    xdg-utils
+    xfce.thunar
     tree-sitter
     lokinet
     transmission
@@ -17,19 +19,32 @@ in
     playerctl
     megacmd
     yarn
+    rclone
 
     brave
     google-chrome
+    onedrive
     spotify
     heroic
     #lutris
     sioyek
     logseq
+    obsidian
+    minecraft
+    zoom-us
+    onlyoffice-bin
 
     #Window manager
     bemoji
     bemenu
+    wayshot
+    slurp
     grim
     wl-clipboard
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
 }
