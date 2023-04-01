@@ -9,7 +9,7 @@ in
         Description = "mount onedrive dirs";
         After = [ "network-online.target" ];
       };
-      Install.WantedBy = [ "multi-user.target" ];
+      Install.WantedBy = [ "default.target" ];
       Service = {
         ExecStartPre = "/run/current-system/sw/bin/mkdir -p ${mountdir}";
         ExecStart = ''

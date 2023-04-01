@@ -21,7 +21,6 @@
     "clock"
   ];
   "wlr/workspaces" = {
-    "disable-scroll" = true;
     "format" = "{icon}";
     "all-outputs" = true;
     "format-icons" = {
@@ -34,6 +33,9 @@
       "7" = "<span color=\"#019733\">7</span>";
       "8" = "<span color=\"#757575\">8</span>";
       "9" = "<span color=\"#26A5E4\"></span>";
+      "on-scroll-up" = "hyprctl dispatch workspace e+1";
+      "on-scroll-down" = "hyprctl dispatch workspace e-1";
+      "on-click" = "activate";
       "focused" = "";
       "default" = "";
     };
@@ -61,7 +63,7 @@
       "default" = [ "" "" "" ];
     };
     "states" = {
-      "warning" = 100;
+      "warning" = 150;
     };
     "scroll-step" = 1;
     "on-click" = "${lib.getExe pkgs.pavucontrol}";
@@ -84,8 +86,8 @@
   "battery" = {
     "states" = {
       # "good"= 95;
-      "warning" = 30;
-      "critical" = 15;
+      "warning" = 15;
+      "critical" = 10;
     };
     "format" = "{capacity}% {icon}";
     "format-charging" = "{capacity}% ";

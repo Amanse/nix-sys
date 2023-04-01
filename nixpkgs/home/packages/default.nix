@@ -1,5 +1,6 @@
-{ osConfig, config, pkgs, lib, ... }:
-let bemoji = pkgs.callPackage ./bemoji.nix { };
+{ osConfig, config, pkgs, lib,... }:
+let
+bemoji = pkgs.callPackage ./bemoji.nix { };
 in
 {
   home.packages = with pkgs; [
@@ -20,11 +21,13 @@ in
     megacmd
     yarn
     rclone
+    gocryptfs
+    tailscale
 
     brave
     google-chrome
     onedrive
-    spotify
+    #spotify
     heroic
     #lutris
     sioyek
