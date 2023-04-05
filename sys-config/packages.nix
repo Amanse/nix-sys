@@ -62,7 +62,6 @@ in
     wlogout
     hyprpaper
     pavucontrol
-    #waybar
   ];
 
 
