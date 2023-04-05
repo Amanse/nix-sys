@@ -23,6 +23,7 @@ in
     rclone
     gocryptfs
     tailscale
+    gamemode
 
     brave
     google-chrome
@@ -50,4 +51,5 @@ in
     enable = true;
     package = pkgs.vscode.fhs;
   };
+
 }

@@ -89,16 +89,17 @@
     '';
 
     shellAliases = {
-      edit = "sudo nvim /etc/nixos/";
-      update = "sudo nixos-rebuild switch";
-      upgrade = "cd /etc/nixos && sudo nix flake update && update";
-      hmu = "home-manager switch --flake 'path:/home/me/.config/nixpkgs#me' --impure";
-      hme = "nvim ~/.config/nixpkgs/home";
+      edit = "nvim ~/nix-sys/";
+      update = "sudo nixos-rebuild switch --flake '/home/me/nix-sys#nixxy'";
+      upgrade = "cd ~/nix-sys/ && nix flake update && update";
+      hmu = "home-manager switch --flake 'path:/home/me/nix-sys/nixpkgs#me' --impure";
+      hme = "nvim ~/nix-sys/nixpkgs";
       m = "mkdir -p";
       ls = "ls --color=yes";
       cat = "${pkgs.lib.getExe pkgs.bat} --style=plain";
       sc = "sudo systemctl";
       grep = "${pkgs.lib.getExe pkgs.ripgrep}";
+      rs = "rsync --progress";
     };
 
     plugins = with pkgs; [
