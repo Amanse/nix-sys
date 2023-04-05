@@ -1,7 +1,7 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
-    fonts.fonts = with pkgs; [
-        (nerdfonts.override { fonts=["FiraCode" "JetBrainsMono"];})	
-    ];
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
 }

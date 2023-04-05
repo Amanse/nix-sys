@@ -8,9 +8,9 @@
   };
 
   hardware = {
-  opengl.driSupport32Bit = true;
-  pulseaudio.support32Bit = true;
-};
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+  };
 
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel

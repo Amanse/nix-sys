@@ -1,4 +1,4 @@
-{config,pkgs,...}:
+{ config, pkgs, ... }:
 
 {
 
@@ -12,36 +12,34 @@
     ./sound.nix
     ./users.nix
     ./font.nix
-		#./zsh.nix
-		./intel.nix
-		./keys.nix
-#		./podman.nix
-];
+    ./intel.nix
+    ./keys.nix
+  ];
 
-	fileSystems."/mnt/stuff"={
-		device="/dev/sda6";
-		fsType="ntfs";
-		options=["rw" "uid=me"];
-	};
+  fileSystems."/mnt/stuff" = {
+    device = "/dev/sda6";
+    fsType = "ntfs";
+    options = [ "rw" "uid=me" ];
+  };
 
-	fileSystems."/mnt/stuff2"={
-		device="/dev/sda7";
-		fsType="ntfs";
-		options=["rw" "uid=me"];
-	};
+  fileSystems."/mnt/stuff2" = {
+    device = "/dev/sda7";
+    fsType = "ntfs";
+    options = [ "rw" "uid=me" ];
+  };
 
 
-	nix.gc = {
-		automatic=true;
-		dates="weekly";
-	};
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+  };
 
-	nix.settings.auto-optimise-store = true;
+  nix.settings.auto-optimise-store = true;
 
-	nixpkgs.config = {
-	    allowUnfree = true;
-  	};
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
-	environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 }

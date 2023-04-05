@@ -1,10 +1,10 @@
-{config, pkg, ...}:
+{ config, pkg, ... }:
 {
 
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
 
 }
