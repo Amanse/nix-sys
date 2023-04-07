@@ -4,15 +4,14 @@
 
   imports = [
     ./boot.nix
-    ./gnome.nix
+    ./gui.nix
+    ./graphics.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./nvidia.nix
     ./packages.nix
     ./sound.nix
     ./users.nix
     ./font.nix
-    ./intel.nix
     ./keys.nix
   ];
 

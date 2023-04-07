@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -18,6 +17,17 @@ let
   '';
 in
 {
+  #intel
+  boot.initrd.kernelModules = [ "i915" ];
+
+  hardware = {
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+  };
+
+  #------------------------------
+  #Nvidia
+
   environment.systemPackages = [ nvidia-offload minecraft-nvidia ];
   #hardware.opengl.extraPackages = with pkgs; [
   #  vaapiVdpau
@@ -43,3 +53,5 @@ in
   };
 
 }
+
+
