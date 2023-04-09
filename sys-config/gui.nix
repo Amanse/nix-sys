@@ -8,8 +8,6 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    #desktopManager.gnome.enable = true;
     desktopManager.xterm.enable = true;
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;

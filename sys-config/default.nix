@@ -18,13 +18,13 @@
   fileSystems."/mnt/stuff" = {
     device = "/dev/sda6";
     fsType = "ntfs";
-    options = [ "rw" "uid=me" ];
+    options = [ "rw" "uid=me" "noatime" ];
   };
 
   fileSystems."/mnt/stuff2" = {
     device = "/dev/sda7";
     fsType = "ntfs";
-    options = [ "rw" "uid=me" ];
+    options = [ "rw" "uid=me" "noatime" ];
   };
 
 

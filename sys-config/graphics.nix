@@ -23,6 +23,7 @@ in
   hardware = {
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
+    opengl.enable = true;
   };
 
   #------------------------------
@@ -37,11 +38,11 @@ in
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement = {
       enable = true;
       finegrained = true;
     };
-
     prime = {
       offload.enable = true;
       # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
@@ -49,9 +50,7 @@ in
       # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
       nvidiaBusId = "PCI:1:0:0";
     };
-
   };
-
 }
 
 

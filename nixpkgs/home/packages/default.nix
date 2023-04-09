@@ -24,6 +24,7 @@ in
     gocryptfs
     tailscale
     gamemode
+    gamescope
 
     brave
     google-chrome

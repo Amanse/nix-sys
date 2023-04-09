@@ -51,7 +51,7 @@
     enable = true;
   };
   programs.adb.enable = true;
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
 
   programs.steam = {
     enable = true;
