@@ -16,14 +16,14 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/500361df-186f-4ac3-b19e-3c900e3db76a";
+      device = "/dev/sda10";
       fsType = "ext4";
       options = [ "noatime" ];
     };
 
   fileSystems."/boot/efi" =
     {
-      device = "/dev/disk/by-uuid/C75C-7877";
+      device = "/dev/sda9";
       fsType = "vfat";
       options = [ "noatime" ];
     };

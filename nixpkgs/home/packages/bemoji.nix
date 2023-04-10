@@ -1,4 +1,4 @@
-{ pkgs  }:
+{pkgs}:
 pkgs.stdenv.mkDerivation rec {
   name = "bemoji";
   src = pkgs.fetchFromGitHub {

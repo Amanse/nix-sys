@@ -25,6 +25,8 @@ in
     tailscale
     gamemode
     gamescope
+    openjdk
+    rustup
 
     brave
     google-chrome

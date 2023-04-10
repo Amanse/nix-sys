@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -10,6 +10,7 @@
     ./services
     ./packages
     ./terminal
+    #./neovim
     ./graphical
   ];
 

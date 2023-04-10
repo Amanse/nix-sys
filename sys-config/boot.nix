@@ -6,6 +6,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 
 }

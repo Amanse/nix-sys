@@ -9,9 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+
+    neovim-flake = {
+      url = github:notashelf/neovim-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, ... }:
+  outputs = { nixpkgs, home-manager, spicetify-nix, neovim-flake,... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -34,6 +39,8 @@
             };
           }
         ];
+
+	extraSpecialArgs = {inherit neovim-flake;};
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
