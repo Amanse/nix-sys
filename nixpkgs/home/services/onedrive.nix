@@ -13,7 +13,7 @@ in
       Service = {
         ExecStartPre = "/run/current-system/sw/bin/mkdir -p ${mountdir}";
         ExecStart = ''
-          ${pkgs.rclone}/bin/rclone mount drive: ${mountdir} \
+          ${pkgs.rclone}/bin/rclone mount onedrive-main: ${mountdir} \
               --dir-cache-time 48h \
               --vfs-cache-mode full \
               --vfs-cache-max-age 48h \

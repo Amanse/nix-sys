@@ -40,6 +40,7 @@ in
     minecraft
     zoom-us
     onlyoffice-bin
+    #nur.repos.iagocq.ultimmc
 
     #Window manager
     bemoji

@@ -14,9 +14,10 @@
       url = github:notashelf/neovim-flake;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, neovim-flake,... }:
+  outputs = { nixpkgs, home-manager, spicetify-nix, neovim-flake, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,14 +34,14 @@
           {
             programs.spicetify = {
               enable = true;
-              enabledExtensions = with  spicetify-nix.packages.${pkgs.system}.default.extensions; [shuffle fullAppDisplay popupLyrics playNext];
-              enabledCustomApps = with spicetify-nix.packages.${pkgs.system}.default.apps; [lyrics-plus];
+              enabledExtensions = with  spicetify-nix.packages.${pkgs.system}.default.extensions; [ shuffle fullAppDisplay popupLyrics playNext ];
+              enabledCustomApps = with spicetify-nix.packages.${pkgs.system}.default.apps; [ lyrics-plus ];
               theme = spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin-mocha;
             };
           }
         ];
 
-	extraSpecialArgs = {inherit neovim-flake;};
+        extraSpecialArgs = { inherit neovim-flake; };
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
