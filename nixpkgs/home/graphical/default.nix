@@ -3,6 +3,7 @@
   imports = [
 #    ./sway.nix
     ./waybar
-    ./i3.nix
+    ./i3
+#    ./webcord
   ];
 }

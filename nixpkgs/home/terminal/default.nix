@@ -6,7 +6,7 @@
     ./starship.nix
     ./tmux.nix
     ./git.nix
-    ./alacritty.nix
-    ./nushell.nix
+    ./alacritty
+    #./nushell.nix
   ];
 }

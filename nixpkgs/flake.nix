@@ -9,15 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-
-    neovim-flake = {
-      url = github:notashelf/neovim-flake;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    webcord.url = "github:fufexan/webcord-flake";
+    # neovim-flake = {
+    #   url = github:notashelf/neovim-flake;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, neovim-flake, ... }:
+  outputs = { nixpkgs, home-manager, spicetify-nix, webcord, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -41,7 +41,7 @@
           }
         ];
 
-        extraSpecialArgs = { inherit neovim-flake; };
+        extraSpecialArgs = { inherit webcord; };
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

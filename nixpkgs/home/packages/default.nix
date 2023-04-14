@@ -1,6 +1,6 @@
-{ osConfig, config, pkgs, lib,... }:
+{ osConfig, config, pkgs, lib, ... }:
 let
-bemoji = pkgs.callPackage ./bemoji.nix { };
+  bemoji = pkgs.callPackage ./bemoji.nix { };
 in
 {
   home.packages = with pkgs; [
@@ -51,9 +51,10 @@ in
     wl-clipboard
   ];
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
-  };
+
+  #programs.vscode = {
+  #  enable = true;
+  #  package = pkgs.vscode.fhs;
+  #  };
 
 }
