@@ -1,9 +1,9 @@
 { ... }:
 {
   imports = [
-#    ./sway.nix
     ./waybar
-    ./i3
+    ./wms
+#    ./spotify
 #    ./webcord
   ];
 }

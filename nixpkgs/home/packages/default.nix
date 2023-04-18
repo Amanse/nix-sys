@@ -31,7 +31,7 @@ in
     brave
     google-chrome
     onedrive
-    #spotify
+    spotify
     heroic
     #lutris
     sioyek
@@ -40,6 +40,7 @@ in
     minecraft
     zoom-us
     onlyoffice-bin
+    webcord
     #nur.repos.iagocq.ultimmc
 
     #Window manager

@@ -33,12 +33,12 @@
       "7" = "<span color=\"#019733\">7</span>";
       "8" = "<span color=\"#757575\">8</span>";
       "9" = "<span color=\"#26A5E4\"></span>";
-      "on-scroll-up" = "hyprctl dispatch workspace e+1";
-      "on-scroll-down" = "hyprctl dispatch workspace e-1";
-      "on-click" = "activate";
-      "focused" = "";
-      "default" = "";
     };
+    "on-scroll-up" = "hyprctl dispatch workspace e+1";
+    "on-scroll-down" = "hyprctl dispatch workspace e-1";
+    "on-click" = "activate";
+    "focused" = "";
+    "default" = "";
   };
   "idle_inhibitor" = {
     "format" = "{icon}";

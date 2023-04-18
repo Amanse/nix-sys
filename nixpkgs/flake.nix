@@ -8,8 +8,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    #spicetify-nix.url = "github:the-argus/spicetify-nix";
     webcord.url = "github:fufexan/webcord-flake";
+    hyprland.url = "github:hyprwm/Hyprland";
     # neovim-flake = {
     #   url = github:notashelf/neovim-flake;
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +18,7 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, webcord, ... }:
+  outputs = { nixpkgs, home-manager, webcord, hyprland, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -30,18 +31,10 @@
         # the path to your home.nix.
         modules = [
           ./home
-          spicetify-nix.homeManagerModule
-          {
-            programs.spicetify = {
-              enable = true;
-              enabledExtensions = with  spicetify-nix.packages.${pkgs.system}.default.extensions; [ shuffle fullAppDisplay popupLyrics playNext ];
-              enabledCustomApps = with spicetify-nix.packages.${pkgs.system}.default.apps; [ lyrics-plus ];
-              theme = spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin-mocha;
-            };
-          }
+          hyprland.homeManagerModules.default
         ];
 
-        extraSpecialArgs = { inherit webcord; };
+        extraSpecialArgs = { inherit hyprland; };
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

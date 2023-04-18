@@ -11,4 +11,6 @@
     ];
   };
 
+  programs.zsh.enable = true;
+
 }

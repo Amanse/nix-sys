@@ -43,6 +43,7 @@
     wlogout
     hyprpaper
     pavucontrol
+    #xdg-desktop-portal-hyprland
   ];
 
 
