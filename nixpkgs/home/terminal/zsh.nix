@@ -96,7 +96,7 @@
       hme = "nvim ~/nix-sys/nixpkgs";
       m = "mkdir -p";
       ls = "ls --color=yes";
-      cat = "${pkgs.lib.getExe pkgs.bat} --style=plain";
+      cat = "${pkgs.lib.getExe pkgs.bat}";
       sc = "sudo systemctl";
       grep = "${pkgs.lib.getExe pkgs.ripgrep}";
       rs = "rsync --progress";

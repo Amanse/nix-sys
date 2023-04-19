@@ -30,6 +30,7 @@ in
 
     brave
     google-chrome
+    firefox-wayland
     onedrive
     spotify
     heroic
