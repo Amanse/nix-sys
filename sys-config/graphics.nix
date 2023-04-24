@@ -38,7 +38,7 @@ in
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     powerManagement = {
       enable = true;
       finegrained = true;

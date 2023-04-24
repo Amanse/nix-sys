@@ -87,18 +87,15 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  # Direnv
-  # environment.pathsToLink = [
-  #   "/share/nix-direnv"
-  # ];
-
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #     });
-  #   })
-  # ];
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
 
 
 }

@@ -10,15 +10,19 @@
     };
     #spicetify-nix.url = "github:the-argus/spicetify-nix";
     webcord.url = "github:fufexan/webcord-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
-    # neovim-flake = {
-    #   url = github:notashelf/neovim-flake;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland/?rev=2df0d034bc4a18fafb3524401eeeceaa6b23e753";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    #xdg-portal-hyprland.url = "github:hyprwm/xdg-portal-hyprland";
+    neovim-flake = {
+      url = "github:notashelf/neovim-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = { nixpkgs, home-manager, webcord, hyprland, ... }:
+  outputs = { nixpkgs, home-manager, webcord, hyprland, neovim-flake,... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -31,8 +35,10 @@
         # the path to your home.nix.
         modules = [
           ./home
+          neovim-flake.homeManagerModules.default
           hyprland.homeManagerModules.default
         ];
+
 
         extraSpecialArgs = { inherit hyprland; };
 

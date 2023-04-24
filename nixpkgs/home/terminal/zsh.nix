@@ -93,7 +93,7 @@
       update = "sudo nixos-rebuild switch --flake '/home/me/nix-sys#nixxy'";
       upgrade = "cd ~/nix-sys/ && nix flake update && update";
       hmu = "home-manager switch --flake 'path:/home/me/nix-sys/nixpkgs#me' --impure";
-      hme = "nvim ~/nix-sys/nixpkgs";
+      hme = "cd ~/nix-sys && nvim .";
       m = "mkdir -p";
       ls = "ls --color=yes";
       cat = "${pkgs.lib.getExe pkgs.bat}";

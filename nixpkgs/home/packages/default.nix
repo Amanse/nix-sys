@@ -42,6 +42,7 @@ in
     zoom-us
     onlyoffice-bin
     webcord
+    jetbrains.idea-community
     #nur.repos.iagocq.ultimmc
 
     #Window manager

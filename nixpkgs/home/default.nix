@@ -10,7 +10,7 @@
     ./services
     ./packages
     ./terminal
-    #./neovim
+    ./neovim
     ./graphical
   ];
 
