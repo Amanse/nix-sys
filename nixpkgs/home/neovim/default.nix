@@ -27,6 +27,7 @@
       vim.startPlugins = [pkgs.vimPlugins.undotree];
       vim.luaConfigRC = {
         after = ''
+          -- Undodir
           vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
           vim.opt.undofile = true
         '';
@@ -92,10 +93,12 @@
         "<leader>y" = "\"+y";
         "<leader>u" = ":UndotreeToggle<CR>";
         "<leader>f" = ":lua vim.lsp.buf.format()<CR>";
+        "<leader>d" = "\"_d";
       };
       vim.vnoremap = {
         "<leader>y" = "\"+y";
-        "<leader>p" = "\"_dp";
+        "<leader>p" = "\"_dP";
+        "<leader>d" = "\"_d";
       };
     };
   };
