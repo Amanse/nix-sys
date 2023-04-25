@@ -7,6 +7,8 @@
         nvimCodeActionMenu.enable = true;
       };
 
+      vim.useSystemClipboard = false;
+
       vim.languages = {
         enableLSP = true;
         enableFormat = true;
@@ -70,11 +72,14 @@
 
       vim.nnoremap = {
         "<leader>pf" = ":Telescope find_files<CR>";
-        "<leader>p" = "[[\"_dP]]";
-        "<leader>y" = "[[\"+y]]";
+        "<leader>p" = "\"_dP";
+        "<leader>y" = "\"+y";
+        "<leader>u" = ":UndotreeToggle<CR>";
+        "<leader>f" = ":lua vim.lsp.buf.format()<CR>";
       };
       vim.vnoremap = {
-        "<leader>y" = "[[\"+y]]";
+        "<leader>y" = "\"+y";
+        "<leader>p" = "\"_dp";
       };
     };
   };
