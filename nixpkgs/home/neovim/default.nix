@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.neovim-flake = {
     enable = true;
     settings = {
@@ -23,6 +23,16 @@
         };
         ts.enable = true;
       };
+
+      vim.startPlugins = [pkgs.vimPlugins.undotree];
+      vim.luaConfigRC = {
+        after = ''
+          vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+          vim.opt.undofile = true
+        '';
+      };
+
+      vim.preventJunkFiles = true;
 
       vim.visuals = {
         enable = true;
@@ -53,6 +63,12 @@
       vim.binds = {
         whichKey.enable = true;
         cheatsheet.enable = true;
+      };
+
+      vim.git = {
+        enable = true;
+        gitsigns.enable = true;
+        gitsigns.codeActions = true;
       };
 
       vim.theme = {
