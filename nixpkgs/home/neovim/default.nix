@@ -72,6 +72,10 @@
         gitsigns.codeActions = true;
       };
 
+      vim.comments = {
+        comment-nvim.enable = true;
+      };
+
       vim.theme = {
         enable = true;
         name = "catppuccin";
