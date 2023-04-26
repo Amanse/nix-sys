@@ -11,39 +11,46 @@
     #spicetify-nix.url = "github:the-argus/spicetify-nix";
     webcord.url = "github:fufexan/webcord-flake";
     hyprland = {
-      url = "github:hyprwm/Hyprland/?rev=2df0d034bc4a18fafb3524401eeeceaa6b23e753";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdg-portal-hyprland = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #xdg-portal-hyprland.url = "github:hyprwm/xdg-portal-hyprland";
     neovim-flake = {
       url = "github:notashelf/neovim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { nixpkgs, home-manager, webcord, hyprland, neovim-flake,... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    hyprland,
+    neovim-flake,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home
-          neovim-flake.homeManagerModules.default
-          hyprland.homeManagerModules.default
-        ];
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [
+        ./home
+        neovim-flake.homeManagerModules.default
+        hyprland.homeManagerModules.default
+      ];
 
+      extraSpecialArgs = {inherit hyprland;};
 
-        extraSpecialArgs = { inherit hyprland; };
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
     };
+  };
 }

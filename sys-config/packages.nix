@@ -1,11 +1,14 @@
-{ config, pkgs, unstable, ... }:
 {
+  config,
+  pkgs,
+  unstable,
+  ...
+}: {
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
-
 
   environment.systemPackages = with pkgs; [
     vim
@@ -44,8 +47,9 @@
     hyprpaper
     pavucontrol
     #xdg-desktop-portal-hyprland
+    qt6.qtwayland
+    hyprland-share-picker
   ];
-
 
   programs.light.enable = true;
   programs.kdeconnect = {
@@ -58,13 +62,6 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-  xdg = {
-    portal = {
-      wlr.enable = true;
-      enable = true;
-    };
   };
 
   # For steam to use proton-ge and other stuff
@@ -81,7 +78,6 @@
     ];
   };
 
-
   # Window manager firefox
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
@@ -96,6 +92,4 @@
       };
     };
   };
-
-
 }
