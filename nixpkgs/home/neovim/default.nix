@@ -24,7 +24,7 @@
         ts.enable = true;
       };
 
-      vim.startPlugins = [pkgs.vimPlugins.undotree];
+      vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
       vim.luaConfigRC = {
         after = ''
           -- Undodir
@@ -98,6 +98,8 @@
         "<leader>u" = ":UndotreeToggle<CR>";
         "<leader>f" = ":lua vim.lsp.buf.format()<CR>";
         "<leader>d" = "\"_d";
+        "<leader>a" = ":lua require(\"harpoon.mark\").add_file()<CR>";
+        "<leader>q" = ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>";
       };
       vim.vnoremap = {
         "<leader>y" = "\"+y";

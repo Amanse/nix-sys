@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   # universal aliases
   home.packages = with pkgs; [
@@ -17,8 +18,8 @@
         {
           ratio = 2;
           child = [
-            { type = "cpu"; }
-            { type = "mem"; }
+            {type = "cpu";}
+            {type = "mem";}
           ];
         }
         {
@@ -26,6 +27,10 @@
           child = [
             {
               type = "net";
+              ratio = 1;
+            }
+            {
+              type = "disk";
               ratio = 1;
             }
             {
