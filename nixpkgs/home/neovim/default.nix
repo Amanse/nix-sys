@@ -100,6 +100,7 @@
         "<leader>d" = "\"_d";
         "<leader>a" = ":lua require(\"harpoon.mark\").add_file()<CR>";
         "<leader>q" = ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>";
+        "<leader>pv" = ":E<CR>";
       };
       vim.vnoremap = {
         "<leader>y" = "\"+y";
