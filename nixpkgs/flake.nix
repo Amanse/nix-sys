@@ -24,6 +24,9 @@
       url = "github:notashelf/neovim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # anyrun.url = "github:Kirottu/anyrun";
+    # anyrun.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -31,10 +34,16 @@
     home-manager,
     hyprland,
     neovim-flake,
+    # anyrun,
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      system = system;
+      # overlays = [anyrun.overlay];
+      allowUnfree = true;
+    };
   in {
     homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;

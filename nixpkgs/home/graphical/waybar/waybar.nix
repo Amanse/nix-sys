@@ -1,5 +1,7 @@
-{ pkgs, lib }:
 {
+  pkgs,
+  lib,
+}: {
   layer = "top";
   position = "top";
   modules-left = [
@@ -48,19 +50,19 @@
     };
     "tooltip" = false;
   };
-  # "backlight" = {
-  #   "device" = "intel_backlight";
-  #   "on-scroll-up" = "light -A 5";
-  #   "on-scroll-down" = "light -U 5";
-  #   "format" = "{icon} {percent}%";
-  #   "format-icons" = [ "" "" "" "" ];
-  # };
+  "backlight" = {
+    "device" = "intel_backlight";
+    "on-scroll-up" = "light -A 1";
+    "on-scroll-down" = "light -U 1";
+    "format" = "{icon} {percent}%";
+    "format-icons" = ["" "" "" ""];
+  };
   "pulseaudio" = {
     "format" = "{icon} {volume}%";
     "format-muted" = "婢 Muted";
     "max-volume" = 200;
     "format-icons" = {
-      "default" = [ "" "" "" ];
+      "default" = ["" "" ""];
     };
     "states" = {
       "warning" = 150;
@@ -95,7 +97,7 @@
     "format-alt" = "{time} {icon}";
     # "format-good"= ""; // An empty format will hide the module
     # "format-full"= "";
-    "format-icons" = [ "" "" "" "" "" ];
+    "format-icons" = ["" "" "" "" ""];
   };
   "battery#bat2" = {
     "bat" = "BAT2";

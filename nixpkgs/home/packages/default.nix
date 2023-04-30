@@ -1,8 +1,13 @@
-{ osConfig, config, pkgs, lib, ... }:
-let
-  bemoji = pkgs.callPackage ./bemoji.nix { };
-in
 {
+  osConfig,
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  bemoji = pkgs.callPackage ./bemoji.nix {};
+in {
+  # imports = [./anyrun.nix];
   home.packages = with pkgs; [
     zip
     unzip
@@ -52,12 +57,11 @@ in
     slurp
     grim
     wl-clipboard
+    # anyrun
   ];
-
 
   #programs.vscode = {
   #  enable = true;
   #  package = pkgs.vscode.fhs;
   #  };
-
 }
