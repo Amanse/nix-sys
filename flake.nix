@@ -14,7 +14,7 @@
     xdg-portal-hyprland,
     ...
   } @ inputs: {
-    nixosConfigurations.nixxy = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.jotaro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit xdg-portal-hyprland;};
       modules = [

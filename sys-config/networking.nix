@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  networking.hostName = "nixxy";
+  networking.hostName = "jotaro";
 
   networking = {
     networkmanager.enable = true;
