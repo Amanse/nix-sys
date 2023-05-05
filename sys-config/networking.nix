@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   networking.hostName = "jotaro";
 
   networking = {
@@ -25,5 +23,7 @@
   time.timeZone = "Asia/Kolkata";
   services.openssh.enable = true;
 
-
+  services.tailscale = {
+    enable = true;
+  };
 }
