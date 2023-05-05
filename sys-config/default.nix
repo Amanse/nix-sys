@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
-
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./boot.nix
     ./gui.nix
@@ -17,16 +18,15 @@
 
   fileSystems."/mnt/stuff" = {
     device = "/dev/sda6";
-    fsType = "ntfs";
-    options = [ "rw" "uid=me" "noatime" ];
+    fsType = "ntfs3";
+    options = ["rw" "uid=me" "noatime"];
   };
 
   fileSystems."/mnt/stuff2" = {
     device = "/dev/sda7";
-    fsType = "ntfs";
-    options = [ "rw" "uid=me" "noatime" ];
+    fsType = "ntfs3";
+    options = ["rw" "uid=me" "noatime"];
   };
-
 
   nix.gc = {
     automatic = true;
@@ -65,10 +65,8 @@
       "https://nixpkgs-unfree.cachix.org" # unfree-package cache
       "https://nixpkgs-wayland.cachix.org" # automated builds of *some* wayland packages
     ];
-    trusted-users = [ "me" "@wheel" ];
+    trusted-users = ["me" "@wheel"];
   };
 
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
 }
