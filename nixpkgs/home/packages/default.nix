@@ -48,6 +48,8 @@ in {
     onlyoffice-bin
     webcord
     jetbrains.idea-community
+    # Used to automatically mount devices
+    udiskie
     #nur.repos.iagocq.ultimmc
 
     #Window manager

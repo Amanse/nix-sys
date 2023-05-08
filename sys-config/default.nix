@@ -28,6 +28,12 @@
     options = ["rw" "uid=me" "noatime"];
   };
 
+  # Increase max map count to the default value of steam deck
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 5;
+    "vm.max_map_count" = 2147483642;
+  };
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
