@@ -7,7 +7,7 @@
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
 in {
-  # imports = [./anyrun.nix];
+  imports = [./font.nix];
   home.packages = with pkgs; [
     zip
     unzip
@@ -32,6 +32,9 @@ in {
     gamescope
     openjdk
     rustup
+    nodejs
+    python310
+    python310Packages.bootstrapped-pip
 
     brave
     google-chrome
@@ -50,6 +53,8 @@ in {
     jetbrains.idea-community
     # Used to automatically mount devices
     udiskie
+    yuzu-mainline
+    cemu
     #nur.repos.iagocq.ultimmc
 
     #Window manager

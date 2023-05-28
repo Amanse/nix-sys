@@ -1,10 +1,10 @@
-{ config
-, lib
-, pkgs
-, self
-, ...
-}:
 {
+  config,
+  lib,
+  pkgs,
+  self,
+  ...
+}: {
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -19,8 +19,7 @@
 
   programs.yt-dlp.enable = true;
 
-  services.syncthing.enable = true;
-
+  #services.syncthing.enable = true;
   services.mako = {
     enable = true;
     defaultTimeout = 5000;
@@ -41,7 +40,6 @@
 
   programs.nnn = {
     enable = true;
-    extraPackages = with pkgs; [ ffmpegthumbnailer mediainfo sxiv ];
+    extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv];
   };
-
 }

@@ -1,6 +1,5 @@
 {
   pkgs,
-  xdg-portal-hyprland,
   config,
   ...
 }: {
@@ -12,9 +11,12 @@
 
   services.xserver = {
     enable = true;
-    autorun = false;
+    #autorun = false;
     displayManager.defaultSession = "hyprland";
-    displayManager.startx.enable = true;
+    # displayManager.startx.enable = true;
+    displayManager.gdm.enable = true;
+    #displayManager.lightdm.enable = true;
+    desktopManager.gnome.enable = true;
     #desktopManager.xterm.enable = true;
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
@@ -26,22 +28,21 @@
 
   services.dbus.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-nvidia;
-  #   #nvidiaPatches = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    #package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-nvidia;
+    #   #   #   #nvidiaPatches = true;
+  };
 
-  #  environment.gnome.excludePackages = (with pkgs.gnome; [
-  #    gnome-software
-  #    geary
-  #    totem
-  #    gnome-music
-  #    epiphany
-  #  ]);
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    gnome-software
+    geary
+    totem
+    gnome-music
+    epiphany
+  ];
 
   xdg.portal = {
     enable = true;
-    extraPortals = [xdg-portal-hyprland.packages."x86_64-linux".default];
   };
 }

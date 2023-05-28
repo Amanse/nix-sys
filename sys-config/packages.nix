@@ -49,6 +49,7 @@
     #xdg-desktop-portal-hyprland
     qt6.qtwayland
     hyprland-share-picker
+    gnome.gnome-tweaks
   ];
 
   programs.light.enable = true;
@@ -91,5 +92,12 @@
         turbo = "auto";
       };
     };
+  };
+
+  services.aria2 = {
+    enable = true;
+    extraArguments = "--rpc-listen-all --remote-time=true";
+    openPorts = true;
+    downloadDir = "/mnt/stuff/Downloads";
   };
 }

@@ -1,5 +1,5 @@
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono NF";
   font-size: 8pt;
   font-weight: bold;
   border-radius: 0px;
@@ -12,7 +12,9 @@
     color: rgb(26, 24, 38);
   }
 }
-.warning, .critical, .urgent {
+.warning,
+.critical,
+.urgent {
   animation-name: blink_red;
   animation-duration: 1s;
   animation-timing-function: linear;
@@ -51,7 +53,20 @@ tooltip {
 tooltip label {
   color: rgb(217, 224, 238);
 }
-#mode, #clock, #memory, #temperature,#cpu,#custom-music, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+#mode,
+#clock,
+#memory,
+#temperature,
+#cpu,
+#custom-music,
+#idle_inhibitor,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#custom-powermenu,
+#custom-cava-internal {
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -80,7 +95,7 @@ tooltip label {
   color: rgb(245, 224, 220);
 }
 #network {
-  color: #ABE9B3;
+  color: #abe9b3;
 }
 #network.disconnected {
   color: rgb(255, 255, 255);

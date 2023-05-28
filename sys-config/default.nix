@@ -18,14 +18,14 @@
 
   fileSystems."/mnt/stuff" = {
     device = "/dev/sda6";
-    fsType = "ntfs3";
-    options = ["rw" "uid=me" "noatime"];
+    fsType = "btrfs";
+    options = ["rw" "noatime"];
   };
 
   fileSystems."/mnt/stuff2" = {
     device = "/dev/sda7";
-    fsType = "ntfs3";
-    options = ["rw" "uid=me" "noatime"];
+    fsType = "btrfs";
+    options = ["rw" "noatime"];
   };
 
   # Increase max map count to the default value of steam deck
