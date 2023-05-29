@@ -57,6 +57,9 @@ in {
     cemu
     #nur.repos.iagocq.ultimmc
 
+    jadx
+    apktool
+
     #Window manager
     bemoji
     bemenu

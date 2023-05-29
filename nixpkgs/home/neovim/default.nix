@@ -21,7 +21,18 @@
           enable = true;
           crates.enable = true;
         };
-        ts.enable = true;
+        ts = {
+          enable = true;
+          lsp.enable = true;
+          treesitter = {
+            enable = true;
+          };
+        };
+      };
+
+      vim.treesitter = {
+        enable = true;
+        grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte];
       };
 
       vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
