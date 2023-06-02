@@ -3,9 +3,9 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    game-rs = {
+      url = "github:amanse/game-rs";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # anyrun.url = "github:Kirottu/anyrun";
     # anyrun.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -34,6 +39,7 @@
     home-manager,
     hyprland,
     neovim-flake,
+    game-rs,
     # anyrun,
     ...
   }: let
@@ -56,7 +62,7 @@
         hyprland.homeManagerModules.default
       ];
 
-      extraSpecialArgs = {inherit hyprland;};
+      extraSpecialArgs = {inherit hyprland game-rs;};
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix

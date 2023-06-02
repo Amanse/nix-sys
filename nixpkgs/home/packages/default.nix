@@ -3,6 +3,7 @@
   config,
   pkgs,
   lib,
+  game-rs,
   ...
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
@@ -16,15 +17,16 @@ in {
     gcc
     ripgrep
     bat
+    #du-dust
     xdg-utils
-    xfce.thunar
-    tree-sitter
-    lokinet
+    #xfce.thunar
+    #tree-sitter
+    #lokinet
     transmission
     #burpsuite
     playerctl
-    megacmd
-    yarn
+    #megacmd
+    #yarn
     rclone
     gocryptfs
     tailscale
@@ -36,11 +38,14 @@ in {
     python310
     python310Packages.bootstrapped-pip
 
+    wine-wayland
+
     brave
     google-chrome
-    firefox-wayland
-    onedrive
+    #firefox-wayland
+    #onedrive
     spotify
+    #spot
     heroic
     #lutris
     sioyek
@@ -52,13 +57,14 @@ in {
     webcord
     jetbrains.idea-community
     # Used to automatically mount devices
-    udiskie
-    yuzu-mainline
-    cemu
+    #udiskie
+    #yuzu-early-access
+    #cemu
     #nur.repos.iagocq.ultimmc
 
     jadx
     apktool
+    apksigner
 
     #Window manager
     bemoji
@@ -67,6 +73,7 @@ in {
     slurp
     grim
     wl-clipboard
+    game-rs.packages.x86_64-linux.default
     # anyrun
   ];
 

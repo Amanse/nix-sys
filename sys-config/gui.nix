@@ -13,9 +13,10 @@
     enable = true;
     #autorun = false;
     displayManager.defaultSession = "hyprland";
-    # displayManager.startx.enable = true;
-    displayManager.gdm.enable = true;
+    #displayManager.startx.enable = true;
+    # displayManager.gdm.enable = true;
     #displayManager.lightdm.enable = true;
+    #displayManager.sddm.enable = true;
     desktopManager.gnome.enable = true;
     #desktopManager.xterm.enable = true;
     libinput.enable = true;

@@ -103,6 +103,7 @@
       sc = "sudo systemctl";
       grep = "${pkgs.lib.getExe pkgs.ripgrep}";
       rs = "rsync --progress";
+      du = "${pkgs.lib.getExe pkgs.du-dust}";
     };
 
     plugins = with pkgs; [
