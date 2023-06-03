@@ -44,7 +44,8 @@ in {
     google-chrome
     #firefox-wayland
     #onedrive
-    spotify
+    # spotify
+    spotifywm
     #spot
     heroic
     #lutris
