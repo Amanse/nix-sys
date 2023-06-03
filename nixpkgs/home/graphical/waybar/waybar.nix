@@ -18,7 +18,7 @@
     "memory"
     "cpu"
     "battery"
-    "battery#bat2"
+    # "battery#bat2"
     "network"
     "clock"
   ];
@@ -65,7 +65,8 @@
       "default" = ["" "" ""];
     };
     "states" = {
-      "warning" = 150;
+      "normal" = 100;
+      "warning" = 200;
     };
     "scroll-step" = 1;
     "on-click" = "${lib.getExe pkgs.pavucontrol}";
@@ -98,9 +99,6 @@
     # "format-good"= ""; // An empty format will hide the module
     # "format-full"= "";
     "format-icons" = ["" "" "" "" ""];
-  };
-  "battery#bat2" = {
-    "bat" = "BAT2";
   };
   "cpu" = {
     "interval" = 1;
