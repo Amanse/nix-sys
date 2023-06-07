@@ -42,6 +42,7 @@ in {
           (lib.getExe pkgs.greetd.tuigreet)
           "--time"
           "--remember"
+          "--remember-session"
           "--asterisks"
           "--sessions '${sessionPath}'"
         ];

@@ -31,9 +31,9 @@
 
   programs.hyprland = {
     enable = true;
-    package = null;
-    #package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-nvidia;
-    #   #   #   #nvidiaPatches = true;
+    #   package = null;
+    #   #package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-nvidia;
+    #   #   #   #   #nvidiaPatches = true;
   };
 
   environment.gnome.excludePackages = with pkgs.gnome; [
