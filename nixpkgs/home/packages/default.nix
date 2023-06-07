@@ -4,6 +4,7 @@
   pkgs,
   lib,
   game-rs,
+  # nix-gaming,
   ...
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
@@ -38,8 +39,6 @@ in {
     python310
     python310Packages.bootstrapped-pip
 
-    wine-wayland
-
     brave
     google-chrome
     #firefox-wayland
@@ -48,7 +47,9 @@ in {
     spotifywm
     #spot
     heroic
+    legendary-gl
     #lutris
+
     sioyek
     logseq
     obsidian
@@ -75,6 +76,8 @@ in {
     grim
     wl-clipboard
     game-rs.packages.x86_64-linux.default
+    # nix-gaming.packages.x86_64-linux.wine-ge
+    # nix-gaming.packages.x86_64-linux.proton-ge
     # anyrun
   ];
 

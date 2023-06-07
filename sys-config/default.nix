@@ -64,6 +64,7 @@
       "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs="
       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       "game-rs.cachix.org-1:fsu+ijfA2GCUE2QX0af80D7x9PCZS79EZbqwtOtlIhA="
+      # "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
 
     substituters = [
@@ -73,6 +74,7 @@
       "https://nixpkgs-unfree.cachix.org" # unfree-package cache
       "https://nixpkgs-wayland.cachix.org" # automated builds of *some* wayland packages
       "https://game-rs.cachix.org"
+      # "https://nix-gaming.cachix.org"
     ];
     trusted-users = ["me" "@wheel"];
   };

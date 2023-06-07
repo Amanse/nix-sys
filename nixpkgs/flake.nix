@@ -30,6 +30,10 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # nix-gaming.url = "github:fufexan/nix-gaming";
+
+    # nix-alien.url = "github:thiagokokada/nix-alien";
+
     # anyrun.url = "github:Kirottu/anyrun";
     # anyrun.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -40,6 +44,8 @@
     hyprland,
     neovim-flake,
     game-rs,
+    # nix-gaming,
+    # nix-alien,
     # anyrun,
     ...
   }: let
