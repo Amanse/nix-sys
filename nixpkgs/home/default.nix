@@ -1,12 +1,12 @@
-{ ... }:
-
-{
+{inputs,hyprland ,...}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "me";
   home.homeDirectory = "/home/me";
 
   imports = [
+    inputs.neovim-flake.homeManagerModules.default
+    hyprland.homeManagerModules.default
     ./services
     ./packages
     ./terminal

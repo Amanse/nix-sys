@@ -8,7 +8,7 @@
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
 in {
-  imports = [./font.nix ./anyrun.nix];
+  imports = [./font.nix];
   home.packages = with pkgs; [
     zip
     unzip

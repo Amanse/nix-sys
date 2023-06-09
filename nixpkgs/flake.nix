@@ -34,7 +34,7 @@
 
     # nix-alien.url = "github:thiagokokada/nix-alien";
 
-    # anyrun.url = "github:Kirottu/anyrun";
+    anyrun.url = "github:Kirottu/anyrun";
     # anyrun.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -46,14 +46,14 @@
     game-rs,
     # nix-gaming,
     # nix-alien,
-    # anyrun,
+    anyrun,
     ...
   }: let
     system = "x86_64-linux";
     # pkgs = nixpkgs.legacyPackages.${system};
     pkgs = import nixpkgs {
       system = system;
-      # overlays = [anyrun.overlay];
+      overlays = [anyrun.overlay];
       allowUnfree = true;
     };
   in {
