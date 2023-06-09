@@ -3,13 +3,12 @@
   config,
   pkgs,
   lib,
-  game-rs,
-  # nix-gaming,
+  inputs,
   ...
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
 in {
-  imports = [./font.nix];
+  imports = [./font.nix ./anyrun.nix];
   home.packages = with pkgs; [
     zip
     unzip
@@ -48,7 +47,7 @@ in {
     #spot
     heroic
     legendary-gl
-    #lutris
+    lutris
 
     sioyek
     logseq
@@ -75,10 +74,7 @@ in {
     slurp
     grim
     wl-clipboard
-    game-rs.packages.x86_64-linux.default
-    # nix-gaming.packages.x86_64-linux.wine-ge
-    # nix-gaming.packages.x86_64-linux.proton-ge
-    # anyrun
+    inputs.game-rs.packages.x86_64-linux.default
   ];
 
   #programs.vscode = {
