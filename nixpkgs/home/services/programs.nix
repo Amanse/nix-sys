@@ -19,7 +19,7 @@
 
   programs.yt-dlp.enable = true;
 
-  #services.syncthing.enable = true;
+  services.syncthing.enable = true;
   services.mako = {
     enable = true;
     defaultTimeout = 5000;
