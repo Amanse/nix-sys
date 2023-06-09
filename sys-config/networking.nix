@@ -26,4 +26,7 @@
   services.tailscale = {
     enable = true;
   };
+
+  # Disable NetworkManager-wait-online to increase boot times (adds upto 11s to booting for me)
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
