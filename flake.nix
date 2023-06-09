@@ -44,12 +44,12 @@
     nixosConfigurations.jotaro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./sys-config
+        ./sys
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.me = import ./nixpkgs/home;
+          home-manager.users.me = import ./home;
           home-manager.extraSpecialArgs = {inherit inputs hyprland;};
 
           # Optionally, use home-manager.extraSpecialArgs to pass
