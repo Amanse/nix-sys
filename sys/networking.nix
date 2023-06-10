@@ -5,6 +5,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
+      allowedUDPPorts = [41641];
       allowedUDPPortRanges = [
         {
           from = 1714;

@@ -1,9 +1,6 @@
 {
-  osConfig,
-  config,
   pkgs,
-  lib,
-  inputs,
+  game-rs,
   ...
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
@@ -74,7 +71,7 @@ in {
     slurp
     grim
     wl-clipboard
-    inputs.game-rs.packages.x86_64-linux.default
+    game-rs.packages.x86_64-linux.default
   ];
 
   #programs.vscode = {
