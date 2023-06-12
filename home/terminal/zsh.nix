@@ -95,7 +95,7 @@
       edit = "nvim ~/nix-sys/";
       update = "sudo nixos-rebuild switch --flake '/home/me/nix-sys#jotaro'";
       upgrade = "cd ~/nix-sys/ && nix flake update && update";
-      hmu = "home-manager switch --flake 'path:/home/me/nix-sys/nixpkgs#me' --impure";
+      hmu = "home-manager switch --flake 'path:/home/me/nix-sys/home#me' --impure";
       hme = "cd ~/nix-sys && nvim .";
       m = "mkdir -p";
       ls = "ls --color=yes";

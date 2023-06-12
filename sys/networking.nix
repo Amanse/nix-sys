@@ -19,6 +19,9 @@
         }
       ];
     };
+
+    dhcpcd.wait = "background";
+    dhcpcd.extraConfig = "noarp";
   };
 
   time.timeZone = "Asia/Kolkata";
