@@ -14,10 +14,11 @@
     #autorun = false;
     displayManager.defaultSession = "hyprland";
     #displayManager.startx.enable = true;
-    # displayManager.gdm.enable = true;
-    #displayManager.lightdm.enable = true;
-    #displayManager.sddm.enable = true;
+    displayManager.gdm.enable = false;
+    displayManager.lightdm.enable = false;
+    # displayManager.sddm.enable = true;
     desktopManager.gnome.enable = true;
+    # desktopManager.plasma5.enable = true;
     #desktopManager.xterm.enable = true;
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
@@ -31,9 +32,6 @@
 
   programs.hyprland = {
     enable = true;
-    #   package = null;
-    #   #package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-nvidia;
-    #   #   #   #   #nvidiaPatches = true;
   };
 
   environment.gnome.excludePackages = with pkgs.gnome; [
@@ -46,5 +44,6 @@
 
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
   };
 }

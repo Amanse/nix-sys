@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -15,10 +19,9 @@ let
     export __VK_LAYER_NV_optimus=NVIDIA_only
     exec "minecraft-launcher"
   '';
-in
-{
+in {
   #intel
-  boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.kernelModules = ["i915"];
 
   hardware = {
     opengl.driSupport32Bit = true;
@@ -29,20 +32,20 @@ in
   #------------------------------
   #Nvidia
 
-  environment.systemPackages = [ nvidia-offload minecraft-nvidia ];
+  environment.systemPackages = [nvidia-offload minecraft-nvidia];
   #hardware.opengl.extraPackages = with pkgs; [
   #  vaapiVdpau
   #];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = false;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
     powerManagement = {
       enable = true;
       finegrained = true;
     };
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     prime = {
       offload.enable = true;
       # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
@@ -52,5 +55,3 @@ in
     };
   };
 }
-
-
