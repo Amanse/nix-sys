@@ -1,8 +1,9 @@
 {...}: {
-    imports = [
-        ./programs.nix
-        ./onedrive.nix
-        ./bottom.nix
-        ./wm-stuff.nix
-    ];
+  imports = [
+    ./programs.nix
+    #./onedrive.nix
+    ./onedrive_rclone.nix
+    ./bottom.nix
+    ./wm-stuff.nix
+  ];
 }

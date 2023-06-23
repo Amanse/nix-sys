@@ -25,15 +25,17 @@ in {
     #megacmd
     #yarn
     rclone
-    gocryptfs
+    # gocryptfs
     tailscale
     gamemode
     gamescope
+    mangohud
     openjdk
     rustup
     nodejs
     python310
     python310Packages.bootstrapped-pip
+    protonvpn-cli
 
     brave
     google-chrome
@@ -42,30 +44,30 @@ in {
     # spotify
     spotifywm
     #spot
-    heroic
+    # heroic
     legendary-gl
     lutris
 
-    sioyek
-    logseq
+    # sioyek
+    # logseq
     obsidian
     minecraft
-    zoom-us
+    # zoom-us
     onlyoffice-bin
     webcord
-    jetbrains.idea-community
+    # jetbrains.idea-community
     # Used to automatically mount devices
     #udiskie
     #yuzu-early-access
     #cemu
     #nur.repos.iagocq.ultimmc
 
-    jadx
-    apktool
-    apksigner
+    # jadx
+    # apktool
+    # apksigner
 
     #Window manager
-    bemoji
+    # bemoji
     bemenu
     wayshot
     slurp
