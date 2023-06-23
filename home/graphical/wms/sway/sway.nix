@@ -1,27 +1,31 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.sway = {
     enable = true;
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      # needs qt5.qtwayland in systemPackages
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      # Fix for some Java AWT applications (e.g. Android Studio),
-      # use this if they aren't displayed properly:
-      export _JAVA_AWT_WM_NONREPARENTING=1
-    '';
-    extraOptions = [ "--unsupported-gpu" ];
+    # extraSessionCommands = ''
+    #   export SDL_VIDEODRIVER=wayland
+    #   # needs qt5.qtwayland in systemPackages
+    #   export QT_QPA_PLATFORM=wayland
+    #   export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+    #   # Fix for some Java AWT applications (e.g. Android Studio),
+    #   # use this if they aren't displayed properly:
+    #   export _JAVA_AWT_WM_NONREPARENTING=1
+    # '';
+    extraOptions = ["--unsupported-gpu"];
     config = {
       window.titlebar = true;
       fonts.size = 9.0;
       focus.wrapping = "yes";
       #left = "Left";
       #right = "Right";
-      bars = [ ];
+      bars = [];
       assigns = {
-        "2" = [{ class = "^Brave-browser$"; }];
+        "2" = [{class = "^Brave-browser$";}];
+        "3" = [{title = "Steam";}];
       };
       terminal = "alacritty";
       modifier = "Mod4";
@@ -52,18 +56,17 @@
         };
       };
       startup = [
-        { command = "waybar"; }
-        { command = "mako"; }
-        { command = "mrpis-proxy"; }
-        { command = "mega-cmd-server"; }
-        { command = "dbus-sway-environment"; }
+        {command = "waybar";}
+        {command = "mako";}
+        {command = "mrpis-proxy";}
+        # {command = "mega-cmd-server";}
+        {command = "dbus-sway-environment";}
       ];
       floating.modifier = "Mod4";
-      keybindings =
-        let
-          modifier = config.wayland.windowManager.sway.config.modifier;
-          menu = config.wayland.windowManager.sway.config.menu;
-        in
+      keybindings = let
+        modifier = config.wayland.windowManager.sway.config.modifier;
+        menu = config.wayland.windowManager.sway.config.menu;
+      in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
           "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
@@ -107,5 +110,4 @@
     };
     #extraConfig = builtins.readFile ./config;
   };
-
 }

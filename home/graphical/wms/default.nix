@@ -1,8 +1,7 @@
-{ ... }:
-{
+{...}: {
   imports = [
-#    ./sway.nix
-    ./i3
+    # ./sway/sway.nix
+    # ./i3
     ./hypr
   ];
 }

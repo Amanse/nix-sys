@@ -2,7 +2,8 @@
   imports = [./hyprpaper.nix];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = null;
+    recommendedEnvironment = true;
     extraConfig = builtins.readFile ./hyprland.conf;
     systemdIntegration = true;
   };

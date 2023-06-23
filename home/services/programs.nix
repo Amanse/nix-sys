@@ -14,17 +14,16 @@
     enable = true;
     config = {
       force-window = true;
+      hwdec = "auto-safe";
+      vo = "gpu";
+      profile = "gpu-hq";
+      gpu-context = "wayland";
     };
   };
 
   programs.yt-dlp.enable = true;
 
   services.syncthing.enable = true;
-  services.mako = {
-    enable = true;
-    defaultTimeout = 5000;
-  };
-
   services.playerctld = {
     enable = true;
     package = pkgs.playerctl;
