@@ -35,6 +35,15 @@
     "vm.max_map_count" = 2147483642;
   };
 
+  boot.tmp = {
+    useTmpfs = true;
+    cleanOnBoot = true;
+  };
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -84,5 +93,4 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   services.journald.extraConfig = "SystemMaxUse=100M";
-
 }
