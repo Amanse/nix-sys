@@ -100,4 +100,6 @@
     openPorts = true;
     downloadDir = "/mnt/stuff/Downloads";
   };
+
+  services.onedrive.enable = true;
 }
