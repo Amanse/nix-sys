@@ -44,7 +44,7 @@ in {
     # spotify
     spotifywm
     #spot
-    # heroic
+    heroic
     legendary-gl
     lutris
 
@@ -68,6 +68,7 @@ in {
 
     #Window manager
     # bemoji
+    wlsunset
     bemenu
     wayshot
     slurp
