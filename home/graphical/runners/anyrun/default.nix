@@ -9,7 +9,7 @@
       plugins = [
         # An array of all the plugins you want, which either can be paths to the .so files, or their packages
         anyrun.packages.${pkgs.system}.applications
-        anyrun.packages.${pkgs.system}.symbols
+        # anyrun.packages.${pkgs.system}.symbols
       ];
       width = {fraction = 0.3;};
       position = "top";

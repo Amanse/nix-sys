@@ -1,10 +1,10 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./waybar
     ./wms
-    ./anyrun
-#    ./spotify
-#    ./webcord
+    # ./anyrun
+    ./runners/rofi.nix
+    #    ./spotify
+    #    ./webcord
   ];
 }
