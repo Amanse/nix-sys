@@ -20,7 +20,7 @@
       hidePluginInfo = false;
       closeOnClick = false;
       showResultsImmediately = false;
-      maxEntries = null;
+      maxEntries = 20;
     };
   };
 }

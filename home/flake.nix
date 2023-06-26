@@ -22,6 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    anyrun.url = "github:Kirottu/anyrun";
+
     game-rs = {
       url = "github:amanse/game-rs";
     };
@@ -33,6 +35,7 @@
     hyprland,
     neovim-flake,
     game-rs,
+    anyrun,
     ...
   }: let
     system = "x86_64-linux";
@@ -48,14 +51,15 @@
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [
-	neovim-flake.homeManagerModules.default
-	hyprland.homeManagerModules.default
+        neovim-flake.homeManagerModules.default
+        hyprland.homeManagerModules.default
+        anyrun.homeManagerModules.default
         ./default.nix
       ];
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
-      extraSpecialArgs = {inherit hyprland game-rs;};
+      extraSpecialArgs = {inherit hyprland game-rs anyrun;};
     };
   };
 }

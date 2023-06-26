@@ -29,6 +29,9 @@
     #heroic
     #logseq
 
+    #secure boot
+    sbctl
+
     gcc
     ripgrep
 
