@@ -69,7 +69,8 @@ in {
     #Window manager
     # bemoji
     wlsunset
-    bemenu
+    # bemenu
+    batsignal
     wayshot
     slurp
     grim
