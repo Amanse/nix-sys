@@ -5,7 +5,7 @@
 }: let
   bemoji = pkgs.callPackage ./bemoji.nix {};
 in {
-  imports = [./font.nix];
+  #imports = [./font.nix];
   home.packages = with pkgs; [
     zip
     unzip
@@ -22,7 +22,7 @@ in {
     transmission
     #burpsuite
     playerctl
-    #megacmd
+    megacmd
     #yarn
     rclone
     # gocryptfs
@@ -41,17 +41,17 @@ in {
     google-chrome
     #firefox-wayland
     #onedrive
-    # spotify
+    #spotify
     spotifywm
     #spot
     heroic
-    legendary-gl
-    lutris
+    #legendary-gl
+    #lutris
 
     # sioyek
     # logseq
     obsidian
-    minecraft
+    #minecraft
     # zoom-us
     onlyoffice-bin
     webcord
@@ -75,6 +75,9 @@ in {
     slurp
     grim
     wl-clipboard
+
+    #games
+    airshipper
     game-rs.packages.x86_64-linux.default
   ];
 

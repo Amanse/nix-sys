@@ -24,10 +24,6 @@
   programs.yt-dlp.enable = true;
 
   services.syncthing.enable = true;
-  services.playerctld = {
-    enable = true;
-    package = pkgs.playerctl;
-  };
 
   #Play pause support from bluetooth earphones
   services.mpris-proxy.enable = true;
