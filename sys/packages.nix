@@ -19,39 +19,20 @@
     #yt-dlp
     wget
 
-    #brave
-    #google-chrome
-    #lutris
-    #direnv
-    #nix-direnv
-    #lokinet
-    #transmission
-    #heroic
-    #logseq
-
     #secure boot
     sbctl
 
     gcc
     ripgrep
 
-    #tmux
-    #hypr
-    #alacritty
-    #rofi-wayland
-    #bemenu
-    #wl-clipboard
     acpi #battery
     #mako
     pulseaudio
     #grim
     #playerctl
-    wlogout
-    hyprpaper
     pavucontrol
     #xdg-desktop-portal-hyprland
     qt6.qtwayland
-    hyprland-share-picker
     gnome.gnome-tweaks
   ];
 
@@ -97,12 +78,12 @@
     };
   };
 
-  services.aria2 = {
-    enable = true;
-    extraArguments = "--rpc-listen-all --remote-time=true";
-    openPorts = true;
-    downloadDir = "/mnt/stuff/Downloads";
-  };
+  #services.aria2 = {
+  #  enable = true;
+  #  extraArguments = "--rpc-listen-all --remote-time=true";
+  #  openPorts = true;
+  #downloadDir = "/mnt/stuff/Downloads";
+  #};
 
-  services.onedrive.enable = true;
+  # services.onedrive.enable = true;
 }

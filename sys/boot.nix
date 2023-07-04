@@ -20,5 +20,5 @@
 
   system.stateVersion = "22.11";
 
-  boot.plymouth.enable = true;
+  #boot.plymouth.enable = true;
 }
