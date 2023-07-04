@@ -29,10 +29,10 @@
       };
       terminal = "alacritty";
       modifier = "Mod4";
-      menu = "bemenu-run -n | wmenu | xargs swaymsg exec --";
+      menu = "rofi -show run";
       output = {
         "*" = {
-          bg = "/home/me/Pictures/Wallpapers/1e4df9cb550ea19c.png fill";
+          bg = "${./wallpapers/night.png} fill";
         };
       };
       input = {
