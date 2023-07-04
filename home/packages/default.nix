@@ -26,7 +26,6 @@ in {
     #yarn
     rclone
     # gocryptfs
-    tailscale
     gamemode
     gamescope
     mangohud
