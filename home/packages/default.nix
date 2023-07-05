@@ -54,7 +54,7 @@ in {
     # zoom-us
     onlyoffice-bin
     webcord
-    # jetbrains.idea-community
+    jetbrains.idea-community
     # Used to automatically mount devices
     #udiskie
     #yuzu-early-access
