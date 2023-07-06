@@ -37,6 +37,7 @@ in {
     protonvpn-cli
 
     brave
+    microsoft-edge
     google-chrome
     #firefox-wayland
     #onedrive

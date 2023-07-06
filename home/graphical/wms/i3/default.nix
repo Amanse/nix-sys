@@ -1,14 +1,23 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
+      bars = [
+        {
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+        }
+      ];
       window.titlebar = true;
       fonts.size = 9.0;
       focus.wrapping = "yes";
       assigns = {
-        "2" = [{ class = "^Brave-browser$"; }];
+        "2" = [{class = "^Brave-browser$";}];
       };
       terminal = "alacritty";
       modifier = "Mod4";
@@ -28,16 +37,15 @@
         };
       };
       startup = [
-        { command = "mako"; }
-        { command = "mrpis-proxy"; }
-        { command = "mega-cmd-server"; }
+        {command = "mako";}
+        {command = "mrpis-proxy";}
+        {command = "mega-cmd-server";}
       ];
       floating.modifier = "Mod4";
-      keybindings =
-        let
-          modifier = config.wayland.windowManager.sway.config.modifier;
-          menu = config.wayland.windowManager.sway.config.menu;
-        in
+      keybindings = let
+        modifier = config.wayland.windowManager.sway.config.modifier;
+        menu = config.wayland.windowManager.sway.config.menu;
+      in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
           "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
@@ -81,5 +89,4 @@
     };
     #extraConfig = builtins.readFile ./config;
   };
-
 }

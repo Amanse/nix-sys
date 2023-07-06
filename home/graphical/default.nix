@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./waybar
+    ./bars
     ./wms
     # ./anyrun
     ./runners/rofi.nix
