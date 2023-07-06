@@ -30,6 +30,13 @@ in {
         XDG_SESSION_TYPE=wayland dbus-run-session ${pkgs.gnome.gnome-session}/bin/gnome-session
       '';
     }
+    {
+      manage = "desktop";
+      name = "i3-startx";
+      start = ''
+        startx $(which i3)
+      '';
+    }
   ];
 
   services.greetd = {

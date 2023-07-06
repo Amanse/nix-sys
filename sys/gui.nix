@@ -7,16 +7,16 @@
 
   services.xserver = {
     enable = true;
-    #autorun = false;
+    autorun = false;
     displayManager.gdm.enable = false;
+    displayManager.startx.enable = true;
     displayManager.lightdm.enable = false;
     desktopManager.gnome.enable = true;
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
-    windowManager.i3 = {
-      enable = true;
-    };
+    exportConfiguration = true;
     layout = "us";
+    windowManager.i3.enable = true;
   };
 
   services.dbus.enable = true;
