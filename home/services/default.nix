@@ -5,5 +5,6 @@
     ./onedrive_rclone.nix
     ./bottom.nix
     ./wm-stuff.nix
+    ./mega_sync.nix
   ];
 }
