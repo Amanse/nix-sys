@@ -18,7 +18,7 @@
       system = "x86_64-linux";
       modules = [
         ./sys
-        inputs.lanzaboote.nixosModules.lanzaboote
+        #inputs.lanzaboote.nixosModules.lanzaboote
       ];
     };
   };
