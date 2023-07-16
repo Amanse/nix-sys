@@ -27,6 +27,7 @@ in {
     rclone
     # gocryptfs
     gamemode
+    minetest
     gamescope
     mangohud
     openjdk
@@ -80,6 +81,8 @@ in {
     airshipper
     game-rs.packages.x86_64-linux.default
   ];
+
+  programs.go.enable = true;
 
   #programs.vscode = {
   #  enable = true;
