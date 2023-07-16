@@ -3,10 +3,9 @@
   lib,
   pkgs,
   ...
-}: 
-{
-  #intel
-  #boot.initrd.kernelModules = ["i915"];
+}: {
+  #intel (needed to enable hardware acceleration in chromium based browsers)
+  boot.initrd.kernelModules = ["i915"];
 
   hardware = {
     opengl.driSupport32Bit = true;
@@ -17,9 +16,12 @@
   #------------------------------
   #Nvidia
 
-  #hardware.opengl.extraPackages = with pkgs; [
-  #  vaapiVdpau
-  #];
+  hardware.opengl.extraPackages = with pkgs; [
+    intel-media-driver # LIBVA_DRIVER_NAME=iHD
+    vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {

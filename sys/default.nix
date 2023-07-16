@@ -14,13 +14,30 @@
     ./users.nix
     ./font.nix
     ./keys.nix
-    ./login.nix
+    # ./login.nix
   ];
+
+  #update microcode
+  hardware.cpu.intel.updateMicrocode = true;
 
   # Increase max map count to the default value of steam deck
   boot.kernel.sysctl = {
     "vm.swappiness" = 5;
     "vm.max_map_count" = 2147483642;
+  };
+
+  boot.supportedFilesystems = ["ntfs"];
+
+  fileSystems."/mnt/stuff" = {
+    device = "/dev/sda6";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=me"];
+  };
+
+  fileSystems."/mnt/stuff2" = {
+    device = "/dev/sda4";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=me"];
   };
 
   # systemd.extraConfig = ''
