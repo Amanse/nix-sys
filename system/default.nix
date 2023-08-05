@@ -7,5 +7,6 @@
     ./services.nix
     ./nvidia.nix
     ./greetd.nix
+    ./mounts.nix
   ];
 }
