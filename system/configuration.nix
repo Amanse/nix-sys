@@ -8,9 +8,9 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./nix-settings.nix
-    ./programs.nix
+    # ./hardware-configuration.nix
+    # ./nix-settings.nix
+    # ./programs.nix
   ];
 
   # Bootloader.
@@ -19,6 +19,7 @@
   boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
 
   boot.supportedFilesystems = ["ntfs"];
+  console.earlySetup = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -1,11 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     #gui
     brave
     google-chrome
     obsidian
     megacmd
-    airshipper
     heroic
     spotify
     qbittorrent
@@ -19,5 +22,9 @@
     #dev
     rustup
     nodejs
+
+    #games
+    airshipper
+    inputs.game-rs.packages.x86_64-linux.default
   ];
 }
