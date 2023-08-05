@@ -11,6 +11,7 @@
     qbittorrent
     libreoffice-qt
     jetbrains.idea-community
+    openjdk17-bootstrap
 
     #cli
     megacmd

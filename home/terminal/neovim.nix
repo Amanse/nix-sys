@@ -43,6 +43,13 @@
           -- Undodir
           vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
           vim.opt.undofile = true
+
+          require'lspconfig'.java_language_server.setup{
+          capabilities = capabilities,
+          on_attach = default_on_attach,
+          cmd = {"${pkgs.java-language-server}/bin/java-language-server"},
+          }
+
         '';
       };
 
