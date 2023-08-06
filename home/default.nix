@@ -8,6 +8,7 @@
   home-manager.users.me = {
     imports = [
       inputs.neovim-flake.homeManagerModules.default
+      inputs.nix-index-database.hmModules.nix-index
 
       ./packages.nix
       ./terminal

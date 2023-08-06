@@ -48,5 +48,12 @@
     go.enable = true;
 
     zellij.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    nix-index-database.comma.enable = true;
   };
 }
