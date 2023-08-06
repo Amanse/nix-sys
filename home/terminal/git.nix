@@ -16,6 +16,7 @@
       "node_modules"
       "result"
       "result-*"
+      ".envrc"
     ];
     extraConfig = {
       commit.gpgsign = true;
