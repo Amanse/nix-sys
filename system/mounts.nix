@@ -10,4 +10,8 @@
     fsType = "ntfs-3g";
     options = ["rw" "uid=me"];
   };
+
+  swapDevices = [
+    {device = "/dev/sda7";}
+  ];
 }
