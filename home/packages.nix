@@ -8,7 +8,6 @@
     brave
     google-chrome
     obsidian
-    megacmd
     heroic
     spotify
     qbittorrent
@@ -18,6 +17,7 @@
 
     #cli
     megacmd
+    spotify-player
 
     #dev
     rustup
