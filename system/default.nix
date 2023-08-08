@@ -8,5 +8,6 @@
     ./nvidia.nix
     ./greetd.nix
     ./mounts.nix
+    ./unsafe-performance.nix
   ];
 }
