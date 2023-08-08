@@ -17,7 +17,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
-  boot.resumeDevice = ["/dev/sda7"];
 
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
