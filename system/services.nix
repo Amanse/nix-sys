@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     auto-cpufreq = {
       enable = true;
@@ -14,5 +14,9 @@
         };
       };
     };
+
+    cpupower-gui.enable = true;
+
+    dbus.packages = [pkgs.gnome.gnome-session];
   };
 }

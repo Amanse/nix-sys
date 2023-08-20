@@ -7,9 +7,15 @@
       package = pkgs.gnomeExtensions.gsconnect;
     };
 
+    light.enable = true;
+
     steam = {
       enable = true;
       #	gamescopeSession.enable = true; #steamos like big picture mode session
+    };
+
+    hyprland = {
+      enable = true;
     };
   };
 
@@ -20,5 +26,8 @@
     wget
     acpi
     gnome.gnome-tweaks
+
+    #hyprland
+    hyprland-share-picker
   ];
 }
