@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
+  lib,
   pkgs,
   ...
 }: {
@@ -14,12 +14,21 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
 
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 5;
+    "vm.max_map_count" = 2147483642; # the value from steam deck and fedora
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -108,7 +117,7 @@
   users.users.me = {
     isNormalUser = true;
     description = "me";
-    extraGroups = ["networkmanager" "wheel" "adbusers"];
+    extraGroups = ["networkmanager" "wheel" "adbusers" "power" "video" "storage"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
