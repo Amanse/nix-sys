@@ -55,5 +55,19 @@
     };
 
     nix-index-database.comma.enable = true;
+
+    alacritty = {
+      enable = true;
+      settings = {
+        window = {
+          opacity = 0.8;
+          padding = {
+            x = 2;
+            y = 2;
+          };
+          dynamic_padding = true;
+        };
+      };
+    };
   };
 }

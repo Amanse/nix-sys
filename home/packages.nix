@@ -7,17 +7,25 @@
     #gui
     brave
     google-chrome
+    # firefox-wayland
     obsidian
+    anytype
     heroic
     spotify
     qbittorrent
     libreoffice-qt
-    jetbrains.idea-community
+    calibre
     openjdk17-bootstrap
+
+    #college
+    jetbrains.idea-community
+    firefox-devedition
 
     #cli
     megacmd
     spotify-player
+    wl-clipboard
+    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
 
     #dev
     rustup
@@ -26,8 +34,5 @@
     #games
     airshipper
     inputs.game-rs.packages.x86_64-linux.default
-
-    #cli
-    wl-clipboard
   ];
 }

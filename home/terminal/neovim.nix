@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       vim.lsp = {
+        enable = true;
         formatOnSave = true;
         nvimCodeActionMenu.enable = true;
       };
@@ -21,6 +22,9 @@
           enable = true;
           crates.enable = true;
         };
+        java.enable = true;
+        java.lsp.enable = true;
+        java.treesitter.enable = true;
         ts = {
           enable = true;
           lsp.enable = true;
@@ -37,19 +41,21 @@
         grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte pkgs.tree-sitter-grammars.tree-sitter-typescript];
       };
 
+      vim.notes.obsidian = {
+        enable = true;
+        dir = "~/Documents/B";
+        daily-notes = {
+          folder = "00 - Daily";
+          date-format = "DD-MM-Y";
+        };
+      };
+
       vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
       vim.luaConfigRC = {
         after = ''
           -- Undodir
           vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
           vim.opt.undofile = true
-
-          require'lspconfig'.java_language_server.setup{
-          capabilities = capabilities,
-          on_attach = default_on_attach,
-          cmd = {"${pkgs.java-language-server}/bin/java-language-server"},
-          }
-
         '';
       };
 
@@ -64,10 +70,10 @@
           eolChar = null;
           showCurrContext = true;
         };
-        cursorWordline = {
-          enable = true;
-          lineTimeout = 0;
-        };
+        # cursorWordline = {
+        #   enable = true;
+        #   lineTimeout = 0;
+        # };
       };
 
       vim.statusline = {
