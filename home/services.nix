@@ -43,4 +43,6 @@ in {
       Service = {ExecStart = "${pkgs.megacmd}/bin/mega-cmd-server";};
     };
   };
+
+  services.swayosd.enable = config.wayland.windowManager.hyprland.enable;
 }

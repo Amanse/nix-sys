@@ -1,4 +1,8 @@
-{...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs = {
     bottom = {
       enable = true;
@@ -56,9 +60,16 @@
 
     nix-index-database.comma.enable = true;
 
-    alacritty = {
+    vscode = {
       enable = true;
+      package = pkgs.vscode.fhs;
+    };
+
+    alacritty = {
+      enable = config.wayland.windowManager.hyprland.enable;
       settings = {
+        import = ["${./rose-pine.yml}"];
+        font.size = 11.5;
         window = {
           opacity = 0.8;
           padding = {
@@ -67,6 +78,19 @@
           };
           dynamic_padding = true;
         };
+      };
+    };
+
+    lf = {
+      enable = true;
+      settings = {
+        number = true;
+        ratios = [
+          1
+          1
+          2
+        ];
+        tabstop = 4;
       };
     };
   };

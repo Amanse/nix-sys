@@ -2,7 +2,7 @@
   imports = [
     inputs.neovim-flake.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
-    inputs.hyprland.homeManagerModules.default
+    # inputs.hyprland.homeManagerModules.default
 
     ./packages.nix
     ./terminal

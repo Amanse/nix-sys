@@ -9,13 +9,14 @@
     google-chrome
     # firefox-wayland
     obsidian
-    anytype
+    xfce.thunar
     heroic
     spotify
     qbittorrent
     libreoffice-qt
     calibre
     openjdk17-bootstrap
+    blackbox-terminal
 
     #college
     jetbrains.idea-community
