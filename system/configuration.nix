@@ -21,6 +21,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
+  boot.initrd.kernelModules = ["i915"];
 
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
