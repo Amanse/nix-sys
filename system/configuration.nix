@@ -65,20 +65,21 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.autorun = false;
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    gnome-software
-    geary
-    totem
-    gnome-music
-    epiphany
-  ];
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.wayland = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
+  # environment.gnome.excludePackages = with pkgs.gnome; [
+  #   gnome-software
+  #   geary
+  #   totem
+  #   gnome-music
+  #   epiphany
+  # ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -92,6 +93,12 @@
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -126,6 +133,13 @@
     ];
   };
 
+  # SWAYLOCK
+  security.pam.services.swaylock.text = ''
+    # PAM configuration file for the swaylock screen locker. By default, it includes
+    # the 'login' configuration file (see /etc/pam.d/login)
+    auth include login
+  '';
+
   # Enable automatic login for the user.
   #services.xserver.displayManager.autoLogin.enable = true;
   #services.xserver.displayManager.autoLogin.user = "me";
@@ -151,6 +165,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  # programs.ssh.askPassword = lib.mkForce "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

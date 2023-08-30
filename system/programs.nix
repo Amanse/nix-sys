@@ -19,6 +19,8 @@
     };
   };
 
+  services.dbus.packages = [pkgs.hyprland];
+
   environment.systemPackages = with pkgs; [
     vim
     #neovim

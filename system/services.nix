@@ -18,5 +18,7 @@
     cpupower-gui.enable = true;
 
     dbus.packages = [pkgs.gnome.gnome-session];
+
+    blueman.enable = true;
   };
 }
