@@ -12,6 +12,6 @@
   };
 
   swapDevices = [
-    {device = "/dev/sda7";}
+    {device = "/dev/disk/by-label/swap";}
   ];
 }

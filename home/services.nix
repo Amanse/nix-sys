@@ -44,5 +44,7 @@ in {
     };
   };
 
-  services.swayosd.enable = config.wayland.windowManager.hyprland.enable;
+  services = {
+    swayosd.enable = config.wayland.windowManager.hyprland.enable;
+  };
 }

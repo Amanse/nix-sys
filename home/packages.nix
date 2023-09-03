@@ -18,6 +18,8 @@
     openjdk17-bootstrap
     blackbox-terminal
 
+    android-file-transfer
+
     #college
     jetbrains.idea-community
     firefox-devedition

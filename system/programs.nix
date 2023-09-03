@@ -4,7 +4,6 @@
 
     kdeconnect = {
       enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
     };
 
     light.enable = true;
@@ -19,7 +18,7 @@
     };
   };
 
-  services.dbus.packages = [pkgs.hyprland];
+  services.dbus.packages = with pkgs; [hyprland libsecret];
 
   environment.systemPackages = with pkgs; [
     vim
