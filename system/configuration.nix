@@ -119,6 +119,7 @@
   environment.shells = [pkgs.zsh];
   # For completion in zsh
   environment.pathsToLink = ["/share/zsh"];
+  environment.localBinInPath = true;
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
