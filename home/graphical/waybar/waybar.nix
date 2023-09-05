@@ -5,7 +5,7 @@
   layer = "top";
   position = "top";
   modules-left = [
-    "wlr/workspaces"
+    "hyprland/workspaces"
     "temperature"
     "hyprland/window"
     "custom/music"
@@ -22,7 +22,7 @@
     "network"
     "clock"
   ];
-  "wlr/workspaces" = {
+  "hyprland/workspaces" = {
     "format" = "{icon}";
     "all-outputs" = true;
     "format-icons" = {
