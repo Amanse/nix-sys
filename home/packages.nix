@@ -33,6 +33,7 @@
     #dev
     rustup
     nodejs
+    bun
 
     #games
     airshipper

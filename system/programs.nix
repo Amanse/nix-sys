@@ -27,6 +27,7 @@
     wget
     acpi
     gnome.gnome-tweaks
+    seatd
 
     #hyprland
     hyprland-share-picker

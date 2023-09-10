@@ -25,6 +25,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  # is set to something in the nix store by default
+  # programs.home-manager.path = "$HOME/nix-sys/home";
   # };
   # home-manager.extraSpecialArgs = {inherit inputs;};
 }

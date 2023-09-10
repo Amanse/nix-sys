@@ -14,4 +14,6 @@
   swapDevices = [
     {device = "/dev/disk/by-label/swap";}
   ];
+
+  boot.tmp.useTmpfs = true;
 }

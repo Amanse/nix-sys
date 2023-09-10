@@ -72,5 +72,6 @@ in {
 
   services = {
     swayosd.enable = config.wayland.windowManager.hyprland.enable;
+    mpris-proxy.enable = true;
   };
 }

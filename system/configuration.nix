@@ -91,28 +91,6 @@
   #services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
-  };
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -165,7 +143,6 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
   # programs.ssh.askPassword = lib.mkForce "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
 
   # Open ports in the firewall.
@@ -173,21 +150,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     CPU_SCALING_GOVERNOR_ON_BAT="ondemand";
-  #     CPU_SCALING_GOVERNOR_ON_AC="performance";
-
-  #     # 100 being the maximum, limit the speed of my CPU to reduce
-  #     # heat and increase battery usage:
-  #     CPU_MAX_PERF_ON_AC=100;
-  #     CPU_MAX_PERF_ON_BAT=60;
-  #   };
-  # };
-
-  services.acpid.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
