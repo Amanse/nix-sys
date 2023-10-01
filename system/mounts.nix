@@ -5,15 +5,9 @@
     options = ["rw" "uid=me"];
   };
 
-  fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-label/Windows";
-    fsType = "ntfs-3g";
-    options = ["rw" "uid=me"];
+  fileSystems."/mnt/stuff2" = {
+    device = "/dev/disk/by-label/stuff2";
   };
-
-  swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
-  ];
 
   boot.tmp.useTmpfs = true;
 }

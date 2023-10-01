@@ -8,38 +8,38 @@
     #       turbo = "auto";
     #     };
     #     battery = {
-    #       governor = "ondemand";
+    #       governor = "schedutil";
     #       caling_max_freq = "1500000";
     #       turbo = "auto";
     #     };
     #   };
     # };
     #
-    cpupower-gui.enable = true;
+    # cpupower-gui.enable = true;
 
     dbus.packages = [pkgs.gnome.gnome-session];
     dbus.enable = true;
 
     blueman.enable = true;
 
-    acpid.enable = true;
+    # acpid.enable = true;
 
     openssh.enable = true;
 
-    tailscale.enable = true;
+    # tailscale.enable = true;
 
-    tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_BAT = "ondemand";
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+    # tlp = {
+    #   enable = true;
+    #   settings = {
+    #     CPU_SCALING_GOVERNOR_ON_BAT = "ondemand";
+    #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
 
-        # 100 being the maximum, limit the speed of my CPU to reduce
-        # heat and increase battery usage:
-        # CPU_MAX_PERF_ON_AC = 100;
-        # CPU_MAX_PERF_ON_BAT = 80;
-      };
-    };
+    #     # 100 being the maximum, limit the speed of my CPU to reduce
+    #     # heat and increase battery usage:
+    #     # CPU_MAX_PERF_ON_AC = 100;
+    #     # CPU_MAX_PERF_ON_BAT = 80;
+    #   };
+    # };
   };
 
   security = {

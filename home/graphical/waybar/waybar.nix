@@ -12,7 +12,7 @@
   ];
   modules-right = [
     "tray"
-    "idle_inhibitor"
+    # "idle_inhibitor"
     "pulseaudio"
     "backlight"
     "memory"

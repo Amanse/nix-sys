@@ -7,22 +7,24 @@
     #gui
     brave
     google-chrome
-    # firefox-wayland
+    firefox-wayland
     obsidian
     xfce.thunar
+    evince
     heroic
     spotify
     qbittorrent
     libreoffice-qt
     calibre
     openjdk17-bootstrap
-    blackbox-terminal
+    wdisplays #display managment
+    # blackbox-terminal
 
     android-file-transfer
 
     #college
     jetbrains.idea-community
-    firefox-devedition
+    # firefox-devedition
 
     #cli
     megacmd
@@ -35,8 +37,10 @@
     nodejs
     bun
 
+    sbctl
+
     #games
-    airshipper
+    # airshipper
     inputs.game-rs.packages.x86_64-linux.default
   ];
 }

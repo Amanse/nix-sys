@@ -15,12 +15,14 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = lib.mkForce false;
+  # boot.loader.systemd-boot.enable = true;
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
+  # boot.kernelParams = ["intel_pstat=passive"];
+  # boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
   boot.initrd.kernelModules = ["i915"];
 
   boot.supportedFilesystems = ["ntfs"];
@@ -32,6 +34,9 @@
   };
 
   networking.hostName = "nixos"; # Define your hostname.
+  systemd.services.NetworkManager-wait-online.enable = false;
+  # systemd.services.bluetooth.enable = false;
+  # systemd.services.tailscale.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -42,7 +47,7 @@
   networking.networkmanager.enable = true;
 
   # font
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
   ];
 
@@ -68,11 +73,10 @@
   # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.autorun = false;
+  # services.xserver.autorun = false;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
   # environment.gnome.excludePackages = with pkgs.gnome; [
   #   gnome-software
   #   geary
@@ -80,6 +84,7 @@
   #   gnome-music
   #   epiphany
   # ];
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -93,6 +98,9 @@
   # Enable sound with pipewire.
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  # chrome + wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.shells = [pkgs.zsh];
   # For completion in zsh

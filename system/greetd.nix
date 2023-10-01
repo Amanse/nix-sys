@@ -33,7 +33,7 @@ in {
   # ];
 
   services.greetd = {
-    enable = true;
+    enable = !config.services.xserver.displayManager.gdm.enable;
     vt = 2;
     restart = true;
     settings = {

@@ -16,6 +16,8 @@
     hyprland = {
       enable = true;
     };
+
+    auto-cpufreq.enable = true;
   };
 
   services.dbus.packages = with pkgs; [hyprland libsecret];
@@ -30,6 +32,6 @@
     seatd
 
     #hyprland
-    hyprland-share-picker
+    # hyprland-share-picker
   ];
 }

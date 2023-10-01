@@ -32,4 +32,8 @@
       }
     '';
   };
+
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=dell-headset-multi
+  '';
 }
