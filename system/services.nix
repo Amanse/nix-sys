@@ -26,6 +26,12 @@
 
     openssh.enable = true;
 
+    resilio = {
+      enable = true;
+      deviceName = "nixxy";
+      enableWebUI = true;
+    };
+
     # tailscale.enable = true;
 
     # tlp = {

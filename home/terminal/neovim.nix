@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  home.packages = [pkgs.ripgrep]; # Need only for this, otherwise uses the alias of grep
+
   programs.neovim-flake = {
     enable = true;
     settings = {
@@ -110,11 +112,16 @@
         type = "nvim-cmp";
       };
 
-      vim.telescope.enable = true;
+      vim.telescope = {
+        enable = true;
+        mappings = {
+          findFiles = "<leader>pf";
+        };
+      };
 
       vim.maps = {
         normal = {
-          "<leader>pf" = {action = ":Telescope find_files<CR>";};
+          # "<leader>pf" = {action = ":Telescope find_files<CR>";};
           "<leader>p" = {action = "\"_dP";};
           "<leader>y" = {action = "\"+y";};
           "<leader>u" = {action = ":UndotreeToggle<CR>";};

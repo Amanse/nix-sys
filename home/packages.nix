@@ -17,6 +17,7 @@
     libreoffice-qt
     calibre
     openjdk17-bootstrap
+    cinnamon.warpinator # File sharing app that works
     wdisplays #display managment
     # blackbox-terminal
 
