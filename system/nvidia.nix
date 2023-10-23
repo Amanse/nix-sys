@@ -33,6 +33,8 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.production;
 
+    powerManagement.finegrained = true;
+
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;

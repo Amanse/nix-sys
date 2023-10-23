@@ -9,7 +9,7 @@
     google-chrome
     firefox-wayland
     obsidian
-    xfce.thunar
+    cinnamon.nemo-with-extensions
     evince
     heroic
     spotify
@@ -23,8 +23,10 @@
 
     android-file-transfer
 
+    thorium-browser
+
     #college
-    jetbrains.idea-community
+    # jetbrains.idea-community
     # firefox-devedition
 
     #cli

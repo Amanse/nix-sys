@@ -9,6 +9,7 @@
     ./services.nix
     ./programs.nix
     ./graphical
+    ./theme.nix
   ];
   home.username = "me";
   home.homeDirectory = "/home/me";

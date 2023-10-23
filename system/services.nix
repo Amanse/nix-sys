@@ -1,20 +1,20 @@
 {pkgs, ...}: {
   services = {
-    # auto-cpufreq = {
-    #   enable = true;
-    #   settings = {
-    #     charger = {
-    #       governor = "performance";
-    #       turbo = "auto";
-    #     };
-    #     battery = {
-    #       governor = "schedutil";
-    #       caling_max_freq = "1500000";
-    #       turbo = "auto";
-    #     };
-    #   };
-    # };
-    #
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governor = "schedutil";
+          caling_max_freq = "2000000";
+          turbo = "auto";
+        };
+      };
+    };
+
     # cpupower-gui.enable = true;
 
     dbus.packages = [pkgs.gnome.gnome-session];
