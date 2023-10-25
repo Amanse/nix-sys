@@ -35,7 +35,10 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  #Use custom dns
   networking.nameservers = ["1.1.1.1"];
+  networking.networkmanager.dns = "none";
   # systemd.services.bluetooth.enable = false;
   # systemd.services.tailscale.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
