@@ -81,7 +81,6 @@
 
 
     # Example windowrule v1
-    # windowrule = workspace 2 silent, title:^(.*)(- Brave)$
     # Example windowrule v2
     ## windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
     windowrulev2 = tile, title:^(Spotify)$
@@ -109,7 +108,7 @@
     bind = $mainMod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
-    bind = $mainMod, B, exec, brave
+    bind = $mainMod, B, exec, thorium
     bind = $mainMod, Space, exec, ${pkgs.playerctl}/bin/playerctl play-pause
     # bind = $mainMod, Period, exec, bemoji
     #logout menu
@@ -223,6 +222,7 @@
 
     windowrulev2 = [
       "workspace 2 silent, title:^(.*)(- Brave)$"
+      "workspace 2 silent, title:^(.*)(- Thorium)$"
       "workspace 3 silent, title:^(Steam)$"
     ];
 
