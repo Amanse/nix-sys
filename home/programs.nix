@@ -13,6 +13,7 @@
         profile = "gpu-hq";
         gpu-context = "wayland";
       };
+      scripts = with pkgs; [mpvScripts.mpris];
     };
 
     go.enable = true;

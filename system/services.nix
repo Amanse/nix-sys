@@ -17,7 +17,7 @@
 
     # cpupower-gui.enable = true;
 
-    dbus.packages = [pkgs.gnome.gnome-session];
+    dbus.packages = [pkgs.gnome.gnome-session pkgs.libsForQt5.kdeconnect-kde];
     dbus.enable = true;
 
     blueman.enable = true;

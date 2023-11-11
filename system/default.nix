@@ -10,5 +10,7 @@
     ./greetd.nix
     ./mounts.nix
     ./unsafe-performance.nix
+
+    ./virtualisation.nix
   ];
 }

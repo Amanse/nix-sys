@@ -74,10 +74,10 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.autorun = false;
+  services.xserver.autorun = false;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -89,6 +89,8 @@
   #   epiphany
   # ];
   # services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.displayManager.startx.enable = true;
+  # services.xserver.windowManager.i3.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -103,8 +105,22 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # chrome + wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    XDG_CACHE_HOME = "\${HOME}/.cache";
+
+    # chrome + wayland
+    NIXOS_OZONE_WL = "1";
+
+    XDG_CONFIG_HOME = "\${HOME}/.config";
+    XDG_BIN_HOME = "\${HOME}/.local/bin";
+    XDG_DATA_HOME = "\${HOME}/.local/share";
+    # Steam needs this to find Proton-GE
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+    # note: this doesn't replace PATH, it just adds this to it
+    PATH = [
+      "\${XDG_BIN_HOME}"
+    ];
+  };
 
   environment.shells = [pkgs.zsh];
   # For completion in zsh

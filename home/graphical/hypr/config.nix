@@ -227,6 +227,7 @@
     ];
 
     bind = [
+      ",180, exec, steam steam://open/bigpicture"
       # "$mainMod, E, exec, ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo"
 
       # # Screenshot tooling

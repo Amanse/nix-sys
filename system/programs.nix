@@ -3,6 +3,7 @@
     adb.enable = true;
 
     kdeconnect = {
+      package = pkgs.libsForQt5.kdeconnect-kde;
       enable = true;
     };
 

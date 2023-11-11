@@ -30,7 +30,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system}.extend (self: super: {thorium-browser = super.callPackage ./custom-pkgs/thorium {};});
+    pkgs = nixpkgs.legacyPackages.${system}.extend (self: super: {
+      thorium-browser = super.callPackage ./custom-pkgs/thorium {};
+    });
   in {
     homeConfigurations."me" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
