@@ -108,7 +108,7 @@
     bind = $mainMod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
-    bind = $mainMod, B, exec, thorium
+    bind = $mainMod, B, exec, ${pkgs.google-chrome}/bin/google-chrome-stable
     bind = $mainMod, Space, exec, ${pkgs.playerctl}/bin/playerctl play-pause
     # bind = $mainMod, Period, exec, bemoji
     #logout menu

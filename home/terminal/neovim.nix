@@ -70,7 +70,7 @@
           enable = true;
           fillChar = null;
           eolChar = null;
-          showCurrContext = true;
+          scope.enabled = true;
         };
         # cursorWordline = {
         #   enable = true;
@@ -92,7 +92,7 @@
       vim.git = {
         enable = true;
         gitsigns.enable = true;
-        gitsigns.codeActions = true;
+        # gitsigns.codeActions = true;
       };
 
       vim.comments = {

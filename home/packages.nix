@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     #gui
     brave
-    google-chrome
+    # google-chrome
     firefox-wayland
     obsidian
     cinnamon.nemo-with-extensions
@@ -20,6 +20,7 @@
     cinnamon.warpinator # File sharing app that works
     wdisplays #display managment
     # blackbox-terminal
+    ripdrag
 
     android-file-transfer
 
@@ -34,6 +35,7 @@
     spotify-player
     wl-clipboard
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    # wine-wayland
 
     #dev
     rustup

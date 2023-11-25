@@ -31,5 +31,11 @@
       enable = true;
       package = pkgs.vscode.fhs;
     };
+
+    chromium = {
+      enable = true;
+      package = pkgs.google-chrome;
+      commandLineArgs = ["--enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder"];
+    };
   };
 }
