@@ -20,11 +20,11 @@
     "inode/directory" = "nemo.desktop";
 
     # Browser
-    "text/html" = "thorium-browser.desktop";
-    "x-scheme-handler/http" = "thorium-browser.desktop";
-    "x-scheme-handler/https" = "thorium-browser.desktop";
-    "x-scheme-handler/about" = "thorium-browser.desktop";
-    "x-scheme-handler/unknown" = "thorium-browser.desktop";
+    "text/html" = "google-chrome.desktop";
+    "x-scheme-handler/http" = "google-chrome.desktop";
+    "x-scheme-handler/https" = "google-chrome.desktop";
+    "x-scheme-handler/about" = "google-chrome.desktop";
+    "x-scheme-handler/unknown" = "google-chrome.desktop";
   };
 
   # This value determines the Home Manager release that your

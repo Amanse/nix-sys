@@ -8,7 +8,7 @@
     brave
     # google-chrome
     firefox-wayland
-    obsidian
+    # joplin
     cinnamon.nemo-with-extensions
     evince
     heroic
@@ -34,7 +34,7 @@
     megacmd
     spotify-player
     wl-clipboard
-    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    # inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     # wine-wayland
 
     #dev
@@ -45,6 +45,7 @@
     sbctl
 
     #games
+    gamescope
     # airshipper
     inputs.game-rs.packages.x86_64-linux.default
   ];

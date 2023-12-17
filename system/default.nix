@@ -12,5 +12,7 @@
     ./unsafe-performance.nix
 
     ./virtualisation.nix
+
+    ./virtualisation-kali-college.nix
   ];
 }

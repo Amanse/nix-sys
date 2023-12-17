@@ -52,6 +52,10 @@
         };
       };
 
+      vim.notes.orgmode = {
+        enable = true;
+      };
+
       vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
       vim.luaConfigRC = {
         after = ''
@@ -110,6 +114,7 @@
       vim.autocomplete = {
         enable = true;
         type = "nvim-cmp";
+        sources = {"orgmode" = "[Orgmode]";};
       };
 
       vim.telescope = {

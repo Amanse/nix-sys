@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   services = {
+    fwupd.enable = true;
+
     auto-cpufreq = {
       enable = true;
       settings = {
@@ -30,6 +32,10 @@
       enable = true;
       deviceName = "nixxy";
       enableWebUI = true;
+    };
+
+    seatd = {
+      enable = true;
     };
 
     # tailscale.enable = true;

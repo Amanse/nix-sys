@@ -1,4 +1,26 @@
 {pkgs, ...}: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override ({extraPkgs ? pkgs': [], ...}: {
+        extraPkgs = pkgs':
+          (extraPkgs pkgs')
+          ++ (with pkgs'; [
+            libgdiplus
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXinerama
+            xorg.libXScrnSaver
+            libpng
+            libpulseaudio
+            libvorbis
+            stdenv.cc.cc.lib
+            libkrb5
+            keyutils
+          ]);
+      });
+    })
+  ];
+
   programs = {
     adb.enable = true;
 
@@ -11,7 +33,21 @@
 
     steam = {
       enable = true;
-      #	gamescopeSession.enable = true; #steamos like big picture mode session
+      gamescopeSession.enable = true; #steamos like big picture mode session
+    };
+
+    gamemode = {
+      enable = true;
+      settings = {
+        gpu = {
+          gpu_device = 1;
+        };
+      };
+    };
+
+    gamescope = {
+      enable = true;
+      capSysNice = true;
     };
 
     hyprland = {
@@ -30,7 +66,7 @@
     wget
     acpi
     gnome.gnome-tweaks
-    seatd
+    # seatd # service enabled already
 
     #hyprland
     # hyprland-share-picker

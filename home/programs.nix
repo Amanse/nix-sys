@@ -20,6 +20,8 @@
 
     zellij.enable = true;
 
+    mangohud.enable = true;
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -35,7 +37,7 @@
     chromium = {
       enable = true;
       package = pkgs.google-chrome;
-      commandLineArgs = ["--enable-features=VaapiIgnoreDriverChecks,VaapiVideoEncoder,VaapiVideoDecoder"];
+      commandLineArgs = ["--enable-features=VaapiVideoEncoder,VaapiVideoDecoder"];
     };
   };
 }
