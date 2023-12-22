@@ -24,7 +24,7 @@
 
   lfcd =
     if config.programs.lf.enable
-    then ''      
+    then ''          
       function lfcd () {
             # `command` is needed in case `lfcd` is aliased to `lf`
             cd "$(command lf -print-last-dir "$@")"
@@ -124,6 +124,7 @@ in {
       ls = "ls --color=yes";
       cat = "${pkgs.lib.getExe pkgs.bat}";
       grep = "${pkgs.lib.getExe pkgs.ripgrep}";
+      npm = "${pkgs.lib.getExe pkgs.nodePackages_latest.pnpm}";
     };
   };
 

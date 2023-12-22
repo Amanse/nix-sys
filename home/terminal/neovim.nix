@@ -40,7 +40,7 @@
 
       vim.treesitter = {
         enable = true;
-        grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte pkgs.tree-sitter-grammars.tree-sitter-typescript];
+        grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte pkgs.tree-sitter-grammars.tree-sitter-typescript pkgs.tree-sitter-grammars.tree-sitter-embedded-template];
       };
 
       vim.notes.obsidian = {

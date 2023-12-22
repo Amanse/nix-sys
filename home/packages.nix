@@ -24,7 +24,7 @@
 
     android-file-transfer
 
-    thorium-browser
+    # thorium-browser
 
     #college
     # jetbrains.idea-community
@@ -40,6 +40,7 @@
     #dev
     rustup
     nodejs
+    nodePackages_latest.pnpm
     bun
 
     sbctl
