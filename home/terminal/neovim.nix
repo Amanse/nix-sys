@@ -27,6 +27,8 @@
         java.enable = true;
         java.lsp.enable = true;
         java.treesitter.enable = true;
+        markdown.enable = true;
+        markdown.glow.enable = true;
         ts = {
           enable = true;
           lsp.enable = true;
@@ -43,25 +45,20 @@
         grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte pkgs.tree-sitter-grammars.tree-sitter-typescript pkgs.tree-sitter-grammars.tree-sitter-embedded-template];
       };
 
-      vim.notes.obsidian = {
-        enable = true;
-        dir = "~/Documents/B";
-        daily-notes = {
-          folder = "00 - Daily";
-          date-format = "DD-MM-Y";
+      vim.extraPlugins = with pkgs.vimPlugins; {
+        undodir = {
+          package = undotree;
+          setup = ''
+            vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+            vim.opt.undofile = true
+          '';
         };
       };
 
-      vim.notes.orgmode = {
-        enable = true;
-      };
-
-      vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
+      # vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
       vim.luaConfigRC = {
         after = ''
-          -- Undodir
-          vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-          vim.opt.undofile = true
+          vim.filetype.add({extension = {ejs = "html"}})
         '';
       };
 

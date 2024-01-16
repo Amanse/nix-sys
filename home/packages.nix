@@ -23,6 +23,7 @@
     ripdrag
 
     android-file-transfer
+    simple-mtpfs
 
     # thorium-browser
 
@@ -46,7 +47,6 @@
     sbctl
 
     #games
-    gamescope
     # airshipper
     inputs.game-rs.packages.x86_64-linux.default
   ];

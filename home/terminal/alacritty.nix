@@ -2,7 +2,7 @@
   programs.alacritty = {
     enable = config.wayland.windowManager.hyprland.enable;
     settings = {
-      import = ["${./rose-pine.yml}"];
+      import = ["${./rose-pine.toml}"];
       font.size = 11.5;
       window = {
         opacity = 0.8;

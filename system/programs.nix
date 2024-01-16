@@ -47,7 +47,7 @@
 
     gamescope = {
       enable = true;
-      capSysNice = true;
+      # capSysNice = true;
     };
 
     hyprland = {
@@ -58,6 +58,15 @@
   };
 
   services.dbus.packages = with pkgs; [hyprland libsecret];
+
+  security.wrappers = {
+    gamescope = {
+      owner = "root";
+      group = "root";
+      source = "${pkgs.gamescope}/bin/gamescope";
+      capabilities = "cap_sys_ptrace,cap_sys_nice+pie";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     vim

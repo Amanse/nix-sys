@@ -28,11 +28,11 @@
 
     openssh.enable = true;
 
-    resilio = {
-      enable = true;
-      deviceName = "nixxy";
-      enableWebUI = true;
-    };
+    # resilio = {
+    #   enable = true;
+    #   deviceName = "nixxy";
+    #   enableWebUI = true;
+    # };
 
     seatd = {
       enable = true;

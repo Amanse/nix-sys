@@ -10,6 +10,8 @@
     ./programs.nix
     ./graphical
     ./theme.nix
+
+    ./custom-pkgs/sway-osd.nix
   ];
   home.username = "me";
   home.homeDirectory = "/home/me";
@@ -25,6 +27,8 @@
     "x-scheme-handler/https" = "google-chrome.desktop";
     "x-scheme-handler/about" = "google-chrome.desktop";
     "x-scheme-handler/unknown" = "google-chrome.desktop";
+    "application/pdf" = "org.gnome.Evince.desktop";
+    "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
   };
 
   # This value determines the Home Manager release that your

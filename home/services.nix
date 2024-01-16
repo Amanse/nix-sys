@@ -68,10 +68,27 @@ in {
 
       Service = {ExecStart = "${pkgs.megacmd}/bin/mega-cmd-server";};
     };
+    swayosd-mine = {
+      Unit = {
+        Description = "Volume/backlight OSD indicator";
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+        ConditionEnvironment = "WAYLAND_DISPLAY";
+        Documentation = "man:swayosd(1)";
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.swayosd}/bin/swayosd-server";
+        Restart = "always";
+      };
+
+      Install = {WantedBy = ["graphical-session.target"];};
+    };
   };
 
   services = {
-    swayosd.enable = config.wayland.windowManager.hyprland.enable;
+    swayosd-mine.enable = config.wayland.windowManager.hyprland.enable;
     mpris-proxy.enable = true;
   };
 }

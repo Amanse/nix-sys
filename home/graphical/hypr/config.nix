@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (import ./propaganda.nix pkgs) propaganda;
+in {
   wayland.windowManager.hyprland.extraConfig = ''
     monitor=,preferred,auto,1
     #eww fix maybe
@@ -71,6 +77,7 @@
 
     misc {
         focus_on_activate=true
+        force_default_wallpaper=0
     }
 
     # Example per-device config
@@ -188,16 +195,12 @@
     #audio and brightness
     #bind=,XF86MonBrightnessUp,exec,light -A 5
     #bind=,XF86MonBrightnessDown,exec,light -U 5
-    bind=,XF86MonBrightnessUp,exec,${pkgs.swayosd}/bin/swayosd --brightness=raise 5
-    bind=,XF86MonBrightnessDown,exec,${pkgs.swayosd}/bin/swayosd --brightness=lower 5
+    bind=,XF86MonBrightnessUp,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=raise 5
+    bind=,XF86MonBrightnessDown,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=lower 5
 
-    bind=,XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd --output-volume=raise 5
-    bind=,XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd --output-volume=lower 5
-    bind=,XF86AudioMute,exec,${pkgs.swayosd}/bin/swayosd --output-volume=mute-toggle
-
-    # screenshot
-    bind = ,107,exec, ${pkgs.wayshot}/bin/wayshot --stdout | ${pkgs.swappy}/bin/swappy -f -
-    bind = $mainMod,107,exec, ${pkgs.wayshot}/bin/wayshot -s "$(${pkgs.slurp}/bin/slurp -f '%x %y %w %h')" --stdout | ${pkgs.swappy}/bin/swappy -f -
+    bind=,XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5
+    bind=,XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5
+    bind=,XF86AudioMute,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=mute-toggle
 
     bind = $mainMod, F, exec, hyprctl dispatch fullscreen 0
     bind = $mainMod, g, exec, hyprctl dispatch fullscreen 1
@@ -228,12 +231,14 @@
 
     bind = [
       ",180, exec, steam steam://open/bigpicture"
+      ''$mainMod SHIFT,H,exec,cat ${propaganda} | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Propaganda" "ready to spread!" && sleep 0.3 && ${lib.getExe pkgs.wtype} -M ctrl -M shift -k v -m shift -m ctrl -s 300 -k Return'' # spread hyprland propaganda
+
       # "$mainMod, E, exec, ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo"
 
       # # Screenshot tooling
-      # '',107,exec, ${pkgs.wayshot}/bin/wayshot --stdout | ${pkgs.swappy}/bin/swappy -f - ''
-      #
-      # ''$mod,107,exec, ${pkgs.wayshot}/bin/wayshot -s "$(${pkgs.slurp}/bin/slurp -f '%x %y %w %h')" --stdout | ${pkgs.swappy}/bin/swappy -f - ''
+      '',107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m output''
+      ''$mainMod ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m region''
+      ''$mainMod SHIFT ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m window''
     ];
 
     # exec-once = ["${pkgs.hyprpaper}/bin/hyprpaper"];
