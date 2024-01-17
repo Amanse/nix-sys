@@ -1,14 +1,18 @@
-{inputs, ...}: let
-  system = "x86_64-linux";
-in {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [./hyprpaper.nix ./config.nix];
+
+  home.packages = [pkgs.grim pkgs.slurp];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${system}.default;
-    # plugins = [
-    #   inputs.hyprland-plugins.packages.${system}.hyprbars
-    # ];
-    systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+    systemd = {
+      enable = true;
+      # variables = ["--all"];
+    };
   };
 }

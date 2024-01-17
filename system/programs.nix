@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.overlays = [
     (final: prev: {
       steam = prev.steam.override ({extraPkgs ? pkgs': [], ...}: {
@@ -50,22 +54,34 @@
       # capSysNice = true;
     };
 
-    hyprland = {
-      enable = true;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   portalPackage = inputs
+    # };
 
     auto-cpufreq.enable = true;
   };
 
   services.dbus.packages = with pkgs; [hyprland libsecret];
 
-  security.wrappers = {
-    gamescope = {
-      owner = "root";
-      group = "root";
-      source = "${pkgs.gamescope}/bin/gamescope";
-      capabilities = "cap_sys_ptrace,cap_sys_nice+pie";
-    };
+  # security.wrappers = {
+  #   gamescope = {
+  #     owner = "root";
+  #     group = "root";
+  #     source = "${pkgs.gamescope}/bin/gamescope";
+  #     capabilities = "cap_sys_ptrace,cap_sys_nice+pie";
+  #   };
+  # };
+
+  disabledModules = ["programs/hyprland.nix"];
+
+  services.xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -80,4 +96,12 @@
     #hyprland
     # hyprland-share-picker
   ];
+
+  # xdg = {
+  #   portal = {
+  #     enable = true;
+  #     wlr.enable = true;
+  #     # gtkUsePortal = true;
+  #   };
+  # };
 }

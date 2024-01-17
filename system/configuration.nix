@@ -115,14 +115,14 @@
     NIXOS_OZONE_WL = "1";
 
     XDG_CONFIG_HOME = "\${HOME}/.config";
-    XDG_BIN_HOME = "\${HOME}/.local/bin";
+    # XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
     # Steam needs this to find Proton-GE
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     # note: this doesn't replace PATH, it just adds this to it
-    PATH = [
-      "\${XDG_BIN_HOME}"
-    ];
+    # PATH = [
+    #   "\${XDG_BIN_HOME}"
+    # ];
   };
 
   environment.shells = [pkgs.zsh];

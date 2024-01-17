@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./hypr ./waybar ./swaylock ./i3];
+  imports = [./hypr ./waybar ./swaylock];
 }
