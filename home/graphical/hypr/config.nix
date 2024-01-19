@@ -195,12 +195,6 @@ in {
     #audio and brightness
     #bind=,XF86MonBrightnessUp,exec,light -A 5
     #bind=,XF86MonBrightnessDown,exec,light -U 5
-    bind=,XF86MonBrightnessUp,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=raise 5
-    bind=,XF86MonBrightnessDown,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=lower 5
-
-    bind=,XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5
-    bind=,XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5
-    bind=,XF86AudioMute,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=mute-toggle
 
     bind = $mainMod, F, exec, hyprctl dispatch fullscreen 0
     bind = $mainMod, g, exec, hyprctl dispatch fullscreen 1
@@ -227,6 +221,16 @@ in {
       "workspace 2 silent, title:^(.*)(- Brave)$"
       "workspace 2 silent, title:^(.*)(- Thorium)$"
       "workspace 3 silent, title:^(Steam)$"
+    ];
+
+    # buttons that can be held down
+    binde = [
+      ",XF86MonBrightnessUp,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=raise 5"
+      ",XF86MonBrightnessDown,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=lower 5"
+
+      ",XF86AudioMute,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=mute-toggle"
+      ",XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5"
+      ",XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5"
     ];
 
     bind = [
