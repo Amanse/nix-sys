@@ -11,6 +11,7 @@
     # ./hardware-configuration.nix
     # ./nix-settings.nix
     # ./programs.nix
+    ../modules/extraModules
   ];
 
   # Bootloader.
@@ -28,10 +29,7 @@
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
 
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 5;
-    "vm.max_map_count" = 2147483642; # the value from steam deck and fedora
-  };
+  myModules.gaming.deckSwapVal = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   systemd.services.NetworkManager-wait-online.enable = false;
