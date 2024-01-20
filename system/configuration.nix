@@ -32,6 +32,11 @@
   myModules = {
     gaming.deckSwapVal = true;
     networking.cloudflareDns = true;
+    sound = {
+      enable = true;
+      bluetoothAudioFix = true;
+      headphoneFix = true;
+    };
     graphics = {
       intel.enable = true;
       nvidia.enable = true;
