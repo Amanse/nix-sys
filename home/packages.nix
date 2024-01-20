@@ -22,6 +22,8 @@
     # blackbox-terminal
     ripdrag
 
+    element-desktop-wayland
+
     android-file-transfer
     simple-mtpfs
 

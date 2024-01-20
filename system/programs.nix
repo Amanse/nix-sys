@@ -5,6 +5,7 @@
 }: {
   nixpkgs.overlays = [
     (final: prev: {
+      wine = prev.wine.override {waylandSupport = true;};
       steam = prev.steam.override ({extraPkgs ? pkgs': [], ...}: {
         extraPkgs = pkgs':
           (extraPkgs pkgs')

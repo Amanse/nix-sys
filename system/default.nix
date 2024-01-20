@@ -5,7 +5,7 @@
     ./nix-settings.nix
     ./programs.nix
     ./services.nix
-    ./nvidia.nix
+    # ./nvidia.nix
     ./sound.nix
     # ./greetd.nix
     ./mounts.nix

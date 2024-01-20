@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./gaming];
+  imports = [./gaming ./networking ./system];
 }
