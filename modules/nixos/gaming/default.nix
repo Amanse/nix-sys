@@ -1,4 +1,3 @@
 {...}: {
-  imports = [./swap-val.nix];
+  imports = [./swap-val.nix ./steam.nix];
 }
-

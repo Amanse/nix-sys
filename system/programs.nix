@@ -3,29 +3,6 @@
   inputs,
   ...
 }: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      wine = prev.wine.override {waylandSupport = true;};
-      steam = prev.steam.override ({extraPkgs ? pkgs': [], ...}: {
-        extraPkgs = pkgs':
-          (extraPkgs pkgs')
-          ++ (with pkgs'; [
-            libgdiplus
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib
-            libkrb5
-            keyutils
-          ]);
-      });
-    })
-  ];
-
   programs = {
     adb.enable = true;
 
@@ -35,11 +12,6 @@
     };
 
     light.enable = true;
-
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true; #steamos like big picture mode session
-    };
 
     gamemode = {
       enable = true;
