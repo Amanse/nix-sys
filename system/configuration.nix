@@ -11,7 +11,6 @@
     # ./hardware-configuration.nix
     # ./nix-settings.nix
     # ./programs.nix
-    ../modules/extraModules
   ];
 
   # Bootloader.

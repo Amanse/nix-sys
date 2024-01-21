@@ -25,6 +25,7 @@
         lanzaboote.nixosModules.lanzaboote
         auto-cpufreq.nixosModules.default
         ./system
+        ./modules/nixos
         # common-pc-laptop
         common-pc-laptop-acpi_call
         common-pc-laptop-ssd
