@@ -20,5 +20,7 @@ in {
     };
 
     hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [vaapiIntel];
+
+    boot.initrd.kernelModules = ["i915"];
   };
 }

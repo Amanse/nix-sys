@@ -6,29 +6,16 @@
   pkgs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    # ./hardware-configuration.nix
-    # ./nix-settings.nix
-    # ./programs.nix
-  ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  # boot.loader.systemd-boot.enable = true;
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = ["intel_pstat=passive"];
   # boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
-  boot.initrd.kernelModules = ["i915"];
 
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
 
   myModules = {
+    boot = {
+      secure-boot.enable = true;
+    };
     gaming = {
       deckSwapVal = true;
       steam = {
@@ -46,6 +33,9 @@
     graphics = {
       intel.enable = true;
       nvidia.enable = true;
+    };
+    misc = {
+      swaylock-fix = true;
     };
   };
 
@@ -153,13 +143,6 @@
       #  thunderbird
     ];
   };
-
-  # SWAYLOCK
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
 
   # Enable automatic login for the user.
   #services.xserver.displayManager.autoLogin.enable = true;

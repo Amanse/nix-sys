@@ -22,7 +22,6 @@
       system = "x86_64-linux";
       specialArgs = {inherit self inputs;};
       modules = with nixos-hardware.nixosModules; [
-        lanzaboote.nixosModules.lanzaboote
         auto-cpufreq.nixosModules.default
         ./system
         ./modules/nixos

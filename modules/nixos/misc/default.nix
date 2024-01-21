@@ -1,0 +1,3 @@
+{...}: {
+  imports = [./swaylock-fix.nix];
+}

@@ -1,0 +1,3 @@
+{...}: {
+  imports = [./secure-boot.nix];
+}
