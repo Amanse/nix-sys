@@ -13,6 +13,10 @@
   console.earlySetup = true;
 
   myModules = {
+    # gui = {
+    #   enable = true;
+    #   desktops = ["hyprland"];
+    # };
     boot = {
       secure-boot.enable = true;
     };
@@ -86,15 +90,6 @@
   services.xserver.displayManager.sddm.wayland.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  # environment.gnome.excludePackages = with pkgs.gnome; [
-  #   gnome-software
-  #   geary
-  #   totem
-  #   gnome-music
-  #   epiphany
-  # ];
-  # services.xserver.desktopManager.plasma5.enable = true;
   # services.xserver.displayManager.startx.enable = true;
   # services.xserver.windowManager.i3.enable = true;
 
