@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./options.nix ./desktops.nix];
+  imports = [./options.nix ./desktops.nix ./display-manager.nix];
 }

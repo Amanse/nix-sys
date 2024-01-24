@@ -22,18 +22,18 @@ in {
     };
   };
 
-  # services.xserver.displayManager.session = [
-  #   {
-  #     manage = "desktop";
-  #     name = "GNOME-wayland";
-  #     start = ''
-  #       XDG_SESSION_TYPE=wayland dbus-run-session ${pkgs.gnome.gnome-session}/bin/gnome-session
-  #     '';
-  #   }
-  # ];
+  services.xserver.displayManager.session = mkIf (builtins.elem "gnome" config.myModules.gui.desktops) [
+    {
+      manage = "desktop";
+      name = "GNOME-wayland";
+      start = ''
+        XDG_SESSION_TYPE=wayland dbus-run-session ${pkgs.gnome.gnome-session}/bin/gnome-session
+      '';
+    }
+  ];
 
   services.greetd = {
-    enable = !config.services.xserver.displayManager.gdm.enable;
+    enable = true;
     vt = 2;
     restart = true;
     settings = {

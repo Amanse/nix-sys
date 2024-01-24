@@ -35,18 +35,18 @@
     auto-cpufreq.enable = true;
   };
 
-  services.dbus.packages = with pkgs; [hyprland libsecret];
+  services.dbus.packages = with pkgs; [libsecret];
 
-  disabledModules = ["programs/hyprland.nix"];
-
-  services.xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-    ];
-  };
+  # disabledModules = ["programs/hyprland.nix"];
+  #
+  # services.xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+  #
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+  #   ];
+  # };
 
   environment.systemPackages = with pkgs; [
     vim

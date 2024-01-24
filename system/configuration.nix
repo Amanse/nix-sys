@@ -13,10 +13,11 @@
   console.earlySetup = true;
 
   myModules = {
-    # gui = {
-    #   enable = true;
-    #   desktops = ["hyprland"];
-    # };
+    gui = {
+      enable = true;
+      desktops = ["hyprland"];
+      loginManagers = ["sddm"];
+    };
     boot = {
       secure-boot.enable = true;
     };
@@ -85,9 +86,9 @@
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.autorun = false;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
-  services.xserver.displayManager.sddm.wayland.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.defaultSession = "hyprland";
+  # services.xserver.displayManager.sddm.wayland.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.displayManager.startx.enable = true;

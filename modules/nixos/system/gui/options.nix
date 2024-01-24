@@ -1,4 +1,8 @@
-{lib, ...}:
+{
+  lib,
+  config,
+  ...
+}:
 with lib; {
   options.myModules.gui = {
     enable = mkEnableOption "Enable gui";
@@ -6,13 +10,15 @@ with lib; {
       type = with types; listOf str;
       default = [];
     };
-    loginManagers = {
+    loginManagers = mkOption {
       type = with types; listOf str;
       default = [];
     };
     defaultSession = mkOption {
-      type = types.string;
-      default = lists.take 1 desktops;
+      type = types.str;
+      default = builtins.elemAt config.myModules.gui.desktops 0;
     };
   };
+
+  config.services.xserver.displayManager.defaultSession = config.myModules.gui.defaultSession;
 }
