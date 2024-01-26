@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    prismlauncher = {
+      url = "github:PrismLauncher/PrismLauncher";
+    };
+
     game-rs.url = "github:amanse/game-rs";
 
     neovim-flake = {

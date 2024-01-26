@@ -257,6 +257,22 @@
         "type": "github"
       }
     },
+    "nix-flatpak": {
+      "locked": {
+        "lastModified": 1700311469,
+        "narHash": "sha256-89ulQo4Jqt1OP06DGDErkj1Dpa0i1GZzWpR6Cs5PbE8=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "d8f54c27de6617c44a67c36b361d4ad2512a51ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "v0.2.0",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1705312285,
@@ -389,6 +405,7 @@
         "auto-cpufreq": "auto-cpufreq",
         "hyprland": "hyprland",
         "lanzaboote": "lanzaboote",
+        "nix-flatpak": "nix-flatpak",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "xdg-portal-hyprland": "xdg-portal-hyprland"

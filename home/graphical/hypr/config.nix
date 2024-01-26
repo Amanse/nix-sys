@@ -4,7 +4,9 @@
   ...
 }: let
   inherit (import ./propaganda.nix pkgs) propaganda;
+  inherit (import ./packages.nix {inherit pkgs;}) hyprshot;
 in {
+  home.packages = [hyprshot pkgs.grimblast];
   wayland.windowManager.hyprland.extraConfig = ''
     monitor=,preferred,auto,1
     #eww fix maybe
@@ -233,16 +235,20 @@ in {
       ",XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5"
     ];
 
+    "$disable" = ''act_opa=$(hyprctl getoption "decoration:active_opacity" -j | jq -r ".float");inact_opa=$(hyprctl getoption "decoration:inactive_opacity" -j | jq -r ".float");hyprctl --batch "keyword decoration:active_opacity 1;keyword decoration:inactive_opacity 1"'';
+    "$enable" = ''hyprctl --batch "keyword decoration:active_opacity $act_opa;keyword decoration:inactive_opacity $inact_opa"'';
+
     bind = [
       ",180, exec, steam steam://open/bigpicture"
       ''$mainMod SHIFT,H,exec,cat ${propaganda} | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Propaganda" "ready to spread!" && sleep 0.3 && ${lib.getExe pkgs.wtype} -M ctrl -M shift -k v -m shift -m ctrl -s 300 -k Return'' # spread hyprland propaganda
 
-      # "$mainMod, E, exec, ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo"
+      "$mainMod ,107,exec,$disable; hyprshot; $enable" # screenshot and then pipe it to swappy
+      ", 107, exec, grimblast --notify --cursor copysave screen" # copy active screen
 
       # # Screenshot tooling
-      '',107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m output''
-      ''$mainMod ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m region''
-      ''$mainMod SHIFT ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m window''
+      # '',107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m output''
+      # ''$mainMod ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m region''
+      # ''$mainMod SHIFT ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m window''
     ];
 
     # exec-once = ["${pkgs.hyprpaper}/bin/hyprpaper"];

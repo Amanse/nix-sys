@@ -5,8 +5,11 @@
   ...
 }: let
   cfg = config.myModules.graphics;
+  vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
 in {
   config = lib.mkIf cfg.intel.enable {
+    services.xserver.videoDrivers = ["modesetting"];
+
     hardware.opengl = {
       enable = true;
       driSupport = true;
@@ -17,9 +20,15 @@ in {
         vaapiVdpau
         libvdpau-va-gl
       ];
-    };
 
-    hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [vaapiIntel];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        # intel-compute-runtime # FIXME does not build due to unsupported system
+        intel-media-driver
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
 
     boot.initrd.kernelModules = ["i915"];
   };
