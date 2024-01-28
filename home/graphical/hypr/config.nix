@@ -231,8 +231,8 @@ in {
       ",XF86MonBrightnessDown,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=lower 5"
 
       ",XF86AudioMute,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=mute-toggle"
-      ",XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5"
-      ",XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5"
+      ",XF86AudioLowerVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5 --max-volume=200"
+      ",XF86AudioRaiseVolume,exec,${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5 --max-volume=200"
     ];
 
     "$disable" = ''act_opa=$(hyprctl getoption "decoration:active_opacity" -j | jq -r ".float");inact_opa=$(hyprctl getoption "decoration:inactive_opacity" -j | jq -r ".float");hyprctl --batch "keyword decoration:active_opacity 1;keyword decoration:inactive_opacity 1"'';

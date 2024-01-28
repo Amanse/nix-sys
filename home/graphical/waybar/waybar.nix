@@ -1,11 +1,13 @@
 {
   pkgs,
   lib,
+  config,
 }: {
   layer = "top";
   position = "top";
   modules-left = [
     "hyprland/workspaces"
+    (lib.optionalString (config.wayland.windowManager.sway.enable) "sway/workspaces")
     "temperature"
     "hyprland/window"
     "custom/music"
@@ -22,6 +24,26 @@
     "network"
     "clock"
   ];
+  "sway/workspaces" = {
+    "format" = "{icon}";
+    "all-outputs" = true;
+    "format-icons" = {
+      "1" = "<span color=\"#019733\"></span>";
+      "2" = "<span color=\"#FF7139\"></span>";
+      "3" = "<span color=\"#757575\">󰓓</span>";
+      "4" = "<span color=\"#1DB954\">󰓇</span>";
+      "5" = "<span color=\"#757575\"></span>";
+      "6" = "<span color=\"#00B2FF\"></span>";
+      "7" = "<span color=\"#019733\"></span>";
+      "8" = "<span color=\"#757575\">8</span>";
+      "9" = "<span color=\"#26A5E4\"></span>";
+    };
+    "on-scroll-up" = "hyprctl dispatch workspace e+1";
+    "on-scroll-down" = "hyprctl dispatch workspace e-1";
+    "on-click" = "activate";
+    "focused" = "";
+    "default" = "";
+  };
   "hyprland/workspaces" = {
     "format" = "{icon}";
     "all-outputs" = true;

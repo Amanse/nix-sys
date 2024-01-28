@@ -29,7 +29,7 @@
       };
       terminal = "alacritty";
       modifier = "Mod4";
-      menu = "rofi -show run";
+      menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       input = {
         "type:touchpad" = {
           tap = "enabled";
@@ -51,11 +51,13 @@
         };
       };
       startup = [
-        {command = "waybar";}
-        {command = "mako";}
+        {command = "${pkgs.waybar}/bin/waybar";}
+        {command = "${pkgs.swaynotificationcenter}/bin/swaync";}
         {command = "mrpis-proxy";}
         # {command = "mega-cmd-server";}
         {command = "dbus-sway-environment";}
+        {command = "${pkgs.hyprpaper}/bin/hyprpaper";}
+        {command = "${pkgs.batsignal}/bin/batsignal -b -w 20";}
       ];
       floating.modifier = "Mod4";
       keybindings = let
@@ -64,7 +66,7 @@
       in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
-          "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
+          "${modifier}+b" = "exec google-chrome-stable";
           "${modifier}+q" = "kill";
           "${modifier}+e" = "exec nautilus";
           "${modifier}+N" = "exec logseq";
@@ -73,9 +75,11 @@
           "XF86MonBrightnessDown" = "exec light -U 5";
 
           #volume
-          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-          "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          "XF86AudioRaiseVolume" = "exec ${pkgs.swayosd}/bin/swayosd-client --output-volume=raise 5 --max-volume=200";
+          "XF86AudioLowerVolume" = "exec ${pkgs.swayosd}/bin/swayosd-client --output-volume=lower 5 --max-volume=200";
+          "XF86AudioMute" = "${pkgs.swayosd}/bin/swayosd-client --output-volume=mute-toggle";
+
+          "XF86HomePage" = "exec steam steam://open/bigpicture";
 
           #Pause play media
           "${modifier}+space" = "exec playerctl play-pause";
@@ -83,7 +87,8 @@
 
           #screenshot
           "${modifier}+Print" = ''exec ${pkgs.wayshot}/bin/wayshot -s "$(${pkgs.slurp}/bin/slurp -f '%x %y %w %h')" --stdout | wl-copy --type image/png && wl-paste > ~/Pictures/$(date +"%T").png '';
-          "Print" = ''exec ${pkgs.wayshot}/bin/wayshot --stdout | wl-copy --type image/png && wl-paste > ~/Pictures/$(date +"%T").png '';
+          # "Print" = ''exec ${pkgs.wayshot}/bin/wayshot --stdout | wl-copy --type image/png && wl-paste > ~/Pictures/$(date +"%T").png '';
+          "Print" = ''exec ${pkgs.grimblast}/bin/grimblast --notify --cursor copysave screen'';
 
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Period" = "exec bemoji";
