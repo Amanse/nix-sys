@@ -24,6 +24,7 @@
 
     gamescope = {
       enable = true;
+      env = {INTEL_DEBUG = "noccs";};
       # capSysNice = true;
     };
 

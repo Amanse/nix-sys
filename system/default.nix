@@ -13,6 +13,6 @@
 
     ./virtualisation-kali-college.nix
 
-    # ./sway.nix
+    ./sway.nix
   ];
 }

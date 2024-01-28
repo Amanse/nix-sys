@@ -15,7 +15,7 @@
   myModules = {
     gui = {
       enable = true;
-      desktops = ["hyprland"];
+      desktops = ["hyprland" "sway"];
       loginManagers = ["sddm"];
     };
     boot = {

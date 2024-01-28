@@ -17,9 +17,22 @@
   gtk = {
     enable = true;
 
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["pink"];
+        size = "compact";
+        tweaks = ["rimless" "black"];
+        variant = "mocha";
+      };
+    };
+
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "blue";
+        flavor = "mocha";
+      };
     };
 
     gtk3.extraConfig = {
@@ -38,9 +51,14 @@
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style = {
-      name = "Adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+
+    # style = {
+    #   name = "Catppuccin-Mocha-Pink-Dark";
+    #   package = pkgs.catppuccin-kde.override {
+    #     flavour = ["mocha"];
+    #     accents = ["pink"];
+    #     winDecStyles = ["modern"];
+    #   };
+    # };
   };
 }

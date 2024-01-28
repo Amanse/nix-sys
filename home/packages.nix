@@ -47,8 +47,9 @@
     bun
 
     #games
+    wineWowPackages.full
     # airshipper
-    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
+    # inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
     inputs.game-rs.packages.x86_64-linux.default
   ];
 }

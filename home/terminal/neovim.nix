@@ -27,8 +27,8 @@
         java.enable = true;
         java.lsp.enable = true;
         java.treesitter.enable = true;
-        markdown.enable = true;
-        markdown.glow.enable = true;
+        # markdown.enable = true;
+        # markdown.glow.enable = true;
         ts = {
           enable = true;
           lsp.enable = true;
