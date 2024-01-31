@@ -66,7 +66,7 @@
       in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
-          "${modifier}+b" = config.myHome.browser;
+          "${modifier}+b" = "exec " + config.myHome.browser;
           "${modifier}+q" = "kill";
           "${modifier}+e" = "exec nautilus";
           "${modifier}+N" = "exec logseq";
