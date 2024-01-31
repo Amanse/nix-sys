@@ -6,10 +6,10 @@
   layer = "top";
   position = "top";
   modules-left = [
-    "hyprland/workspaces"
+    (lib.optionalString (config.wayland.windowManager.hyprland.enable) "hyprland/workspaces")
     (lib.optionalString (config.wayland.windowManager.sway.enable) "sway/workspaces")
     "temperature"
-    "hyprland/window"
+    (lib.optionalString (config.wayland.windowManager.hyprland.enable) "hyprland/window")
     "custom/music"
   ];
   modules-right = [
