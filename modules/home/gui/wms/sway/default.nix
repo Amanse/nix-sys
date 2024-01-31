@@ -5,7 +5,7 @@
   ...
 }: {
   wayland.windowManager.sway = {
-    enable = true;
+    enable = config.myHome.gui.wms.sway.enable;
     extraOptions = ["--unsupported-gpu"];
     # extraSessionCommands = ''
     #      export SDL_VIDEODRIVER=wayland
@@ -27,7 +27,7 @@
         "2" = [{class = "^Brave-browser$";}];
         "3" = [{title = "Steam";}];
       };
-      terminal = "alacritty";
+      terminal = config.myHome.terminal;
       modifier = "Mod4";
       menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       input = {
@@ -52,7 +52,7 @@
       };
       startup = [
         {command = "${pkgs.waybar}/bin/waybar";}
-        {command = "${pkgs.swaynotificationcenter}/bin/swaync";}
+        {command = config.myHome.notide;}
         {command = "mrpis-proxy";}
         # {command = "mega-cmd-server";}
         {command = "dbus-sway-environment";}
@@ -66,7 +66,7 @@
       in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
-          "${modifier}+b" = "exec google-chrome-stable";
+          "${modifier}+b" = config.myHome.browser;
           "${modifier}+q" = "kill";
           "${modifier}+e" = "exec nautilus";
           "${modifier}+N" = "exec logseq";

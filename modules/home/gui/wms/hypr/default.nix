@@ -1,14 +1,15 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
-  imports = [./hyprpaper.nix ./config.nix];
+  imports = [./config.nix];
 
   home.packages = [pkgs.grim pkgs.slurp];
 
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = config.myHome.gui.wms.hyprland.enable;
     package = inputs.hyprland.packages.${pkgs.system}.default;
     systemd = {
       enable = true;

@@ -16,6 +16,16 @@
   home.username = "me";
   home.homeDirectory = "/home/me";
 
+  myHome = {
+    gui = {
+      wms = {
+        wallpaper.hyprpaper.enable = true;
+        sway.enable = true;
+        hyprland.enable = true;
+      };
+    };
+  };
+
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {

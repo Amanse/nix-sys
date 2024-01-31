@@ -1,0 +1,3 @@
+{...}: {
+  imports = [./gui ./options.nix];
+}

@@ -42,7 +42,7 @@
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
-      modules = [./default.nix];
+      modules = [./default.nix ../modules/home];
       extraSpecialArgs = {inherit inputs;};
 
       # Optionally use extraSpecialArgs

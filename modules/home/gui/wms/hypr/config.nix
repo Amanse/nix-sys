@@ -1,10 +1,12 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   inherit (import ./propaganda.nix pkgs) propaganda;
   inherit (import ./packages.nix {inherit pkgs;}) hyprshot;
+  inherit (lib) mkIf;
 in {
   home.packages = [hyprshot pkgs.grimblast];
   wayland.windowManager.hyprland.extraConfig = ''
@@ -216,7 +218,7 @@ in {
 
   '';
 
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = mkIf config.myHome.gui.wms.hyprland.enable {
     "$mainMod" = "SUPER";
 
     windowrulev2 = [
