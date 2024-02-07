@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkEnableOption types mkOption;
 in {
   options.myHome.gui.wms = {
@@ -12,6 +16,12 @@ in {
     hyprland = {
       enable = mkEnableOption "Enable Hyprland";
     };
-    sway.enable = mkEnableOption "Enable sway";
+    sway = {
+      enable = mkEnableOption "Enable sway";
+      package = mkOption {
+        type = types.package;
+        default = pkgs.sway;
+      };
+    };
   };
 }

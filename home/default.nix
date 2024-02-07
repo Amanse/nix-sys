@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.neovim-flake.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
@@ -20,7 +24,10 @@
     gui = {
       wms = {
         wallpaper.hyprpaper.enable = true;
-        sway.enable = true;
+        sway = {
+          enable = true;
+          # package = pkgs.swayfx;
+        };
         hyprland.enable = true;
       };
     };

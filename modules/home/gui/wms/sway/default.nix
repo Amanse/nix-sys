@@ -3,9 +3,11 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.myHome.gui.wms.sway;
+in {
   wayland.windowManager.sway = {
-    enable = config.myHome.gui.wms.sway.enable;
+    enable = cfg.enable;
     extraOptions = ["--unsupported-gpu"];
     # extraSessionCommands = ''
     #      export SDL_VIDEODRIVER=wayland
@@ -16,6 +18,7 @@
     #   # use this if they aren't displayed properly:
     #   export _JAVA_AWT_WM_NONREPARENTING=1
     # '';
+    extraConfig = lib.optionalString (cfg.package == pkgs.swayfx) ''blur enable'';
     config = {
       window.titlebar = true;
       fonts.size = 9.0;

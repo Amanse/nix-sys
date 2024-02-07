@@ -6,9 +6,9 @@
 }: let
   inherit (import ./propaganda.nix pkgs) propaganda;
   inherit (import ./packages.nix {inherit pkgs;}) hyprshot;
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe getExe';
 in {
-  home.packages = [hyprshot pkgs.grimblast];
+  home.packages = [hyprshot pkgs.grimblast pkgs.rofi]; #rofi needs to be there for bluetooth and bemoji;
   wayland.windowManager.hyprland.extraConfig = ''
     monitor=,preferred,auto,1
     #eww fix maybe
@@ -227,6 +227,8 @@ in {
       "workspace 3 silent, title:^(Steam)$"
     ];
 
+    exec-once = ["${getExe' pkgs.onedrive "onedrive"} --monitor"];
+
     # buttons that can be held down
     binde = [
       ",XF86MonBrightnessUp,exec,${pkgs.swayosd}/bin/swayosd-client --brightness=raise 5"
@@ -242,15 +244,15 @@ in {
 
     bind = [
       ",180, exec, steam steam://open/bigpicture"
-      ''$mainMod SHIFT,H,exec,cat ${propaganda} | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Propaganda" "ready to spread!" && sleep 0.3 && ${lib.getExe pkgs.wtype} -M ctrl -M shift -k v -m shift -m ctrl -s 300 -k Return'' # spread hyprland propaganda
+
+      "$mainMod,code:60,exec,${getExe pkgs.bemoji}"
+
+      "$mainMod+ALT,B,exec,${getExe pkgs.rofi-bluetooth}"
+
+      ''$mainMod SHIFT,H,exec,cat ${propaganda} | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Propaganda" "ready to spread!" && sleep 0.3 && ${getExe pkgs.wtype} -M ctrl -M shift -k v -m shift -m ctrl -s 300 -k Return'' # spread hyprland propaganda
 
       "$mainMod ,107,exec,$disable; hyprshot; $enable" # screenshot and then pipe it to swappy
       ", 107, exec, grimblast --notify --cursor copysave screen" # copy active screen
-
-      # # Screenshot tooling
-      # '',107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m output''
-      # ''$mainMod ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m region''
-      # ''$mainMod SHIFT ,107,exec, ${lib.getExe pkgs.hyprshot} -o $HOME/Pictures -m window''
     ];
 
     # exec-once = ["${pkgs.hyprpaper}/bin/hyprpaper"];
