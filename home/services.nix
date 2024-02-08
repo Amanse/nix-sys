@@ -90,5 +90,9 @@ in {
   services = {
     swayosd-mine.enable = config.wayland.windowManager.hyprland.enable;
     mpris-proxy.enable = true;
+    # syncthing = {
+    #   enable = true;
+    #   tray.enable = true;
+    # };
   };
 }

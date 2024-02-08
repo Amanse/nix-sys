@@ -604,11 +604,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1707321447,
-        "narHash": "sha256-vHC9ZbzUgSf3kpGaC9Rqk4p4pOLK5TcalDR/jpcdjqY=",
+        "lastModified": 1707333070,
+        "narHash": "sha256-Cg40QtlGiClP6nBOy5X9binEMpXpaXOY6daSN9bxt2Q=",
         "owner": "amanse",
         "repo": "game-rs",
-        "rev": "d58cac68e74f75b633231565d5ec6f8852626308",
+        "rev": "91d107c6d2f5a03f4b542c60a6b094ce37d92324",
         "type": "github"
       },
       "original": {
