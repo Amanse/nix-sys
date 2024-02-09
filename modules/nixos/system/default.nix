@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./graphics ./sound.nix ./boot ./gui];
+  imports = [./graphics ./sound.nix ./boot ./gui ./impermanence];
 }

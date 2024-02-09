@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    impermanence.url = "github:nix-community/impermanence";
   };
   outputs = {
     self,

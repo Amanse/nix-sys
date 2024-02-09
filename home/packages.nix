@@ -6,8 +6,8 @@
   home.packages = with pkgs; [
     #gui
     brave
-    workflowy
-    workflowy-desktop
+#    workflowy
+#    workflowy-desktop
     # google-chrome
     firefox-wayland
     # joplin

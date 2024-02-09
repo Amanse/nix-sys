@@ -13,18 +13,45 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a3b43bd4-9ffe-47cb-bc29-00ed06501bdd";
-      fsType = "ext4";
-    };
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/158C-95D0";
+    { device = "/dev/disk/by-uuid/9720-0B04";
       fsType = "vfat";
     };
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/2ad5486f-f4c6-4846-9237-f64d3af3b47d";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/2ad5486f-f4c6-4846-9237-f64d3af3b47d";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/2ad5486f-f4c6-4846-9237-f64d3af3b47d";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/2ad5486f-f4c6-4846-9237-f64d3af3b47d";
+      fsType = "btrfs";
+      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      neededForBoot = true;
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-uuid/2ad5486f-f4c6-4846-9237-f64d3af3b47d";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd" "noatime" ];
+      neededForBoot = true;
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/cba1e5d0-1b0d-4cc6-b32c-2d2cb597c903"; }
+    [ { device = "/dev/disk/by-uuid/2804186a-f4ea-44c3-b4c7-7936add88bcc"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -36,6 +63,5 @@
   # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

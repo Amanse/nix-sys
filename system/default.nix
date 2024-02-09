@@ -9,10 +9,6 @@
     ./mounts.nix
     ./unsafe-performance.nix
 
-    ./virtualisation.nix
-
-    ./virtualisation-kali-college.nix
-
     ./sway.nix
 
     ./app-image.nix
