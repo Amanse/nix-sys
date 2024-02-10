@@ -24,7 +24,7 @@
 
   lfcd =
     if config.programs.lf.enable
-    then ''        
+    then ''      
       function lfcd () {
             # `command` is needed in case `lfcd` is aliased to `lf`
             cd "$(command lf -print-last-dir "$@")"
@@ -118,7 +118,7 @@ in {
       }
     ];
     shellAliases = {
-      hmu = "home-manager switch --flake /home/me/nix-sys/home#me --impure";
+      hmu = "home-manager switch --flake /home/me/nix-sys/home#me";
       du = "${pkgs.lib.getExe pkgs.du-dust}";
       m = "mkdir -p";
       ls = "ls --color=yes";
