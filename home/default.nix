@@ -20,6 +20,7 @@ in {
 
     ./custom-pkgs/sway-osd.nix
   ];
+
   home.username = "me";
   home.homeDirectory = "/home/me";
 
@@ -45,19 +46,36 @@ in {
     };
   };
 
-  xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = "nemo.desktop";
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
 
-    # Browser
-    "text/html" = "google-chrome.desktop";
-    "x-scheme-handler/http" = "google-chrome.desktop";
-    "x-scheme-handler/https" = "google-chrome.desktop";
-    "x-scheme-handler/about" = "google-chrome.desktop";
-    "x-scheme-handler/unknown" = "google-chrome.desktop";
-    "application/pdf" = "org.gnome.Evince.desktop";
-    "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+
+    mime.enable = true;
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = "nemo.desktop";
+
+        # Browser
+        "text/html" = "google-chrome.desktop";
+        "x-scheme-handler/http" = "google-chrome.desktop";
+        "x-scheme-handler/https" = "google-chrome.desktop";
+        "x-scheme-handler/about" = "google-chrome.desktop";
+        "x-scheme-handler/unknown" = "google-chrome.desktop";
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
+      };
+    };
   };
 
   # This value determines the Home Manager release that your

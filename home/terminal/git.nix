@@ -1,5 +1,5 @@
 {...}: {
-  home.file.".ssh/allowed_signers".text = "* ${builtins.readFile /home/me/.ssh/id_rsa.pub}";
+  # home.file.".ssh/allowed_signers".text = "* ${builtins.readFile /home/me/.ssh/id_rsa.pub}";
 
   programs.git = {
     enable = true;
@@ -20,9 +20,9 @@
     ];
     extraConfig = {
       commit.gpgsign = true;
-      gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/id_rsa.pub";
+      # gpg.format = "ssh";
+      # gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      user.signingkey = "CC721109AF94865C";
       push.default = "current";
     };
     aliases = {
