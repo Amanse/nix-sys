@@ -53,15 +53,8 @@ in {
           l = "resize grow width 10 px";
         };
       };
-      startup = [
-        {command = "${pkgs.waybar}/bin/waybar";}
-        {command = config.myHome.notide;}
-        {command = "mrpis-proxy";}
-        # {command = "mega-cmd-server";}
-        {command = "dbus-sway-environment";}
-        {command = "${pkgs.hyprpaper}/bin/hyprpaper";}
-        {command = "${pkgs.batsignal}/bin/batsignal -b -w 20";}
-      ];
+
+      startup = map (x: {command = x;}) config.myHome.startupCmds;
       floating.modifier = "Mod4";
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;

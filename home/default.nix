@@ -1,8 +1,11 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
-}: {
+}: let
+  inherit (lib) getExe';
+in {
   imports = [
     inputs.neovim-flake.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
@@ -21,6 +24,15 @@
   home.homeDirectory = "/home/me";
 
   myHome = {
+    startupCmds = [
+      "${getExe' pkgs.onedrive "onedrive"} --monitor"
+      "${pkgs.waybar}/bin/waybar"
+      "${pkgs.megacmd}/bin/mega-cmd-server"
+      "${pkgs.wlsunset}/bin/wlsunset -T 4501"
+      "${pkgs.hyprpaper}/bin/hyprpaper"
+      "${pkgs.swaynotificationcenter}/bin/swaync"
+      "${pkgs.batsignal}/bin/batsignal -b -w 20"
+    ];
     gui = {
       wms = {
         wallpaper.hyprpaper.enable = true;
