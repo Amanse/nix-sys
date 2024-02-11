@@ -11,7 +11,7 @@
   onedriveExe = "${getExe' pkgs.onedrive "onedrive"}";
 in {
   config = mkIf cfg.enable {
-    systemd.user.services.onedrive = {
+    systemd.user.services.onedrive-client = {
       Unit = {
         Description = "OneDrive client";
         After = ["network-online.target"];

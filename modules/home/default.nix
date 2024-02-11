@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./gui ./options.nix ./onedrive];
+  imports = [./gui ./options.nix ./services];
 }
