@@ -3,9 +3,7 @@
   pkgs,
   lib,
   ...
-}: let
-  inherit (lib) getExe';
-in {
+}: {
   imports = [
     inputs.neovim-flake.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
@@ -17,8 +15,6 @@ in {
     ./programs.nix
     ./graphical
     ./theme.nix
-
-    ./custom-pkgs/sway-osd.nix
   ];
 
   home.username = "me";
@@ -35,9 +31,21 @@ in {
       "${pkgs.batsignal}/bin/batsignal -b -w 20"
     ];
 
-    services.onedrive = {
-      enable = true;
-      syncDirs = ["/SaveGames/NBGI" "/Logseq"];
+    services = {
+      onedrive = {
+        enable = true;
+        syncDirs = ["/SaveGames/NBGI" "/Logseq"];
+      };
+
+      rclone = {
+        enable = true;
+        configs = [
+          {
+            mountDir = "onedrive";
+            configName = "onedrive-main";
+          }
+        ];
+      };
     };
 
     gui = {
