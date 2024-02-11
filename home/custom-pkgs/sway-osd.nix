@@ -41,6 +41,7 @@ in {
           Type = "simple";
           ExecStart = "${cfg.package}/bin/swayosd-server";
           Restart = "always";
+          RestartSec = "10s";
         };
 
         Install = {WantedBy = ["graphical-session.target"];};

@@ -26,7 +26,7 @@ in {
 
   myHome = {
     startupCmds = [
-      "${getExe' pkgs.onedrive "onedrive"} --monitor"
+      # "${getExe' pkgs.onedrive "onedrive"} --monitor"
       "${pkgs.waybar}/bin/waybar"
       "${pkgs.megacmd}/bin/mega-cmd-server"
       "${pkgs.wlsunset}/bin/wlsunset -T 4501"
@@ -34,6 +34,12 @@ in {
       "${pkgs.swaynotificationcenter}/bin/swaync"
       "${pkgs.batsignal}/bin/batsignal -b -w 20"
     ];
+
+    services.onedrive = {
+      enable = true;
+      syncDirs = ["/SaveGames/NBGI" "/Logseq"];
+    };
+
     gui = {
       wms = {
         wallpaper.hyprpaper.enable = true;
