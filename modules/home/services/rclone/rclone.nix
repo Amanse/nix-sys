@@ -27,6 +27,7 @@
                 --buffer-size 512M
           '';
           ExecStop = "/run/wrappers/bin/fusermount -u ${dir}";
+          ExecStopPost = "/run/current-system/sw/bin/rmdir ${dir}";
           Type = "notify";
           Restart = "always";
           RestartSec = "10s";
