@@ -10,7 +10,5 @@
     ./unsafe-performance.nix
 
     ./sway.nix
-
-    ./app-image.nix
   ];
 }
