@@ -29,6 +29,10 @@
 
     nix-index-database.comma.enable = true;
 
+    zoxide.enable = true;
+    zoxide.options = ["--no-aliases"];
+    zsh.initExtra = pkgs.lib.mkIf config.programs.zoxide.enable (pkgs.lib.concatLines ["alias cd='__zoxide_z'" "alias cdi='__zoxide_zi'"]);
+
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
