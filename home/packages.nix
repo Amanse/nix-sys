@@ -5,11 +5,13 @@
 }: {
   home.packages = with pkgs; [
     #gui
-    brave
-#    workflowy
-#    workflowy-desktop
+    # brave
+    logseq
+    #    workflowy
+    #    workflowy-desktop
     # google-chrome
-    firefox-wayland
+    # firefox-wayland
+    floorp
     # joplin
     cinnamon.nemo-with-extensions
     evince
@@ -17,14 +19,10 @@
     spotify
     qbittorrent
     libreoffice-qt
-    calibre
-    openjdk17-bootstrap
     cinnamon.warpinator # File sharing app that works
     wdisplays #display managment
     # blackbox-terminal
     ripdrag
-
-    element-desktop-wayland
 
     android-file-transfer
     simple-mtpfs
@@ -36,8 +34,8 @@
     # firefox-devedition
 
     #cli
-    megacmd
-    spotify-player
+    # megacmd
+    # spotify-player
     wl-clipboard
     # inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     # wine-wayland
