@@ -1,4 +1,26 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  gtk-theme = pkgs.catppuccin-gtk.override {
+    size = "standard";
+    accents = ["pink"];
+    variant = "mocha";
+    tweaks = ["normal"];
+  };
+
+  qt-theme = pkgs.catppuccin-kde.override {
+    flavour = ["mocha"];
+    accents = ["pink"];
+    winDecStyles = ["modern"];
+    # tweaks = ["dark"];
+  };
+in {
+  home.packages = with pkgs; [
+    qt-theme
+    gtk-theme
+    glib
+    libsForQt5.qt5ct
+    breeze-icons
+  ];
+
   home.sessionVariables = {
     # set GTK theme to the name specified by the gtk theme package
 
@@ -18,13 +40,8 @@
     enable = true;
 
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["pink"];
-        size = "compact";
-        tweaks = ["rimless" "black"];
-        variant = "mocha";
-      };
+      name = "Catppuccin-Mocha-Standard-Pink-Dark";
+      package = gtk-theme;
     };
 
     iconTheme = {
@@ -54,11 +71,7 @@
 
     # style = {
     #   name = "Catppuccin-Mocha-Pink-Dark";
-    #   package = pkgs.catppuccin-kde.override {
-    #     flavour = ["mocha"];
-    #     accents = ["pink"];
-    #     winDecStyles = ["modern"];
-    #   };
+    #   package = qt-theme;
     # };
   };
 }
