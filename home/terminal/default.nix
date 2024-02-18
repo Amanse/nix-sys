@@ -5,6 +5,7 @@
     ./zsh.nix
     ./lf.nix
     ./bottom.nix
+    ./gpg.nix
     ./alacritty.nix
   ];
 }
