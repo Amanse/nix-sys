@@ -14,6 +14,10 @@ with lib; {
       type = with types; listOf str;
       default = [];
     };
+    sddmTheme = mkOption {
+      type = with types; str;
+      default = "";
+    };
     defaultSession = mkOption {
       type = types.str;
       default = builtins.elemAt config.myModules.gui.desktops 0;

@@ -48,6 +48,8 @@
       };
     };
 
+    runners.rofi.theme.catppuccin.enable = true;
+
     gui = {
       wms = {
         wallpaper.hyprpaper.enable = true;

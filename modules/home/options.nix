@@ -12,6 +12,11 @@ in {
       default = [config.myHome.notide];
     };
 
+    runner = mkOption {
+      type = types.str;
+      default = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+    };
+
     terminal = mkOption {
       type = types.str;
       default = "${lib.getExe pkgs.alacritty}";

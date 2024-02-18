@@ -18,6 +18,7 @@
       enable = true;
       desktops = ["hyprland" "sway"];
       loginManagers = ["sddm"];
+      sddmTheme = "catppuccin";
     };
     boot = {
       secure-boot.enable = true;
@@ -106,7 +107,7 @@
 
   # Enable sound with pipewire.
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   environment.sessionVariables = {
     XDG_CACHE_HOME = "\${HOME}/.cache";

@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./wms ./bars];
+  imports = [./wms ./bars ./runners];
 }

@@ -58,6 +58,9 @@
     gnome.gnome-tweaks
     # seatd # service enabled already
 
+    inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
+    catppuccin-sddm-corners
+
     #hyprland
     # hyprland-share-picker
   ];

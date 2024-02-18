@@ -9,6 +9,8 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     impermanence.url = "github:nix-community/impermanence";
+    sddm-catppuccin.url = "github:khaneliman/sddm-catppuccin";
+    sddm-catppuccin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {
     self,

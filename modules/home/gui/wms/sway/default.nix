@@ -5,6 +5,7 @@
   ...
 }: let
   cfg = config.myHome.gui.wms.sway;
+  homeCfg = config.myHome;
 in {
   wayland.windowManager.sway = {
     enable = cfg.enable;
@@ -30,9 +31,9 @@ in {
         "2" = [{class = "^Brave-browser$";}];
         "3" = [{title = "Steam";}];
       };
-      terminal = config.myHome.terminal;
+      terminal = homeCfg.terminal;
       modifier = "Mod4";
-      menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+      menu = "${homeCfg.runner}";
       input = {
         "type:touchpad" = {
           tap = "enabled";
@@ -54,7 +55,7 @@ in {
         };
       };
 
-      startup = map (x: {command = x;}) config.myHome.startupCmds;
+      startup = map (x: {command = x;}) homeCfg.startupCmds;
       floating.modifier = "Mod4";
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;
@@ -62,7 +63,7 @@ in {
       in
         lib.mkOptionDefault {
           "${modifier}+r" = "exec " + menu;
-          "${modifier}+b" = "exec " + config.myHome.browser;
+          "${modifier}+b" = "exec " + homeCfg.browser;
           "${modifier}+q" = "kill";
           "${modifier}+e" = "exec nautilus";
           "${modifier}+N" = "exec logseq";

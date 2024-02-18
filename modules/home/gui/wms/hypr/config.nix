@@ -7,6 +7,8 @@
   inherit (import ./propaganda.nix pkgs) propaganda;
   inherit (import ./packages.nix {inherit pkgs;}) hyprshot;
   inherit (lib) mkIf getExe getExe';
+
+  cfg = config.myHome;
 in {
   home.packages = [hyprshot pkgs.grimblast pkgs.rofi]; #rofi needs to be there for bluetooth and bemoji;
   wayland.windowManager.hyprland.extraConfig = ''
@@ -115,7 +117,7 @@ in {
      bind = $mainMod, M, exit,
      bind = $mainMod, E, exec, ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo
      bind = $mainMod, V, togglefloating,
-     bind = $mainMod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
+     bind = $mainMod, R, exec, ${cfg.runner}
      bind = $mainMod, P, pseudo, # dwindle
      bind = $mainMod, J, togglesplit, # dwindle
      bind = $mainMod, B, exec, ${pkgs.google-chrome}/bin/google-chrome-stable
@@ -217,7 +219,7 @@ in {
 
   '';
 
-  wayland.windowManager.hyprland.settings = mkIf config.myHome.gui.wms.hyprland.enable {
+  wayland.windowManager.hyprland.settings = mkIf cfg.gui.wms.hyprland.enable {
     "$mainMod" = "SUPER";
 
     windowrulev2 = [
@@ -227,7 +229,7 @@ in {
     ];
 
     # exec-once = ["${getExe' pkgs.onedrive "onedrive"} --monitor"];
-    exec-once = map (x: x) config.myHome.startupCmds;
+    exec-once = map (x: x) cfg.startupCmds;
 
     # buttons that can be held down
     binde = [
