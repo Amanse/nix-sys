@@ -8,6 +8,7 @@
         enable = true;
         formatOnSave = true;
         nvimCodeActionMenu.enable = true;
+        lightbulb.enable = true;
       };
 
       vim.useSystemClipboard = false;
@@ -27,7 +28,7 @@
         java.enable = true;
         java.lsp.enable = true;
         java.treesitter.enable = true;
-        # markdown.enable = true;
+        markdown.enable = true;
         # markdown.glow.enable = true;
         ts = {
           enable = true;
@@ -57,9 +58,7 @@
 
       # vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
       vim.luaConfigRC = {
-        after = ''
-          vim.filetype.add({extension = {ejs = "html"}})
-        '';
+        after = "vim.filetype.add({extension = {ejs = \"html\"}})\n";
       };
 
       vim.preventJunkFiles = true;
@@ -73,6 +72,9 @@
           eolChar = null;
           scope.enabled = true;
         };
+        highlight-undo.enable = true;
+        # cursorline.enable = true;
+        fidget-nvim.enable = true;
         # cursorWordline = {
         #   enable = true;
         #   lineTimeout = 0;
@@ -111,7 +113,6 @@
       vim.autocomplete = {
         enable = true;
         type = "nvim-cmp";
-        sources = {"orgmode" = "[Orgmode]";};
       };
 
       vim.telescope = {
@@ -121,10 +122,14 @@
         };
       };
 
+      vim.ui = {
+        breadcrumbs.enable = true;
+      };
+
       vim.maps = {
         normal = {
           # "<leader>pf" = {action = ":Telescope find_files<CR>";};
-          "<leader>p" = {action = "\"_dP";};
+          # "<leader>p" = {action = "\"_dP";};
           "<leader>y" = {action = "\"+y";};
           "<leader>u" = {action = ":UndotreeToggle<CR>";};
           "<leader>f" = {action = ":lua vim.lsp.buf.format()<CR>";};
