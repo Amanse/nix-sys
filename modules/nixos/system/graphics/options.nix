@@ -13,8 +13,8 @@ in {
     nvidia = {
       enable = mkEnableOption "Enable nvidia gpu stuff";
       package = mkOption {
-        type = lib.types.package;
-        default = config.boot.kernelPackages.nvidiaPackages.stable;
+        type = lib.types.str;
+        default = "stable";
       };
     };
   };

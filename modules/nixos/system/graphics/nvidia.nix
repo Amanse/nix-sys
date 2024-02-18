@@ -21,7 +21,7 @@ in {
       nvidiaSettings = false;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = cfg.nvidia.package;
+      package = config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.package};
 
       powerManagement.finegrained = true;
 
