@@ -33,7 +33,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system}.extend (import ./custom-pkgs/workflowy/default.nix);
+    pkgs = nixpkgs.legacyPackages.${system}.extend (import ./custom-pkgs/nvim/harpoon.nix);
   in {
     homeConfigurations."me" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;

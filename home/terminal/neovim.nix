@@ -48,6 +48,45 @@
         };
 
         extraPlugins = with pkgs.vimPlugins; {
+          harpoon = {
+            package = pkgs.harpoon;
+            setup = ''
+                            local harpoon = require("harpoon")
+
+                            -- REQUIRED
+                            harpoon:setup()
+              harpoon:setup({})
+                            -- REQUIRED
+
+vim.keymap.set("n", "<C-a>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-s>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-d>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-f>", function() harpoon:list():select(4) end)
+
+              -- basic telescope configuration
+              local conf = require("telescope.config").values
+              local function toggle_telescope(harpoon_files)
+                  local file_paths = {}
+                  for _, item in ipairs(harpoon_files.items) do
+                      table.insert(file_paths, item.value)
+                  end
+
+                  require("telescope.pickers").new({}, {
+                      prompt_title = "Harpoon",
+                      finder = require("telescope.finders").new_table({
+                          results = file_paths,
+                      }),
+                      previewer = conf.file_previewer({}),
+                      sorter = conf.generic_sorter({}),
+                  }):find()
+              end
+
+              vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+    { desc = "Open harpoon window" })
+            '';
+            after = ["plenary-nvim"];
+          };
+
           undodir = {
             package = undotree;
             setup = ''
@@ -56,6 +95,8 @@
             '';
           };
         };
+
+        optPlugins = ["plenary-nvim"];
 
         # vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
         luaConfigRC = {
@@ -145,6 +186,7 @@
             # "<leader>a" = ":lua require(\"harpoon.mark\").add_file()<CR>";
             # "<leader>q" = ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>";
             "<leader>pv" = {action = ":E<CR>";};
+            "<leader>q" = {action = ":lua require('harpoon'):list():append()<CR>";};
           };
           visual = {
             "<leader>y" = {action = "\"+y";};
