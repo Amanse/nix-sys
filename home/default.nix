@@ -34,7 +34,7 @@
     services = {
       onedrive = {
         enable = true;
-        syncDirs = ["/SaveGames/NBGI" "/Logseq"];
+        syncDirs = ["/SaveGames/NBGI"];
       };
 
       rclone = {
