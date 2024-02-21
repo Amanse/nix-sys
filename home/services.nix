@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   systemd.user.services = {
     swayosd-mine = {
       Unit = {
