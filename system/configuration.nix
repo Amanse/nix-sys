@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   boot.kernelParams = ["intel_pstat=passive"];
   # boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
 
@@ -44,6 +40,7 @@
     graphics = {
       intel.enable = true;
       nvidia.enable = true;
+      nvidia.package = "beta";
     };
     misc = {
       swaylock-fix = true;

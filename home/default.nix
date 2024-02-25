@@ -24,7 +24,7 @@
     startupCmds = [
       # "${getExe' pkgs.onedrive "onedrive"} --monitor"
       "${pkgs.waybar}/bin/waybar"
-      "${pkgs.megacmd}/bin/mega-cmd-server"
+      # "${pkgs.megacmd}/bin/mega-cmd-server"
       "${pkgs.wlsunset}/bin/wlsunset -T 4501"
       "${pkgs.hyprpaper}/bin/hyprpaper"
       "${pkgs.swaynotificationcenter}/bin/swaync"
