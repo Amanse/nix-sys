@@ -32,6 +32,10 @@
       };
     };
     networking.cloudflareDns = true;
+    networking.tailscale = {
+      enable = true;
+      isClient = true;
+    };
     sound = {
       enable = true;
       bluetoothAudioFix = true;
