@@ -20,6 +20,19 @@
     auto-cpufreq,
     ...
   } @ inputs: {
+    # Move to flake parts if this becomes too big idk
+    templates = {
+      rust = {
+        path = ./templates/rust; # Rust
+        description = "Development environment for Rust";
+      };
+
+      go = {
+        path = ./templates/go; # golang
+        description = "Development environment for Golang";
+      };
+    };
+
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit self inputs;};
