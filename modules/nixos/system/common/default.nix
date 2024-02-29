@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./runners.nix];
+  imports = [./runners.nix ./unsafe-performance.nix];
 }

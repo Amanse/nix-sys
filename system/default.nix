@@ -7,7 +7,7 @@
     ./services.nix
     # ./greetd.nix
     ./mounts.nix
-    ./unsafe-performance.nix
+    # ./unsafe-performance.nix
 
     ./sway.nix
   ];
