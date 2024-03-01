@@ -22,6 +22,11 @@
 
   services = {
     mpris-proxy.enable = true;
+
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
     # syncthing = {
     #   enable = true;
     #   tray.enable = true;
