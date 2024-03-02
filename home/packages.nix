@@ -7,6 +7,7 @@
     #gui
     # brave
     logseq
+    iotas
     #    workflowy
     #    workflowy-desktop
     # google-chrome

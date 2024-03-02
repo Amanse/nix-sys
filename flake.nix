@@ -7,10 +7,23 @@
       url = "github:adnanhodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
     impermanence.url = "github:nix-community/impermanence";
     sddm-catppuccin.url = "github:khaneliman/sddm-catppuccin";
     sddm-catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-flake = {
+      url = "github:notashelf/neovim-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    game-rs.url = "github:amanse/game-rs";
   };
   outputs = {
     self,
@@ -18,8 +31,17 @@
     lanzaboote,
     nixos-hardware,
     auto-cpufreq,
+    home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    pk = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+    pkgs = pk.extend (import ./home/custom-pkgs/nvim/harpoon.nix);
+  in {
+    inherit pkgs;
     # Move to flake parts if this becomes too big idk
     templates = {
       rust = {
@@ -38,6 +60,16 @@
       specialArgs = {inherit self inputs;};
       modules = with nixos-hardware.nixosModules; [
         auto-cpufreq.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.me = import ./home;
+
+            extraSpecialArgs = {inherit inputs pkgs;};
+          };
+        }
         ./system
         ./modules/nixos
         # common-pc-laptop

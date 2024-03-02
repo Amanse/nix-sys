@@ -21,12 +21,19 @@ with lib; let
     "hyprland" = {
       services.dbus.packages = with pkgs; [hyprland];
 
-      services.xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+      services.xserver.displayManager.sessionPackages = [pkgs.hyprland];
 
       xdg.portal = {
         enable = true;
+        config = {
+          common = {
+            "org.freedesktop.impl.portal.Secret" = [
+              "gnome-keyring"
+            ];
+          };
+        };
         extraPortals = [
-          inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+          pkgs.xdg-desktop-portal-hyprland
         ];
       };
     };

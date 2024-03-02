@@ -1,18 +1,31 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{pkgs, ...}: let
+  pt = pkgs.catppuccin-plymouth.override {variant = "mocha";};
+in {
   boot.kernelParams = ["intel_pstat=passive"];
   # boot.kernelParams = ["intel_pstate=disable" "acpi=force"];
 
   boot.supportedFilesystems = ["ntfs"];
   console.earlySetup = true;
 
+  boot.plymouth = {
+    enable = true;
+    themePackages = [pt];
+    theme = "catppuccin-mocha";
+  };
+
   myModules = {
     system.impermanence.enable = true;
     gui = {
       enable = true;
-      desktops = ["hyprland" "sway"];
+      desktops = [
+        "hyprland"
+        # "sway"
+        # "gnome"
+        # "plasma"
+      ];
       loginManagers = ["sddm"];
       sddmTheme = "catppuccin";
     };

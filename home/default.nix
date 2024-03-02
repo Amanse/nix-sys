@@ -9,6 +9,8 @@
     inputs.nix-index-database.hmModules.nix-index
     # inputs.hyprland.homeManagerModules.default
 
+    ../modules/home
+
     ./packages.nix
     ./terminal
     ./services.nix
@@ -53,10 +55,10 @@
     gui = {
       wms = {
         wallpaper.hyprpaper.enable = true;
-        sway = {
-          enable = true;
-          # package = pkgs.swayfx;
-        };
+        # sway = {
+        # enable = true;
+        #   # package = pkgs.swayfx;
+        # };
         hyprland.enable = true;
       };
     };
@@ -83,13 +85,22 @@
         "inode/directory" = "nemo.desktop";
 
         # Browser
-        "text/html" = "google-chrome.desktop";
-        "x-scheme-handler/http" = "google-chrome.desktop";
-        "x-scheme-handler/https" = "google-chrome.desktop";
-        "x-scheme-handler/about" = "google-chrome.desktop";
-        "x-scheme-handler/unknown" = "google-chrome.desktop";
+        "text/html" = "floorp.desktop";
+        "x-scheme-handler/http" = "floorp.desktop";
+        "x-scheme-handler/https" = "floorp.desktop";
+        "x-scheme-handler/about" = "floorp.desktop";
+        "x-scheme-handler/unknown" = "floorp.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";
         "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
+      };
+    };
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
       };
     };
   };

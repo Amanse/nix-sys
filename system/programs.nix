@@ -1,13 +1,14 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   programs = {
     adb.enable = true;
 
     kdeconnect = {
-      package = pkgs.libsForQt5.kdeconnect-kde;
+      # package = pkgs.libsForQt5.kdeconnect-kde;
       enable = true;
     };
 
@@ -34,9 +35,13 @@
     # };
 
     auto-cpufreq.enable = true;
+
+    dconf.enable = true;
+
+    seahorse.enable = !config.services.xserver.desktopManager.plasma6.enable;
   };
 
-  services.dbus.packages = with pkgs; [libsecret];
+  services.dbus.packages = with pkgs; [libsecret gnome.gnome-keyring];
 
   # disabledModules = ["programs/hyprland.nix"];
   #

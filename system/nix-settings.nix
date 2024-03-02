@@ -13,7 +13,7 @@ with lib; {
       # To use the same source in both home and system
       "nix/flake-channels/system".source = self;
       "nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
-      "nix/flake-channels/hyprland".source = inputs.hyprland;
+      # "nix/flake-channels/hyprland".source = inputs.hyprland;
       #"nix/flake-channels/home-manager".source = home-manager;
 
       # preserve current flake in /etc

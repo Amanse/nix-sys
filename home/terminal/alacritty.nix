@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.alacritty = {
-    enable = config.wayland.windowManager.hyprland.enable;
+    enable = config.wayland.windowManager.hyprland.enable || config.wayland.windowManager.sway.enable;
     settings = {
       import = ["${./rose-pine.toml}"];
       font.size = 11.5;

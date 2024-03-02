@@ -17,8 +17,8 @@ in {
     qt-theme
     gtk-theme
     glib
-    libsForQt5.qt5ct
-    breeze-icons
+    # libsForQt5.qt5ct
+    # breeze-icons
   ];
 
   home.sessionVariables = {
@@ -31,8 +31,8 @@ in {
   home.pointerCursor = {
     gtk.enable = true;
     # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
+    package = pkgs.catppuccin-cursors;
+    name = "Catppuccin-Mocha-Red-Cursors";
     size = 16;
   };
 
@@ -44,13 +44,13 @@ in {
       package = gtk-theme;
     };
 
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "mocha";
-      };
-    };
+    # iconTheme = {
+    #   name = "Papirus-Dark";
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     accent = "blue";
+    #     flavor = "mocha";
+    #   };
+    # };
 
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;

@@ -38,6 +38,8 @@
       enable = true;
     };
 
+    gnome.gnome-keyring.enable = true;
+
     # tailscale.enable = true;
 
     # tlp = {
@@ -57,5 +59,11 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+  };
+
+  security.pam.services = {
+    login = {
+      enableGnomeKeyring = true;
+    };
   };
 }

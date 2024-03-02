@@ -27,6 +27,8 @@
       enable = true;
       indicator = true;
     };
+
+    gnome-keyring.enable = true;
     # syncthing = {
     #   enable = true;
     #   tray.enable = true;
