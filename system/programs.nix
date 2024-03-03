@@ -41,7 +41,7 @@
     seahorse.enable = !config.services.xserver.desktopManager.plasma6.enable;
   };
 
-  services.dbus.packages = with pkgs; [libsecret gnome.gnome-keyring];
+  services.dbus.packages = with pkgs; [libsecret gnome.gnome-keyring gcr];
 
   # disabledModules = ["programs/hyprland.nix"];
   #

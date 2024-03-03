@@ -38,7 +38,7 @@
       enable = true;
     };
 
-    gnome.gnome-keyring.enable = true;
+    # gnome.gnome-keyring.enable = true;
 
     # tailscale.enable = true;
 
@@ -62,8 +62,8 @@
   };
 
   security.pam.services = {
-    login = {
-      enableGnomeKeyring = true;
-    };
+    # login = {
+    #   enableGnomeKeyring = true;
+    # };
   };
 }
