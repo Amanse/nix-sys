@@ -34,7 +34,6 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
     pk = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;

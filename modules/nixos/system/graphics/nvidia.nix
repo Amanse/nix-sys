@@ -7,6 +7,8 @@
   cfg = config.myModules.graphics;
 in {
   config = mkIf cfg.nvidia.enable {
+    boot.kernelParams = ["nvidia_drm.fbdev=1"];
+
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {

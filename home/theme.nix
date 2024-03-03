@@ -31,8 +31,8 @@ in {
   home.pointerCursor = {
     gtk.enable = true;
     # x11.enable = true;
-    package = pkgs.catppuccin-cursors;
-    name = "Catppuccin-Mocha-Red-Cursors";
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
     size = 16;
   };
 
