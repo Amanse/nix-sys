@@ -18,7 +18,7 @@ in {
         "hyprland"
         # "sway"
         # "gnome"
-        # "plasma"
+        "plasma"
       ];
       loginManagers = ["sddm"];
       sddmTheme = "catppuccin";

@@ -60,17 +60,19 @@
       modules = with nixos-hardware.nixosModules; [
         auto-cpufreq.nixosModules.default
         home-manager.nixosModules.home-manager
+        ./system
+        ./modules/nixos
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.me = import ./home;
 
-            extraSpecialArgs = {inherit inputs pkgs;};
+            extraSpecialArgs = {
+              inherit inputs pkgs;
+            };
           };
         }
-        ./system
-        ./modules/nixos
         # common-pc-laptop
         common-pc-laptop-acpi_call
         common-pc-laptop-ssd

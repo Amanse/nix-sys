@@ -6,6 +6,7 @@
   inherit (lib) mkEnableOption types mkOption;
 in {
   options.myHome.gui.wms = {
+    enable = mkEnableOption "Enable window manager helping programs like bar notification daemon";
     wallpaper.hyprpaper = {
       enable = mkEnableOption "Enable hyprpaper for wallpaper";
       wallpaper = mkOption {

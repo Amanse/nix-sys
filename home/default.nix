@@ -2,6 +2,8 @@
   inputs,
   pkgs,
   lib,
+  config,
+  osConfig,
   ...
 }: {
   imports = [
@@ -16,7 +18,7 @@
     ./services.nix
     ./programs.nix
     ./graphical
-    ./theme.nix
+    # ./theme.nix
   ];
 
   home.username = "me";
@@ -54,12 +56,13 @@
 
     gui = {
       wms = {
+        enable = true;
         wallpaper.hyprpaper.enable = true;
-        # sway = {
-        # enable = true;
-        #   # package = pkgs.swayfx;
-        # };
-        hyprland.enable = true;
+        sway = {
+          enable = builtins.elem "sway" osConfig.myModules.gui.desktops;
+          # package = pkgs.swayfx;
+        };
+        hyprland.enable = builtins.elem "hyprland" osConfig.myModules.gui.desktops;
       };
     };
   };

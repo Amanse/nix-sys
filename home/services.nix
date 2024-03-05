@@ -1,5 +1,10 @@
-{pkgs, ...}: {
-  systemd.user.services = {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
+  systemd.user.services = lib.mkIf config.myHome.gui.wms.enable {
     swayosd-mine = {
       Unit = {
         Description = "Volume/backlight OSD indicator";
@@ -27,8 +32,8 @@
       enable = true;
       indicator = true;
     };
-
-    gnome-keyring.enable = true;
+    #
+    # gnome-keyring.enable = true;
     # syncthing = {
     #   enable = true;
     #   tray.enable = true;
