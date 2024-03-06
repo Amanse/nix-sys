@@ -9,6 +9,7 @@
     # ./greetd.nix
     ./mounts.nix
     # ./unsafe-performance.nix
+    ./podman.nix
 
     # ./sway.nix
   ];
