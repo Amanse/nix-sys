@@ -34,11 +34,12 @@
     home-manager,
     ...
   } @ inputs: let
-    pk = import nixpkgs {
+    pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
+      overlays = [(import ./home/custom-pkgs/pcsx2.nix) (import ./home/custom-pkgs/nvim/harpoon.nix)];
     };
-    pkgs = pk.extend (import ./home/custom-pkgs/nvim/harpoon.nix);
+    # pkgs = pk.extend (import ./home/custom-pkgs/nvim/harpoon.nix);
   in {
     inherit pkgs;
     # Move to flake parts if this becomes too big idk
