@@ -18,7 +18,7 @@
     ./services.nix
     ./programs.nix
     ./graphical
-    # ./theme.nix
+    ./theme.nix
   ];
 
   home.username = "me";
@@ -26,7 +26,6 @@
 
   myHome = {
     startupCmds = [
-      # "${getExe' pkgs.onedrive "onedrive"} --monitor"
       "${pkgs.waybar}/bin/waybar"
       # "${pkgs.megacmd}/bin/mega-cmd-server"
       "${pkgs.wlsunset}/bin/wlsunset -T 4501"
@@ -38,7 +37,7 @@
     services = {
       onedrive = {
         enable = true;
-        syncDirs = ["/SaveGames/NBGI"];
+        syncDirs = ["/SaveGames/NBGI" "/SaveGames/BoTW"];
       };
 
       rclone = {

@@ -17,7 +17,7 @@ in {
     qt-theme
     gtk-theme
     glib
-    # libsForQt5.qt5ct
+    libsForQt5.qt5ct
     # breeze-icons
   ];
 
@@ -44,13 +44,13 @@ in {
       package = gtk-theme;
     };
 
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.catppuccin-papirus-folders.override {
-    #     accent = "blue";
-    #     flavor = "mocha";
-    #   };
-    # };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "pink";
+        flavor = "mocha";
+      };
+    };
 
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
@@ -69,9 +69,9 @@ in {
     enable = true;
     platformTheme = "gtk";
 
-    # style = {
-    #   name = "Catppuccin-Mocha-Pink-Dark";
-    #   package = qt-theme;
-    # };
+    style = {
+      name = "Catppuccin-Mocha-Pink-Dark";
+      package = qt-theme;
+    };
   };
 }

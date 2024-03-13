@@ -54,5 +54,8 @@
     inputs.game-rs.packages.x86_64-linux.default
     pcsx2
     pcsx2-desktop
+
+    cemu
+    cemu-desktop
   ];
 }

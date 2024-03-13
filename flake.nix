@@ -37,7 +37,7 @@
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-      overlays = [(import ./home/custom-pkgs/pcsx2.nix) (import ./home/custom-pkgs/nvim/harpoon.nix)];
+      overlays = [(import ./home/custom-pkgs/pcsx2.nix) (import ./home/custom-pkgs/nvim/harpoon.nix) (import ./home/custom-pkgs/cemu.nix)];
     };
     # pkgs = pk.extend (import ./home/custom-pkgs/nvim/harpoon.nix);
   in {
@@ -68,6 +68,8 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.me = import ./home;
+
+            backupFileExtension = ".hm.bak";
 
             extraSpecialArgs = {
               inherit inputs pkgs;

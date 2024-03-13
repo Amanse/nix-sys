@@ -45,7 +45,7 @@
 
         treesitter = {
           enable = true;
-          grammars = [pkgs.tree-sitter-grammars.tree-sitter-svelte pkgs.tree-sitter-grammars.tree-sitter-typescript pkgs.tree-sitter-grammars.tree-sitter-embedded-template];
+          grammars = [pkgs.tree-sitter-grammars.tree-sitter-typescript pkgs.tree-sitter-grammars.tree-sitter-embedded-template];
         };
 
         extraPlugins = with pkgs.vimPlugins; {
