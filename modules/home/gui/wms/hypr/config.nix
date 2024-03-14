@@ -235,7 +235,7 @@ in {
     "$enable" = ''hyprctl --batch "keyword decoration:active_opacity $act_opa;keyword decoration:inactive_opacity $inact_opa"'';
 
     bind = [
-      ",180, exec, steam steam://open/bigpicture"
+      ",180, exec, gamescope -f -W 1366 -H 768 -h 768 -w 1366 --steam -- steam steam://open/bigpicture"
 
       "$mainMod,code:60,exec,${getExe pkgs.bemoji}"
 
