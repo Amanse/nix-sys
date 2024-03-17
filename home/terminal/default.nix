@@ -7,5 +7,6 @@
     ./bottom.nix
     ./gpg.nix
     ./alacritty.nix
+    ./nix-init.nix
   ];
 }
