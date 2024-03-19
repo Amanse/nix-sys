@@ -19,7 +19,10 @@ in {
     #   # use this if they aren't displayed properly:
     #   export _JAVA_AWT_WM_NONREPARENTING=1
     # '';
-    extraConfig = lib.optionalString (cfg.package == pkgs.swayfx) ''blur enable'';
+    extraConfig = lib.concatLines [
+      "bindgesture swipe:right workspace prev"
+      "bindgesture swipe:left workspace next"
+    ];
     config = {
       window.titlebar = true;
       fonts.size = 9.0;
