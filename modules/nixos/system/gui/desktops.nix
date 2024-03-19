@@ -43,6 +43,8 @@ with lib; let
 in {
   disabledModules = ["programs/hyprland.nix"];
 
+  imports = [./sway.nix];
+
   config = mkMerge [
     (mkIf (builtins.elem "hyprland" dsk) solved.hyprland)
     (mkIf (builtins.elem "gnome" dsk) solved.gnome)

@@ -5,7 +5,7 @@
   pt = pkgs.catppuccin-plymouth.override {variant = "mocha";};
 in {
   boot.plymouth = {
-    enable = true;
+    enable = false;
     themePackages = [pt];
     theme = "catppuccin-mocha";
   };
@@ -16,11 +16,11 @@ in {
       enable = true;
       desktops = [
         "hyprland"
-        # "sway"
+        "sway"
         # "gnome"
         # "plasma"
       ];
-      loginManagers = ["sddm"];
+      loginManagers = ["greetd"];
       sddmTheme = "catppuccin";
     };
     boot = {
@@ -80,7 +80,7 @@ in {
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   environment.shells = [pkgs.zsh];
   # For completion in zsh
