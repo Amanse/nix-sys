@@ -13,7 +13,7 @@ in {
     nvidia = {
       enable = mkEnableOption "Enable nvidia gpu stuff";
       package = mkOption {
-        type = lib.types.str;
+        type = lib.types.enum ["stable" "production" "beta"];
         default = "stable";
       };
     };

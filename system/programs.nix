@@ -38,7 +38,7 @@
 
     dconf.enable = true;
 
-    seahorse.enable = !config.services.xserver.desktopManager.plasma6.enable;
+    seahorse.enable = !config.services.desktopManager.plasma6.enable;
   };
 
   services.dbus.packages = with pkgs; [libsecret gnome.gnome-keyring gcr];

@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./graphics ./sound.nix ./boot ./gui ./impermanence ./common];
+  imports = [./graphics ./sound.nix ./boot ./gui ./impermanence ./common ./locale.nix];
 
   ## COMMON THINGS I WANT EVERYWHERE
   ## @TODO: MOVE TO A SEPERATE FILE

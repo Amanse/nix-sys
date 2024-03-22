@@ -33,7 +33,7 @@
       indicator = true;
     };
     #
-    # gnome-keyring.enable = true;
+    gnome-keyring.enable = true;
     # syncthing = {
     #   enable = true;
     #   tray.enable = true;
