@@ -18,6 +18,7 @@
   };
 
   environment.sessionVariables = {
+    FLAKE = "/home/me/nix-sys";
     XDG_CACHE_HOME = "\${HOME}/.cache";
 
     # chrome + wayland
