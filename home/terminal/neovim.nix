@@ -10,6 +10,13 @@
           formatOnSave = true;
           nvimCodeActionMenu.enable = true;
           lightbulb.enable = true;
+
+          lspconfig.sources.templ = ''
+            lspconfig.templ.setup {
+              capabilities = capabilities,
+              on_attach = default_on_attach,
+            }
+          '';
         };
 
         useSystemClipboard = false;
@@ -45,7 +52,7 @@
 
         treesitter = {
           enable = true;
-          grammars = [pkgs.tree-sitter-grammars.tree-sitter-typescript pkgs.tree-sitter-grammars.tree-sitter-embedded-template];
+          grammars = with pkgs; [tree-sitter-grammars.tree-sitter-typescript tree-sitter-grammars.tree-sitter-templ];
         };
 
         extraPlugins = with pkgs.vimPlugins; {
@@ -101,7 +108,11 @@
 
         # vim.startPlugins = [pkgs.vimPlugins.undotree pkgs.vimPlugins.harpoon];
         luaConfigRC = {
-          after = "vim.filetype.add({extension = {ejs = \"html\"}})\n";
+          after = ''
+            vim.filetype.add({extension = {ejs = "html"}})
+            vim.filetype.add({ extension = { templ = "templ" } })
+
+          '';
         };
 
         preventJunkFiles = true;

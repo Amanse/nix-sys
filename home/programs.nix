@@ -16,7 +16,7 @@
       scripts = with pkgs; [mpvScripts.mpris];
     };
 
-    # go.enable = true;
+    go.enable = true;
 
     zellij.enable = true;
 
