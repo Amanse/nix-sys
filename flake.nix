@@ -24,6 +24,11 @@
     };
 
     game-rs.url = "github:amanse/game-rs";
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,

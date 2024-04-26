@@ -12,5 +12,7 @@
     ./podman.nix
 
     # ./sway.nix
+
+    # ./cosmic.nix
   ];
 }

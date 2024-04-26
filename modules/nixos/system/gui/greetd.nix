@@ -10,6 +10,8 @@ with lib; let
     "${sessionData}/share/xsessions"
     "${sessionData}/share/wayland-sessions"
   ];
+
+  cfg = config.myModules.gui.loginManagers;
 in {
   config = lib.mkIf (builtins.elem "greetd" config.myModules.gui.loginManagers) {
     security.pam.services = {
@@ -34,7 +36,7 @@ in {
     ];
 
     services.greetd = {
-      enable = true;
+      enable = builtins.elem "greetd" cfg;
       vt = 2;
       restart = true;
       settings = {

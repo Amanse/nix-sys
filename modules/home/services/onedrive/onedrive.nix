@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (lib) mkIf getExe';
-  inherit (builtins) concatStringsSep;
+  # inherit (builtins) concatStringsSep;
 
   cfg = config.myHome.services.onedrive;
   onedriveExe = "${getExe' pkgs.onedrive "onedrive"}";
@@ -25,11 +25,11 @@ in {
       };
     };
 
-    xdg.configFile."onedrive/sync_list" = {
-      text = ''
-        ${concatStringsSep "\n" cfg.syncDirs}
-      '';
-      onChange = "${onedriveExe} --resync-auth --synchronize";
-    };
+    # xdg.configFile."onedrive/sync_list" = {
+    #   text = ''
+    #     ${concatStringsSep "\n" cfg.syncDirs}
+    #   '';
+    #   onChange = "${onedriveExe} --resync-auth --synchronize";
+    # };
   };
 }

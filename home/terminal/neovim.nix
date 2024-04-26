@@ -11,6 +11,14 @@
           nvimCodeActionMenu.enable = true;
           lightbulb.enable = true;
 
+          lspconfig.sources.htmx = ''
+            lspconfig.htmx.setup {
+              capabilities = capabilities,
+              on_attach = default_on_attach,
+              cmd = {"${pkgs.htmx-lsp}/bin/htmx-lsp"},
+            }
+          '';
+
           lspconfig.sources.templ = ''
             lspconfig.templ.setup {
               capabilities = capabilities,

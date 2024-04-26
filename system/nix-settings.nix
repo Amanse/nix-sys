@@ -79,6 +79,7 @@ with lib; {
         "https://numtide.cachix.org" # another unfree package cache
         # "https://cache.garnix.io" # minecraft
         "https://game-rs.cachix.org"
+        "https://cosmic.cachix.org/"
       ];
 
       trusted-public-keys = [
@@ -89,6 +90,7 @@ with lib; {
         "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs="
         "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "game-rs.cachix.org-1:fsu+ijfA2GCUE2QX0af80D7x9PCZS79EZbqwtOtlIhA="
+        "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       ];
     };
   };
