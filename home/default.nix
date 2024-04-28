@@ -18,7 +18,7 @@
     ./services.nix
     ./programs.nix
     ./graphical
-    ./theme.nix
+    # ./theme.nix
   ];
 
   home.username = "me";

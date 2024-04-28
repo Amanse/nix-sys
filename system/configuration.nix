@@ -15,12 +15,12 @@ in {
     gui = {
       enable = true;
       desktops = [
-        "hyprland"
+        # "hyprland"
         "sway"
-        # "gnome"
+        "gnome"
         # "plasma"
       ];
-      loginManagers = ["greetd"];
+      loginManagers = ["sddm"];
       sddmTheme = "catppuccin";
     };
     boot = {

@@ -24,6 +24,8 @@
     # chrome + wayland
     NIXOS_OZONE_WL = "1";
 
+    GTK_THEME = "Adwaita:dark";
+
     XDG_CONFIG_HOME = "\${HOME}/.config";
     # XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";

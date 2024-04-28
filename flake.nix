@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    game-rs.url = "github:amanse/game-rs";
+    game-rs.url = "github:amanse/game-rs/umu";
 
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
