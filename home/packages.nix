@@ -6,8 +6,7 @@
   home.packages = with pkgs; [
     #gui
     # brave
-    logseq
-    iotas
+    obsidian
     #    workflowy
     #    workflowy-desktop
     # google-chrome
